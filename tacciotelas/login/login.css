@@ -1,0 +1,117 @@
+/* Importando uma fonte moderna do Google */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0fa404; /*cor do box de login*/
+    background-color: #fff8e9; /* Cinza bem claro para não cansar a vista */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #fff8e9; /*cor do box de login*/
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 2px;
+}
+
+h1 {
+    color: #783219; /* Marrom escuro que remete a "Amigos da Onça" e natureza */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #33ff00; /* Destaque no campo ao clicar */
+}
+
+.btn-entrar {
+    width: 100%;
+    padding: 15px;
+    background-color: #1eff00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-entrar:hover {
+    background-color: #21421d;
+}
+
+.link-cadastro {
+    display: inline-block;
+    margin-top: 14px;
+    font-weight: 600;
+    color: #783219;
+    text-decoration: none;
+}
+
+.link-cadastro:hover {
+    text-decoration: underline;
+}
+
+.link-esqueci {
+    display: block;
+    margin: -6px 0 12px;
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #783219;
+    text-decoration: none;
+}
+
+.link-esqueci:hover {
+    text-decoration: underline;
+}
