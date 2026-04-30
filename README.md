@@ -4,8 +4,8 @@
 - **Repositório GitHub:** https://github.com/Knumi5/Amigos-da-on-a  
 - **Membros da equipe:**  
   - Fernando Rodrigues  
-  - Ricardo Santana  
-  - Kill Taccio  
+  - Ricardo Santana Kill
+  - Taccio Bernal
   - Pietro Reis Lopes Melo  
   - Lucca Lourenço  
   - Bernardo Gonçalves  
