@@ -1,0 +1,57 @@
+{
+  "page_metadata": {
+    "title": "Monitoramento da Fauna",
+    "language": "pt-br"
+  },
+  "styling": {
+    "font_family": "Inter, sans-serif",
+    "theme_colors": {
+      "background": "#fff8e9",
+      "text_main": "#333",
+      "primary_accent": "#1eff00",
+      "text_accent": "#783219",
+      "border": "#ddd"
+    },
+    "layout": {
+      "container_max_width": "400px",
+      "border_radius": "12px"
+    }
+  },
+  "form": {
+    "id": "login-form",
+    "fields": [
+      {
+        "name": "cpf",
+        "label": "CPF",
+        "type": "text",
+        "placeholder": "000.000.000-00",
+        "required": true
+      },
+      {
+        "name": "senha",
+        "label": "Senha",
+        "type": "password",
+        "placeholder": "Digite sua senha",
+        "required": true
+      }
+    ],
+    "actions": {
+      "submit_button": {
+        "text": "Entrar",
+        "class": "btn-entrar"
+      },
+      "links": [
+        {
+          "text": "Esqueci minha senha",
+          "url": "recuperar.html",
+          "class": "link-esqueci"
+        },
+        {
+          "text": "Cadastrar",
+          "url": "cadastro.html",
+          "class": "link-cadastro"
+        }
+      ]
+    }
+  }
+}

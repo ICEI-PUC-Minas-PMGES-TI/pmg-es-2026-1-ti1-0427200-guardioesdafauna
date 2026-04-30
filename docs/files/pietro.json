@@ -1,0 +1,43 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Pietro Reis",
+      "email": "pietro@email.com",
+      "senha": "123456",
+      "tipo": "admin"
+    }
+  ],
+
+  "cameras": [
+    {
+      "id": 1,
+      "nome": "Cam 01 - Norte",
+      "localizacao": "Trilha do Rio Claro",
+      "status": "ativa"
+    },
+    {
+      "id": 2,
+      "nome": "Cam 02 - Leste",
+      "localizacao": "Ponto do Sal",
+      "status": "ativa"
+    }
+  ],
+
+  "imagens": [
+    {
+      "id": 1,
+      "cameraId": 1,
+      "dataHoraCaptura": "2025-05-15T08:30:00",
+      "descricao": "Onça-parda caminhando",
+      "arquivo": "img_01.jpg"
+    },
+    {
+      "id": 2,
+      "cameraId": 2,
+      "dataHoraCaptura": "2025-05-15T09:15:00",
+      "descricao": "Onça descansando",
+      "arquivo": "img_02.jpg"
+    }
+  ]
+}

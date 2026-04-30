@@ -1,0 +1,27 @@
+Usuario:
+{
+  "id": 1,
+  "name": "Roberto Souza",
+  "email": "email@valido.com",
+  "password": "senhateste",
+  "createdAt": "2026"
+}
+
+
+Camera:
+
+{
+  "identifier": "CAM-0001",
+  "nickname": "Câmera 01",
+  "latitude": -19.922731,
+  "longitude": -43.945094,
+  "installationDate": "2026-04-19",
+  "batteryLifeSpanInWeeks": "2"
+}
+
+ONG:
+
+Aparição de onça:
+
+Upload:
+// para mostrar o histórico de uploads
