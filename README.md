@@ -1,7 +1,7 @@
 ## Introdução
 
 - **Projeto:** Amigos da Onça  
-- **Repositório GitHub:** https://github.com/Knumi5/Amigos-da-on-a  
+- **Repositório GitHub:** (https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-guardioesdafauna.git)
 - **Membros da equipe:**  
   - Fernando Rodrigues  
   - Ricardo Santana Kill
