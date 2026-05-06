@@ -24,16 +24,20 @@
         <p class="eyebrow">Amigos da Onça</p>
         <h1>Mapa de Câmeras</h1>
       </div>
-      <span id="camera-count" class="camera-count">0 câmeras</span>
+      <div class="camera-section">
+        <span id="camera-count" class="camera-count">0 câmeras</span>
+        <button class="add-camera"> <span>+</span> Adicionar Câmera</button>
+      </div>
     </header>
-    
-    <div id="map" aria-label="Mapa com localização das câmeras"></div>
-    <main class="map-shell">
-    </main>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
+    <div id="map" aria-label="Mapa com localização das câmeras"></div>
+    <main class="map-shell"></main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
     <script src="./script.js"></script>
   </body>
 </html>

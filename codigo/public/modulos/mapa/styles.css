@@ -21,6 +21,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+#map {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+#app {
+  min-height: calc(100vh - 4rem);
+}
+
 .app-header {
   display: flex;
   align-items: center;
@@ -38,20 +49,44 @@ body {
   font-size: clamp(1.4rem, 3vw, 2rem);
 }
 
+.app-header .camera-section {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.app-header .add-camera {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #FFF;
+
+  border-radius: 8px;
+  padding: 8px 14px;
+
+  outline: 0px;
+  border: solid 1px #000;
+
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.app-header .add-camera span {
+  font-size: 1.4rem;
+}
+
 @media (max-width: 640px) {
   .app-header {
     align-items: flex-start;
     flex-direction: column;
     padding: 0.875rem 1rem;
   }
-}
 
-#map {
-  flex: 1;
-  width: 100%;
-  min-height: 0;
-}
+  .app-header .camera-section {
+    width: 100%;
 
-#app {
-  min-height: calc(100vh - 4rem);
+    justify-content: space-between;
+    margin-top: 8px;
+  }
 }
