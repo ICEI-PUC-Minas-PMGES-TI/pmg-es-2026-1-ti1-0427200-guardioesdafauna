@@ -6,6 +6,7 @@ async function salvarImagem(e) {
   e.preventDefault();
 
   const imagemFile = document.getElementById("imagem").files[0];
+  if (!imagemFile) return alert("Selecione uma imagem!");
 
   const novaImagem = {
     camera: document.getElementById("camera").value,
@@ -47,9 +48,12 @@ async function carregarImagens() {
   });
 }
 
-async function excluir(id) {
-  await fetch(⁠ ${API}/${id} ⁠, { method: "DELETE" });
-  carregarImagens();
+// Tornando a função global para que o onclick do HTML a encontre
+window.excluir = async function(id) {
+  if (confirm("Deseja realmente excluir?")) {
+    await fetch(`${API}/${id}`, { method: "DELETE" });
+    carregarImagens();
+  }
 }
 
 function limparForm() {
