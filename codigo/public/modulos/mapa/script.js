@@ -13,8 +13,23 @@ window.addEventListener("load", () => {
   map.invalidateSize();
 });
 
+const modal = document.getElementById("camera-modal");
+
+const openCameraModal = () => {
+  modal.classList.add("is-open");
+};
+
+const closeCameraModal = () => {
+  modal.classList.remove("is-open");
+};
+
 const handleOnClickAddCamera = () => {
-  console.log('opa')
+  openCameraModal();
 };
 
 document.getElementById("add-camera").onclick = handleOnClickAddCamera;
+closeModalButton.onclick = closeCameraModal;
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) closeCameraModal();
+});
