@@ -142,13 +142,20 @@ body {
 .modal-content form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+}
+
+.modal-content .input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  width: 100%;
 }
 
 .input-group label {
@@ -170,6 +177,8 @@ body {
   outline: 2px solid #b8d2bd;
   border-color: #183421;
 }
+
+
 
 @media (max-width: 640px) {
   .app-header {
