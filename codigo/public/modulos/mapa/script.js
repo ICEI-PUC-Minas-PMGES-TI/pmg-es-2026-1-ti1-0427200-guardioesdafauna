@@ -14,6 +14,7 @@ window.addEventListener("load", () => {
 });
 
 const modal = document.getElementById("camera-modal");
+const close = document.getElementById("close");
 
 const openCameraModal = () => {
   modal.classList.add("is-open");
@@ -28,7 +29,7 @@ const handleOnClickAddCamera = () => {
 };
 
 document.getElementById("add-camera").onclick = handleOnClickAddCamera;
-closeModalButton.onclick = closeCameraModal;
+close.onclick = closeCameraModal;
 
 modal.addEventListener("click", (event) => {
   if (event.target === modal) closeCameraModal();
