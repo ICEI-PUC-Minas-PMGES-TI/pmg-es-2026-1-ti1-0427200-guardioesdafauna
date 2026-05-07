@@ -12,3 +12,9 @@ L.tileLayer(
 window.addEventListener("load", () => {
   map.invalidateSize();
 });
+
+const handleOnClickAddCamera = () => {
+  console.log('opa')
+};
+
+document.getElementById("add-camera").onclick = handleOnClickAddCamera;
