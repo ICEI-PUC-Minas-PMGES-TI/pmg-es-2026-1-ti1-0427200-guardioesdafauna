@@ -139,13 +139,13 @@ body {
   cursor: pointer;
 }
 
-.modal-content form {
+form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.modal-content .input-row {
+.input-row {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -178,7 +178,33 @@ body {
   border-color: #183421;
 }
 
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+}
 
+.form-actions button {
+  min-width: 120px;
+  padding: 11px 18px;
+  border: 1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-actions .cancel-button {
+  background: #fffdf7;
+  color: #183421;
+  border-color: #c8c2b4;
+}
+
+.form-actions .save-button {
+  background: #183421;
+  color: #fff7e8;
+  box-shadow: 0 6px 14px rgba(24, 52, 33, 0.22);
+}
 
 @media (max-width: 640px) {
   .app-header {
