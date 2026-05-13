@@ -1,27 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body,
-input,
-textarea,
-button {
-  font: 400 1rem "Inter", sans-serif;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
-  background: #f4f1ea;
-  color: #223127;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-
 #map {
   flex: 1;
   width: 100%;
@@ -55,7 +31,7 @@ body {
   gap: 32px;
 }
 
-.app-header .add-camera {
+.app-header #add-camera {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -72,71 +48,8 @@ body {
   cursor: pointer;
 }
 
-.app-header .add-camera span {
+.app-header #add-camera span {
   font-size: 1.4rem;
-}
-
-.modal {
-  position: fixed;
-  z-index: 1200;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.45);
-}
-
-.modal.is-open {
-  display: flex;
-}
-
-.modal-content {
-  width: min(560px, 100%);
-  max-height: 92vh;
-  overflow: auto;
-  padding: 24px;
-  border-radius: 8px;
-  background: #fffdf7;
-  color: #183421;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 16px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid #ddd6c8;
-}
-
-.modal-header p {
-  margin-bottom: 6px;
-  color: #6b6b6b;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.modal-header h2 {
-  font-size: 1.5rem;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 form {
