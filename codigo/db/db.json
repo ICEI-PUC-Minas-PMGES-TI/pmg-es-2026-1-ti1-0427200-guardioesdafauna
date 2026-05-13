@@ -21,5 +21,47 @@
       "email": "rommel@gmail.com",
       "id": 3
     }
+  ],
+  "cameras": [
+    {
+      "identifier": "CAM-0001",
+      "nickname": "Câmera Fernando",
+      "latitude": -19.922731,
+      "longitude": -43.945094,
+      "installationDate": "2026-04-19",
+      "batteryLifeSpanInWeeks": "2"
+    },
+    {
+      "identifier": "CAM-0002",
+      "nickname": "Câmera Pampulha",
+      "latitude": -19.8534787,
+      "longitude": -43.9665865,
+      "installationDate": "2026-04-20",
+      "batteryLifeSpanInWeeks": "4"
+    },
+    {
+      "identifier": "CAM-0003",
+      "nickname": "Câmera Savassi",
+      "latitude": -19.9351186,
+      "longitude": -43.9390234,
+      "installationDate": "2026-04-21",
+      "batteryLifeSpanInWeeks": "3"
+    },
+    {
+      "identifier": "CAM-0004",
+      "nickname": "Câmera Centro",
+      "latitude": -19.9196219,
+      "longitude": -43.9448197,
+      "installationDate": "2026-04-22",
+      "batteryLifeSpanInWeeks": "6"
+    },
+    {
+      "identifier": "CAM-0005",
+      "nickname": "Câmera Mangabeiras",
+      "latitude": -19.9553673,
+      "longitude": -43.9363614,
+      "installationDate": "2026-04-23",
+      "batteryLifeSpanInWeeks": "5"
+    }
   ]
 }
