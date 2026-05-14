@@ -1,21 +1,17 @@
+const SERVER_URL = "http://localhost:3000";
+
 let map = L.map("map").setView([-19.922731, -43.945094], 13);
 
-L.tileLayer(
-  "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
-  {
-    attribution:
-      "Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012",
-    maxZoom: 19,
-  },
-).addTo(map);
-
-window.addEventListener("load", () => {
-  map.invalidateSize();
-});
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19,
+}).addTo(map);
 
 const modal = document.getElementById("camera-modal");
 const close = document.getElementById("close");
-const cancel = document.getElementById("cancel")
+const cancel = document.getElementById("cancel");
+const addCamera = document.getElementById("add-camera");
 
 const openCameraModal = () => {
   modal.classList.add("is-open");
@@ -29,10 +25,22 @@ const handleOnClickAddCamera = () => {
   openCameraModal();
 };
 
-document.getElementById("add-camera").onclick = handleOnClickAddCamera;
+addCamera.onclick = handleOnClickAddCamera;
 close.onclick = closeCameraModal;
-cancel.onclick = closeCameraModal
-
+cancel.onclick = closeCameraModal;
 modal.addEventListener("click", (event) => {
   if (event.target === modal) closeCameraModal();
 });
+
+const fetchCameras = async () => {
+  const camerasRequests = await fetch(`${SERVER_URL}/cameras`);
+  const cameras = await camerasRequests.json();
+
+  return cameras
+};
+
+const renderCameraMarkers = (camera) => {
+
+}
+
+const availableCameras = fetchCameras();
