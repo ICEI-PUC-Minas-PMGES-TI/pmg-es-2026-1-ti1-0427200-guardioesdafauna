@@ -12,6 +12,7 @@ const modal = document.getElementById("camera-modal");
 const close = document.getElementById("close");
 const cancel = document.getElementById("cancel");
 const addCamera = document.getElementById("add-camera");
+const cameraCount = document.getElementById("camera-count")
 
 const openCameraModal = () => {
   modal.classList.add("is-open");
@@ -33,14 +34,22 @@ modal.addEventListener("click", (event) => {
 });
 
 const fetchCameras = async () => {
-  const camerasRequests = await fetch(`${SERVER_URL}/cameras`);
+  const camerasRequests = await fetch(`${SERVER_URL}/cameras`, {
+    cache: "force-cache",
+  });
   const cameras = await camerasRequests.json();
 
-  return cameras
+  return cameras;
 };
 
-const renderCameraMarkers = (camera) => {
+const renderCameraMarkers = async (camera) => {
+  const availableCameras = await fetchCameras();
 
-}
+  cameraCount.innerHTML = `${availableCameras.length} câmeras`
 
-const availableCameras = fetchCameras();
+  availableCameras.forEach((camera) =>
+    L.marker([camera.latitude, camera.longitude]).addTo(map),
+  );
+};
+
+renderCameraMarkers();
