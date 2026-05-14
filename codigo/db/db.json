@@ -1,14 +1,14 @@
 {
   "usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "login": "admin",
       "senha": "123",
       "nome": "Administrador do Sistema",
       "email": "admin@abc.com"
     },
     {
-      "id": 2,
+      "id": "2",
       "login": "user",
       "senha": "123",
       "nome": "Usuario Comum",
@@ -19,7 +19,7 @@
       "senha": "123",
       "nome": "Rommel",
       "email": "rommel@gmail.com",
-      "id": 3
+      "id": "3"
     }
   ],
   "cameras": [
@@ -29,7 +29,8 @@
       "latitude": -19.922731,
       "longitude": -43.945094,
       "installationDate": "2026-04-19",
-      "batteryLifeSpanInWeeks": "2"
+      "batteryLifeSpanInWeeks": "2",
+      "id": "nYEF8PQjRrY"
     },
     {
       "identifier": "CAM-0002",
@@ -37,7 +38,8 @@
       "latitude": -19.8534787,
       "longitude": -43.9665865,
       "installationDate": "2026-04-20",
-      "batteryLifeSpanInWeeks": "4"
+      "batteryLifeSpanInWeeks": "4",
+      "id": "pSAThQBIwQI"
     },
     {
       "identifier": "CAM-0003",
@@ -45,7 +47,8 @@
       "latitude": -19.9351186,
       "longitude": -43.9390234,
       "installationDate": "2026-04-21",
-      "batteryLifeSpanInWeeks": "3"
+      "batteryLifeSpanInWeeks": "3",
+      "id": "fjLe2tpEajs"
     },
     {
       "identifier": "CAM-0004",
@@ -53,7 +56,8 @@
       "latitude": -19.9196219,
       "longitude": -43.9448197,
       "installationDate": "2026-04-22",
-      "batteryLifeSpanInWeeks": "6"
+      "batteryLifeSpanInWeeks": "6",
+      "id": "AaQQ2oCfhGE"
     },
     {
       "identifier": "CAM-0005",
@@ -61,7 +65,36 @@
       "latitude": -19.9553673,
       "longitude": -43.9363614,
       "installationDate": "2026-04-23",
-      "batteryLifeSpanInWeeks": "5"
+      "batteryLifeSpanInWeeks": "5",
+      "id": "5SISHCwzBok"
+    },
+    {
+      "identifier": "identificador único",
+      "nickname": "teste câmera",
+      "latitude": "-13",
+      "longitude": "40",
+      "batteryLifeSpanInWeeks": "90",
+      "installationDate": "2026-05-07",
+      "id": "TYdQh8K-1b4"
+    },
+    {
+      "identifier": "identificador-teste",
+      "nickname": "ponto-norte",
+      "latitude": "19",
+      "longitude": "-42",
+      "batteryLifeSpanInWeeks": "12",
+      "installationDate": "2026-05-14",
+      "id": "eGWcXSWOqOU"
+    },
+    {
+      "identifier": "new camera",
+      "nickname": "new camera teste",
+      "latitude": "19.8783",
+      "longitude": "43.978827631",
+      "batteryLifeSpanInWeeks": "12",
+      "installationDate": "2026-05-02",
+      "id": "SCLEXkm0XE0"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

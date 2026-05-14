@@ -37,10 +37,10 @@
           <span id="close" class="close">&times;</span>
         </div>
 
-        <form>
+        <form id="create-camera-form">
           <div class="input-group">
             <label for="camera-id">Identificador único (ID)</label>
-            <input id="camera-id" type="text" placeholder="ex.: CAM-JAG-001" />
+            <input id="camera-id" type="text" placeholder="ex.: CAM-JAG-001" required />
           </div>
 
           <div class="input-group">
@@ -49,6 +49,7 @@
               id="nickname"
               type="text"
               placeholder="ex.: Ponto Norte 02"
+              required
             />
           </div>
 
@@ -59,6 +60,8 @@
                 id="x-coordinate"
                 type="number"
                 placeholder="ex.: 19.873812"
+                step="any"
+                required
               />
             </div>
 
@@ -68,6 +71,8 @@
                 id="y-coordinate"
                 type="number"
                 placeholder="ex.: 43.87932"
+                step="any"
+                required
               />
             </div>
           </div>
@@ -81,6 +86,7 @@
                 id="battery-lifespan"
                 type="number"
                 placeholder="ex.: 12"
+                required
               />
             </div>
             <div class="input-group">
@@ -89,6 +95,7 @@
                 id="installation-date"
                 type="date"
                 placeholder="ex.: 04/02/2026"
+                required
               />
             </div>
           </div>
