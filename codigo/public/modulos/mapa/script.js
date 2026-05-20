@@ -1,6 +1,14 @@
 const SERVER_URL = "http://localhost:3000";
+const BELO_HORIZONTE_COORDS = [-19.922731, -43.945094];
 
-let map = L.map("map").setView([-19.922731, -43.945094], 13);
+const modal = document.getElementById("camera-modal");
+const close = document.getElementById("close");
+const cancel = document.getElementById("cancel");
+const addCamera = document.getElementById("add-camera");
+const cameraCount = document.getElementById("camera-count");
+const createCameraForm = document.getElementById("create-camera-form");
+
+let map = L.map("map").setView(BELO_HORIZONTE_COORDS, 13);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution:
@@ -9,18 +17,11 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const cameraMarkersLayer = L.layerGroup().addTo(map);
-
-const customPopup = `
+const customMarkerPopup = `
   <div>
     <p>Custom popup</p>
   </div>
 `;
-
-const modal = document.getElementById("camera-modal");
-const close = document.getElementById("close");
-const cancel = document.getElementById("cancel");
-const addCamera = document.getElementById("add-camera");
-const cameraCount = document.getElementById("camera-count");
 
 const openCameraModal = () => {
   modal.classList.add("is-open");
@@ -30,16 +31,9 @@ const closeCameraModal = () => {
   modal.classList.remove("is-open");
 };
 
-const handleOnClickAddCamera = () => {
-  openCameraModal();
+const resetForm = () => {
+  createCameraForm.reset();
 };
-
-addCamera.onclick = handleOnClickAddCamera;
-close.onclick = closeCameraModal;
-cancel.onclick = closeCameraModal;
-modal.addEventListener("click", (event) => {
-  if (event.target === modal) closeCameraModal();
-});
 
 const fetchCameras = async () => {
   try {
@@ -58,19 +52,27 @@ const fetchCameras = async () => {
 };
 
 const renderCameraMarkers = async (camera) => {
-  const availableCameras = await fetchCameras();
-
-  cameraCount.innerHTML = `${availableCameras.length} câmeras`;
   cameraMarkersLayer.clearLayers();
-  availableCameras.forEach((camera) => {
-    const marker = L.marker([camera.latitude, camera.longitude]).addTo(map);
-    marker.bindPopup(customPopup);
-  });
+
+  const availableCameras = await fetchCameras();
+  cameraCount.innerHTML = `${availableCameras.length} câmeras`;
+
+  for (camera of availableCameras) {
+    const marker = L.marker([camera.latitude, camera.longitude]).addTo(
+      cameraMarkersLayer,
+    );
+    marker.bindPopup(customMarkerPopup);
+  }
 };
 
-renderCameraMarkers();
+addCamera.onclick = openCameraModal;
+close.onclick = closeCameraModal;
+cancel.onclick = closeCameraModal;
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) closeCameraModal();
+});
 
-const createCameraForm = document.getElementById("create-camera-form");
+renderCameraMarkers();
 
 createCameraForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -103,13 +105,7 @@ createCameraForm.addEventListener("submit", async (e) => {
     alert("Não foi possível inserir nova câmera.");
   }
 
-  e.target["camera-id"].value = "";
-  e.target["nickname"].value = "";
-  e.target["x-coordinate"].value = "";
-  e.target["y-coordinate"].value = "";
-  e.target["battery-lifespan"].value = "";
-  e.target["installation-date"].value = "";
-
   await renderCameraMarkers();
+  resetForm();
   closeCameraModal();
 });
