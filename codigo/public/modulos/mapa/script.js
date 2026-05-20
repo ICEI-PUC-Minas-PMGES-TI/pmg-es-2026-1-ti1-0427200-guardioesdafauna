@@ -8,6 +8,12 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
 }).addTo(map);
 
+const customPopup = `
+  <div>
+    <p>Custom popup</p>
+  </div>
+`;
+
 const modal = document.getElementById("camera-modal");
 const close = document.getElementById("close");
 const cancel = document.getElementById("cancel");
@@ -47,13 +53,14 @@ const renderCameraMarkers = async (camera) => {
 
   availableCameras.forEach((camera) => {
     const marker = L.marker([camera.latitude, camera.longitude]).addTo(map);
-    marker.bindPopup("Camera details will go here").openPopup();
+    marker.bindPopup(customPopup);
   });
 };
 
 renderCameraMarkers();
 
 const createCameraForm = document.getElementById("create-camera-form");
+
 createCameraForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
