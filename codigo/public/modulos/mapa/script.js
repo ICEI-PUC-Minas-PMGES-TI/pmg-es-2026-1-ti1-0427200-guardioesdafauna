@@ -42,10 +42,19 @@ modal.addEventListener("click", (event) => {
 });
 
 const fetchCameras = async () => {
-  const camerasRequests = await fetch(`${SERVER_URL}/cameras`);
-  const cameras = await camerasRequests.json();
+  try {
+    const response = await fetch(`${SERVER_URL}/cameras`);
+    if (!response.ok) {
+      throw new Error("Erro ao buscar câmeras");
+    }
 
-  return cameras;
+    const cameras = await response.json();
+    return cameras;
+  } catch (error) {
+    console.error(error);
+    alert("Não foi possível carregar as câmeras.");
+    return [];
+  }
 };
 
 const renderCameraMarkers = async (camera) => {
@@ -73,19 +82,26 @@ createCameraForm.addEventListener("submit", async (e) => {
   const batteryLifeSpanInWeeks = e.target["battery-lifespan"].value;
   const installationDate = e.target["installation-date"].value;
 
-  await fetch(`${SERVER_URL}/cameras`, {
-    method: "POST",
+  try {
+    const response = await fetch(`${SERVER_URL}/cameras`, {
+      method: "POST",
 
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      identifier,
-      nickname,
-      latitude,
-      longitude,
-      batteryLifeSpanInWeeks,
-      installationDate,
-    }),
-  });
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        identifier,
+        nickname,
+        latitude,
+        longitude,
+        batteryLifeSpanInWeeks,
+        installationDate,
+      }),
+    });
+
+    if (!response.ok) throw new Error("Erro ao inserir câmera");
+  } catch (error) {
+    console.error(error);
+    alert("Não foi possível inserir nova câmera.");
+  }
 
   e.target["camera-id"].value = "";
   e.target["nickname"].value = "";
