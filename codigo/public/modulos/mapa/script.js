@@ -8,6 +8,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
 }).addTo(map);
 
+const cameraMarkersLayer = L.layerGroup().addTo(map);
+
 const customPopup = `
   <div>
     <p>Custom popup</p>
@@ -50,7 +52,7 @@ const renderCameraMarkers = async (camera) => {
   const availableCameras = await fetchCameras();
 
   cameraCount.innerHTML = `${availableCameras.length} câmeras`;
-
+  cameraMarkersLayer.clearLayers();
   availableCameras.forEach((camera) => {
     const marker = L.marker([camera.latitude, camera.longitude]).addTo(map);
     marker.bindPopup(customPopup);
@@ -66,13 +68,15 @@ createCameraForm.addEventListener("submit", async (e) => {
 
   const identifier = e.target["camera-id"].value;
   const nickname = e.target["nickname"].value;
-  const latitude = e.target["x-coordinate"].value;
-  const longitude = e.target["y-coordinate"].value;
+  const latitude = Number(e.target["x-coordinate"].value);
+  const longitude = Number(e.target["y-coordinate"].value);
   const batteryLifeSpanInWeeks = e.target["battery-lifespan"].value;
   const installationDate = e.target["installation-date"].value;
 
   await fetch(`${SERVER_URL}/cameras`, {
     method: "POST",
+
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       identifier,
       nickname,
