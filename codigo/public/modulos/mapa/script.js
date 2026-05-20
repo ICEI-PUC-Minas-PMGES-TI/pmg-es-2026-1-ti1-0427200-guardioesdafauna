@@ -18,12 +18,16 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 const cameraMarkersLayer = L.layerGroup().addTo(map);
 const customMarkerPopup = `
-  <div class="popup">
-    <header>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpsCk-K1JX2HmjeCAPf4JH-Khp8WU_81nJ0Q&s" alt="" >
-      <span>Câmera trap</span>
-    </header>
-  </div>
+   <article class="popup">
+      <header>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpsCk-K1JX2HmjeCAPf4JH-Khp8WU_81nJ0Q&s"
+          alt=""
+        />
+        <span class="popup-badge">⚡ Camera Trap</span>
+        <strong class="popup-id">CAMERA ID - 1</strong>
+      </header>
+    </article>
 `;
 
 const openCameraModal = () => {
