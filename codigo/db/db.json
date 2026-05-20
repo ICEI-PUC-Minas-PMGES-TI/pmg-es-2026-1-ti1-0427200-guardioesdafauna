@@ -94,6 +94,15 @@
       "batteryLifeSpanInWeeks": "12",
       "installationDate": "2026-05-02",
       "id": "SCLEXkm0XE0"
+    },
+    {
+      "identifier": "new camera ",
+      "nickname": "camera 20020",
+      "latitude": 90,
+      "longitude": 180,
+      "batteryLifeSpanInWeeks": "10",
+      "installationDate": "2026-05-12",
+      "id": "FRck0toobQI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -31,7 +31,7 @@ const closeCameraModal = () => {
   modal.classList.remove("is-open");
 };
 
-const resetForm = () => {
+const resetCameraForm = () => {
   createCameraForm.reset();
 };
 
@@ -51,13 +51,13 @@ const fetchCameras = async () => {
   }
 };
 
-const renderCameraMarkers = async (camera) => {
+const renderCameraMarkers = async () => {
   cameraMarkersLayer.clearLayers();
 
   const availableCameras = await fetchCameras();
-  cameraCount.innerHTML = `${availableCameras.length} câmeras`;
+  cameraCount.textContent = `${availableCameras.length} câmeras`;
 
-  for (camera of availableCameras) {
+  for (const camera of availableCameras) {
     const marker = L.marker([camera.latitude, camera.longitude]).addTo(
       cameraMarkersLayer,
     );
@@ -65,47 +65,58 @@ const renderCameraMarkers = async (camera) => {
   }
 };
 
-addCamera.onclick = openCameraModal;
-close.onclick = closeCameraModal;
-cancel.onclick = closeCameraModal;
-modal.addEventListener("click", (event) => {
-  if (event.target === modal) closeCameraModal();
-});
+const setupModalEvents = () => {
+  close.onclick = closeCameraModal;
+  cancel.onclick = closeCameraModal;
+  addCamera.onclick = openCameraModal;
 
-renderCameraMarkers();
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeCameraModal();
+  });
+};
 
-createCameraForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
+const setupFormEvents = () => {
+  createCameraForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const identifier = e.target["camera-id"].value;
-  const nickname = e.target["nickname"].value;
-  const latitude = Number(e.target["x-coordinate"].value);
-  const longitude = Number(e.target["y-coordinate"].value);
-  const batteryLifeSpanInWeeks = e.target["battery-lifespan"].value;
-  const installationDate = e.target["installation-date"].value;
+    const identifier = e.target["camera-id"].value;
+    const nickname = e.target["nickname"].value;
+    const latitude = Number(e.target["x-coordinate"].value);
+    const longitude = Number(e.target["y-coordinate"].value);
+    const batteryLifeSpanInWeeks = e.target["battery-lifespan"].value;
+    const installationDate = e.target["installation-date"].value;
 
-  try {
-    const response = await fetch(`${SERVER_URL}/cameras`, {
-      method: "POST",
+    try {
+      const response = await fetch(`${SERVER_URL}/cameras`, {
+        method: "POST",
 
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        identifier,
-        nickname,
-        latitude,
-        longitude,
-        batteryLifeSpanInWeeks,
-        installationDate,
-      }),
-    });
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          identifier,
+          nickname,
+          latitude,
+          longitude,
+          batteryLifeSpanInWeeks,
+          installationDate,
+        }),
+      });
 
-    if (!response.ok) throw new Error("Erro ao inserir câmera");
-  } catch (error) {
-    console.error(error);
-    alert("Não foi possível inserir nova câmera.");
-  }
+      if (!response.ok) throw new Error("Erro ao inserir câmera");
 
+      await renderCameraMarkers();
+      resetCameraForm();
+      closeCameraModal();
+    } catch (error) {
+      console.error(error);
+      alert("Não foi possível inserir nova câmera.");
+    }
+  });
+};
+
+const init = async () => {
+  setupFormEvents();
+  setupModalEvents();
   await renderCameraMarkers();
-  resetForm();
-  closeCameraModal();
-});
+};
+
+init();
