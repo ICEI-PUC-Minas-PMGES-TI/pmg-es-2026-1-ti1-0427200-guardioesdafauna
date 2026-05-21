@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardiões da Fauna</title>
+    <link rel="stylesheet" href="ong.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1>GUARDIÕES DA FAUNA</h1>
+    </header>
+
+    <main class="container">
+        
+        <div class="controls-section">
+            <div class="controls-left">
+                <span class="results-text">ONGs encontradas</span>
+                <button class="btn-filter">
+                    <i class="fa-solid fa-sliders"></i> Filtros
+                </button>
+            </div>
+            
+            <div class="controls-right">
+                <label for="sort-select">Ordenar por</label>
+                <select id="sort-select" class="select-box">
+                    <option value="relevantes">Mais relevantes</option>
+                    <option value="recentes">Mais recentes</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="cards-grid">
+            
+            <article class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge">Resgate e Reabilitação</span>
+                    <h2>Instituto Fauna Livre</h2>
+                    <p>Resgatamos, reabilitamos e devolvemos animais silvestres à natureza.</p>
+                    <div class="card-footer">
+                        <span class="location"><i class="fa-solid fa-location-dot"></i> Atibaia, SP</span>
+                        <a href="#" class="btn-link">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge">Conservação</span>
+                    <h2>SOS Pantanal</h2>
+                    <p>Atuamos na proteção da fauna pantaneira e na conservação de seus habitats.</p>
+                    <div class="card-footer">
+                        <span class="location"><i class="fa-solid fa-location-dot"></i> Corumbá, MS</span>
+                        <a href="#" class="btn-link">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-placeholder"></div>
+                <div class="card-content">
+                    <span class="badge">Pesquisa e Conservação</span>
+                    <h2>Projeto Onças do Brasil</h2>
+                    <p>Pesquisa e conservação de onças-pintadas e de outras espécies ameaçadas.</p>
+                    <div class="card-footer">
+                        <span class="location"><i class="fa-solid fa-location-dot"></i> Cuiabá, MT</span>
+                        <a href="#" class="btn-link">Ver mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+</body>
+</html>
