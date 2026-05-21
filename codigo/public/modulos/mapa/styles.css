@@ -39,7 +39,7 @@
   background: #FFF;
 
   border-radius: 8px;
-  padding: 8px 14px;
+  padding: 8px 16px;
 
   outline: 0px;
   border: solid 1px #000;
@@ -116,7 +116,7 @@ form {
 .form-actions .save-button {
   background: #183421;
   color: #fff7e8;
-  box-shadow: 0 6px 14px rgba(24, 52, 33, 0.22);
+  box-shadow: 0 6px 16px rgba(24, 52, 33, 0.22);
 }
 
 @media (max-width: 640px) {
@@ -190,8 +190,8 @@ form {
 
 .popup .popup-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  top: 16px;
+  left: 16px;
   z-index: 1;
   padding: 9px 15px;
   border: 1px solid #ff8a00;
@@ -215,20 +215,20 @@ form {
   letter-spacing: 0.02em;
 }
 
-.popup-details {
+.popup .popup-details {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 14px;
+  padding: 16px;
 }
 
-.popup-details div {
+.popup .popup-details div {
   display: flex;
   flex-direction: column;
 }
 
 
-.popup-details span {
+.popup .popup-details span {
   color: #4f554f;
   font-size: 0.75rem;
   font-weight: 800;
@@ -236,7 +236,36 @@ form {
   text-transform: uppercase;
 }
 
-.popup-details strong {
+.popup .popup-details strong {
   color: #073d2d;
   font-size: 0.92rem;
+}
+
+.popup footer {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  gap: 8px;
+  padding: 0 16px 16px;
+  margin-top: 16px;
+}
+
+.popup footer button {
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup footer button:first-child {
+  background: #fffdf7;
+  color: #183421;
+  border-color: #c8c2b4;
+}
+
+.popup footer button:last-child {
+  width: 100%;
+  background: #8b0000;
+  color: #fff7e8;
+  box-shadow: 0 4px 10px rgba(139, 0, 0, 0.22);
 }

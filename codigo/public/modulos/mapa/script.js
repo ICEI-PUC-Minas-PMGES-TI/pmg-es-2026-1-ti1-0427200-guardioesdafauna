@@ -38,6 +38,11 @@ const buildMarkerPopup = (camera) => `
           <strong>${new Date(camera.installationDate).toLocaleDateString()}</strong>
         </div>
       </section>
+
+      <footer>
+        <button onclick="closeCameraPopupHtmlInline()" class="close-popup">Fechar</button>
+        <button onclick="deleteCamera('${camera.identifier}')" class="delete-camera">Deletar</button>
+      </footer>
     </article>
 `;
 
@@ -48,6 +53,10 @@ const openCameraModal = () => {
 const closeCameraModal = () => {
   modal.classList.remove("is-open");
 };
+
+function closeCameraPopupHtmlInline() {
+  map.closePopup();
+}
 
 const resetCameraForm = () => {
   createCameraForm.reset();
@@ -120,9 +129,9 @@ const insertCamera = async (e) => {
   }
 };
 
-const deleteCamera = async () => {
+async function deleteCamera(identifier) {
   // when clicking button, ask confirm from window if confirm delete
-};
+}
 
 const setupModalEvents = () => {
   close.onclick = closeCameraModal;
