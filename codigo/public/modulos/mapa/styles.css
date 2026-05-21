@@ -214,3 +214,29 @@ form {
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
+
+.popup-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+}
+
+.popup-details div {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.popup-details span {
+  color: #4f554f;
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+.popup-details strong {
+  color: #073d2d;
+  font-size: 0.92rem;
+}

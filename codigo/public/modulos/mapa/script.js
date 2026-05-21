@@ -17,7 +17,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const cameraMarkersLayer = L.layerGroup().addTo(map);
-const customMarkerPopup = `
+const buildMarkerPopup = (camera) => `
    <article class="popup">
       <header>
         <img
@@ -25,8 +25,19 @@ const customMarkerPopup = `
           alt=""
         />
         <span class="popup-badge">⚡ Camera Trap</span>
-        <strong class="popup-id">CAMERA ID - 1</strong>
+        <strong class="popup-id">ID - ${camera.identifier}</strong>
       </header>
+
+      <section class="popup-details">
+        <div>
+          <span>Apelido: </span>
+          <strong>${camera.nickname}</strong>
+        </div>
+        <div>
+          <span>Data de instalação: </span>
+          <strong>${new Date(camera.installationDate).toLocaleDateString()}</strong>
+        </div>
+      </section>
     </article>
 `;
 
@@ -68,8 +79,49 @@ const renderCameraMarkers = async () => {
     const marker = L.marker([camera.latitude, camera.longitude]).addTo(
       cameraMarkersLayer,
     );
-    marker.bindPopup(customMarkerPopup);
+    const popup = buildMarkerPopup(camera);
+    marker.bindPopup(popup);
   }
+};
+
+const insertCamera = async (e) => {
+  e.preventDefault();
+
+  const identifier = e.target["camera-id"].value;
+  const nickname = e.target["nickname"].value;
+  const latitude = Number(e.target["x-coordinate"].value);
+  const longitude = Number(e.target["y-coordinate"].value);
+  const batteryLifeSpanInWeeks = e.target["battery-lifespan"].value;
+  const installationDate = e.target["installation-date"].value;
+
+  try {
+    const response = await fetch(`${SERVER_URL}/cameras`, {
+      method: "POST",
+
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        identifier,
+        nickname,
+        latitude,
+        longitude,
+        batteryLifeSpanInWeeks,
+        installationDate,
+      }),
+    });
+
+    if (!response.ok) throw new Error("Erro ao inserir câmera");
+
+    await renderCameraMarkers();
+    resetCameraForm();
+    closeCameraModal();
+  } catch (error) {
+    console.error(error);
+    alert("Não foi possível inserir nova câmera.");
+  }
+};
+
+const deleteCamera = async () => {
+  // when clicking button, ask confirm from window if confirm delete
 };
 
 const setupModalEvents = () => {
@@ -83,41 +135,7 @@ const setupModalEvents = () => {
 };
 
 const setupFormEvents = () => {
-  createCameraForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const identifier = e.target["camera-id"].value;
-    const nickname = e.target["nickname"].value;
-    const latitude = Number(e.target["x-coordinate"].value);
-    const longitude = Number(e.target["y-coordinate"].value);
-    const batteryLifeSpanInWeeks = e.target["battery-lifespan"].value;
-    const installationDate = e.target["installation-date"].value;
-
-    try {
-      const response = await fetch(`${SERVER_URL}/cameras`, {
-        method: "POST",
-
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          identifier,
-          nickname,
-          latitude,
-          longitude,
-          batteryLifeSpanInWeeks,
-          installationDate,
-        }),
-      });
-
-      if (!response.ok) throw new Error("Erro ao inserir câmera");
-
-      await renderCameraMarkers();
-      resetCameraForm();
-      closeCameraModal();
-    } catch (error) {
-      console.error(error);
-      alert("Não foi possível inserir nova câmera.");
-    }
-  });
+  createCameraForm.addEventListener("submit", insertCamera);
 };
 
 const init = async () => {
