@@ -33,15 +33,6 @@
       "id": "nYEF8PQjRrY"
     },
     {
-      "identifier": "CAM-0002",
-      "nickname": "Câmera Pampulha",
-      "latitude": -19.8534787,
-      "longitude": -43.9665865,
-      "installationDate": "2026-04-20",
-      "batteryLifeSpanInWeeks": "4",
-      "id": "pSAThQBIwQI"
-    },
-    {
       "identifier": "CAM-0003",
       "nickname": "Câmera Savassi",
       "latitude": -19.9351186,
@@ -58,15 +49,6 @@
       "installationDate": "2026-04-22",
       "batteryLifeSpanInWeeks": "6",
       "id": "AaQQ2oCfhGE"
-    },
-    {
-      "identifier": "CAM-0005",
-      "nickname": "Câmera Mangabeiras",
-      "latitude": -19.9553673,
-      "longitude": -43.9363614,
-      "installationDate": "2026-04-23",
-      "batteryLifeSpanInWeeks": "5",
-      "id": "5SISHCwzBok"
     },
     {
       "identifier": "identificador único",

@@ -41,7 +41,7 @@ const buildMarkerPopup = (camera) => `
 
       <footer>
         <button onclick="closeCameraPopupHtmlInline()" class="close-popup">Fechar</button>
-        <button onclick="deleteCamera('${camera.identifier}')" class="delete-camera">Deletar</button>
+        <button onclick="deleteCamera('${camera.id}', '${camera.identifier}')" class="delete-camera">Deletar</button>
       </footer>
     </article>
 `;
@@ -129,8 +129,22 @@ const insertCamera = async (e) => {
   }
 };
 
-async function deleteCamera(identifier) {
-  // when clicking button, ask confirm from window if confirm delete
+async function deleteCamera(id, identifier) {
+  if (confirm(`Certeza que deseja deletar a câmera: ${identifier} ?`)) {
+    try {
+      const response = await fetch(`${SERVER_URL}/cameras/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) throw new Error("Erro ao deletar câmera");
+
+      await renderCameraMarkers();
+      closeCameraModal();
+    } catch (error) {
+      console.error(error);
+      alert("Não foi possível deletar a câmera.");
+    }
+  }
 }
 
 const setupModalEvents = () => {
