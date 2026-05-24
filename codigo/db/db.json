@@ -20,6 +20,13 @@
       "nome": "Rommel",
       "email": "rommel@gmail.com",
       "id": "3"
+    },
+    {
+      "login": "fernando",
+      "senha": "senha1",
+      "nome": "Fernando Rodrigues",
+      "email": "fernando@test.com",
+      "id": "Uf2fk2h"
     }
   ],
   "cameras": [

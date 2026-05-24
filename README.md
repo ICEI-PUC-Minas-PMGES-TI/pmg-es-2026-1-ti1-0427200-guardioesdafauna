@@ -120,11 +120,11 @@ O público-alvo é composto por profissionais envolvidos diretamente na conserva
 # Product Discovery
 
 ## Matriz CSD
-![alt text](matriz-csd.png)
+![alt text](./docs/images/matriz-csd.png)
 ---
 
 ## Mapa de Stakeholders
-![alt text](stakeholders.png)
+![alt text](./docs/images/stakeholders.png)
 
 ---
 
@@ -154,40 +154,40 @@ Esses fatores tornam a conservação menos eficiente e limitam o impacto das aç
 ## Personas
 
 ### Rafael — Coordenador de ONG
-![alt text](persona-1.png)
+![alt text](./docs/images/persona-1.png)
 
 ### Leonardo — Pesquisador
-![alt text](persona-2.png)
+![alt text](./docs/images/persona-2.png)
 
 ### Yara — Bióloga de Campo
-![alt text](persona-3.png)
+![alt text](./docs/images/persona-3.png)
 
 ### Eduardo — Diretor Executivo
-![alt text](persona-4.png)
+![alt text](./docs/images/persona-4.png)
 
 ---
 
 # Product Design
 
 ## Histórias de Usuário
-![alt text](historias-de-usuario.png)
+![alt text](./docs/images/historias-de-usuario.png)
 
 ---
 
 ## Proposta de Valor
-![alt text](proposta-valor-1.png)
-![alt text](proposta-valor-2.png)
+![alt text](./docs/images/proposta-valor-1.png)
+![alt text](./docs/images/proposta-valor-2.png)
 ---
 
 ## Projeto de Interface
 
 ### Fluxo do Usuário
-![alt text](fluxo-usuario.png)
+![alt text](./docs/images/fluxo-usuario.png)
 ---
 
 ### Wireframes
-![alt text](dashboard-principal.png) 
-![alt text](mapa-rastreamento.png)
+![alt text](./docs/images/dashboard-principal.png) 
+![alt text](./docs/images/mapa-rastreamento.png)
 ---
 
 ### Protótipo Interativo
