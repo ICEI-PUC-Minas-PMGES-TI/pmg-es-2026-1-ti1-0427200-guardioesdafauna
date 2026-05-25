@@ -1,0 +1,15 @@
+{
+    "ongs": [
+      {
+        "id": 1,
+        "nome": "Greenpeace Brasil",
+        "regiao": "Nacional",
+        "apoio": ["doacao", "voluntariado"],
+        "categoria": "Meio Ambiente",
+        "descricao": "Atua na defesa da biodiversidade, proteção das florestas e oceanos, aceitando apoio financeiro e ativismo.",
+        "imagem": "greenpeace.jpeg",
+        "link": "https://www.greenpeace.org/brasil/"
+      },
+      
+    ]
+  }
