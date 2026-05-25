@@ -1,8 +1,7 @@
-const styles = `
 :root {
-    --bg-header: #1f4f3a; /* Verde escuro do wireframe */
-    --bg-body: #f2f6f4;   /* Fundo cinza/esverdeado muito claro */
-    --btn-orange: #f0a25c; /* Laranja suave do botão */
+    --bg-header: #1f4f3a;
+    --bg-body: #f2f6f4;
+    --btn-orange: #f0a25c;
     --btn-orange-hover: #e08b45;
 }
 
@@ -70,8 +69,4 @@ body {
 .btn-detalhes:hover {
     background-color: var(--btn-orange-hover);
     color: white;
-}`;
-
-const styleSheet = document.createElement("style");
-styleSheet.innerText = styles;
-document.head.appendChild(styleSheet);
+}
