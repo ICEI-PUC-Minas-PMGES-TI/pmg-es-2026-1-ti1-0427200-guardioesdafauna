@@ -4,31 +4,47 @@
       "id": 1,
       "nome": "Greenpeace Brasil",
       "regiao": "Nacional",
-      "apoio": ["doacao", "voluntariado"],
       "categoria": "Meio Ambiente",
-      "descricao": "Atua na defesa da biodiversidade, proteção das florestas e oceanos, aceitando apoio financeiro e ativismo.",
-      "imagem": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&q=80",
-      "link": "https://www.greenpeace.org/brasil/"
+      "apoio": ["doacao", "voluntariado"],
+      "imagem": "greenpeace.jpeg"
     },
     {
       "id": 2,
       "nome": "Instituto Vida Livre",
       "regiao": "MG",
-      "apoio": ["doacao", "monitoramento"],
       "categoria": "Reabilitação",
-      "descricao": "Trabalha na reabilitação e soltura de animais silvestres resgatados de situações de risco.",
-      "imagem": "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=500&q=80",
-      "link": "#"
+      "apoio": ["doacao", "monitoramento"],
+      "imagem": "vidalivre.jpeg"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nome": "Carlos Silva",
+      "email": "carlos@email.com",
+      "telefone": "31999999999"
     },
     {
-      "id": 3,
-      "nome": "Associação Quatro Patinhas",
-      "regiao": "SP",
-      "apoio": ["voluntariado"],
-      "categoria": "Adoção",
-      "descricao": "Focada no resgate, tratamento e adoção responsável de animais domésticos abandonados.",
-      "imagem": "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=500&q=80",
-      "link": "#"
+      "id": 2,
+      "nome": "Ana Souza",
+      "email": "ana@email.com",
+      "telefone": "31988888888"
+    }
+  ],
+  "voluntariados": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "id_ong": 1,
+      "data_inscricao": "2026-05-24",
+      "status": "Aprovado"
+    },
+    {
+      "id": 2,
+      "id_usuario": 2,
+      "id_ong": 2,
+      "data_inscricao": "2026-05-26",
+      "status": "Pendente"
     }
   ]
 }
