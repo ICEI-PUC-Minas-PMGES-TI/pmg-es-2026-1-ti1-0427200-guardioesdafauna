@@ -276,7 +276,8 @@ form {
   left: 0;
   right: 0;
 
-  max-width: 40%;
+  min-width: 16rem;
+  max-width: 50%;
 
   padding: 0.75rem;
   border-radius: 1.5rem;
@@ -330,7 +331,6 @@ form {
   width: 20rem;
   height: 100%;
   padding: 1.5rem 1rem;
-  overflow: auto;
   background: #f0eee4;
   border-right: 1px solid #eae8de;
 }
@@ -427,10 +427,14 @@ form {
 }
 
 div.content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   margin-left: 20rem;
+  position: relative;
 }
 
-@media screen and (max-width: 35.5rem) {
+@media screen and (max-width: 768px) {
   .sidebar {
     position: relative;
     width: 100%;
@@ -445,11 +449,8 @@ div.content {
   div.content {
     margin-left: 0;
   }
-}
 
-@media screen and (max-width: 25rem) {
-  .sidebar a {
-    width: 100%;
-    justify-content: center;
+  .search-card {
+    max-width: 80%;
   }
 }
