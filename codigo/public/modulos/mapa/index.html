@@ -13,121 +13,131 @@
       crossorigin=""
     />
   </head>
-  <body style="position: relative">
-    <header class="app-header">
-      <div>
-        <p class="eyebrow">Amigos da Onça</p>
-        <h1>Mapa de Câmeras</h1>
-      </div>
-      <div class="camera-section">
-        <span id="camera-count">0 câmeras</span>
-        <button id="add-camera"><span>+</span>Adicionar Câmera</button>
-      </div>
-    </header>
-
-    <div class="search-wrapper">
-      <div class="search-card">
-        <div class="search-icon">🔍</div>
-        <div class="search-input-wrapper">
-          <input
-            class="search-input"
-            placeholder="Buscar câmera por ID ou Apelido"
-            type="text"
-          />
-        </div>
-      </div>
+  <body>
+    <div class="sidebar">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
     </div>
 
-    <div class="modal" id="camera-modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div>
-            <p>Gerenciamento de Equipamento</p>
-            <h2>Registrar Câmera</h2>
-          </div>
-          <span id="close" class="close">&times;</span>
+    <!-- Page content -->
+    <div class="content">
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">Amigos da Onça</p>
+          <h1>Mapa de Câmeras</h1>
         </div>
+        <div class="camera-section">
+          <span id="camera-count">0 câmeras</span>
+          <button id="add-camera"><span>+</span>Adicionar Câmera</button>
+        </div>
+      </header>
 
-        <form id="create-camera-form">
-          <div class="input-group">
-            <label for="camera-id">Identificador único (ID)</label>
+      <div class="search-wrapper">
+        <div class="search-card">
+          <div class="search-icon">🔍</div>
+          <div class="search-input-wrapper">
             <input
-              id="camera-id"
+              class="search-input"
+              placeholder="Buscar câmera por ID ou Apelido"
               type="text"
-              placeholder="ex.: CAM-JAG-001"
-              required
             />
           </div>
-
-          <div class="input-group">
-            <label for="nickname">Apelido do dispositivo</label>
-            <input
-              id="nickname"
-              type="text"
-              placeholder="ex.: Ponto Norte 02"
-              required
-            />
-          </div>
-
-          <div class="input-row">
-            <div class="input-group">
-              <label for="x-coordinate">Coordenada X</label>
-              <input
-                id="x-coordinate"
-                type="number"
-                placeholder="ex.: 19.873812"
-                step="any"
-                required
-              />
-            </div>
-
-            <div class="input-group">
-              <label for="y-coordinate">Coordenada Y</label>
-              <input
-                id="y-coordinate"
-                type="number"
-                placeholder="ex.: 43.87932"
-                step="any"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="input-row">
-            <div class="input-group">
-              <label for="battery-lifespan"
-                >Vida útil da bateria (em semanas)</label
-              >
-              <input
-                id="battery-lifespan"
-                type="number"
-                placeholder="ex.: 12"
-                required
-              />
-            </div>
-            <div class="input-group">
-              <label for="installation-date">Data de instalação</label>
-              <input
-                id="installation-date"
-                type="date"
-                placeholder="ex.: 04/02/2026"
-                required
-              />
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <button type="button" id="cancel" class="cancel-button">
-              Cancelar
-            </button>
-            <button class="save-button" type="submit">Salvar</button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>
 
-    <div id="map" aria-label="Mapa com localização das câmeras"></div>
-    <main class="map-shell"></main>
+      <div class="modal" id="camera-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <p>Gerenciamento de Equipamento</p>
+              <h2>Registrar Câmera</h2>
+            </div>
+            <span id="close" class="close">&times;</span>
+          </div>
+
+          <form id="create-camera-form">
+            <div class="input-group">
+              <label for="camera-id">Identificador único (ID)</label>
+              <input
+                id="camera-id"
+                type="text"
+                placeholder="ex.: CAM-JAG-001"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="nickname">Apelido do dispositivo</label>
+              <input
+                id="nickname"
+                type="text"
+                placeholder="ex.: Ponto Norte 02"
+                required
+              />
+            </div>
+
+            <div class="input-row">
+              <div class="input-group">
+                <label for="x-coordinate">Coordenada X</label>
+                <input
+                  id="x-coordinate"
+                  type="number"
+                  placeholder="ex.: 19.873812"
+                  step="any"
+                  required
+                />
+              </div>
+
+              <div class="input-group">
+                <label for="y-coordinate">Coordenada Y</label>
+                <input
+                  id="y-coordinate"
+                  type="number"
+                  placeholder="ex.: 43.87932"
+                  step="any"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="input-row">
+              <div class="input-group">
+                <label for="battery-lifespan"
+                  >Vida útil da bateria (em semanas)</label
+                >
+                <input
+                  id="battery-lifespan"
+                  type="number"
+                  placeholder="ex.: 12"
+                  required
+                />
+              </div>
+              <div class="input-group">
+                <label for="installation-date">Data de instalação</label>
+                <input
+                  id="installation-date"
+                  type="date"
+                  placeholder="ex.: 04/02/2026"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" id="cancel" class="cancel-button">
+                Cancelar
+              </button>
+              <button class="save-button" type="submit">Salvar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="map" aria-label="Mapa com localização das câmeras"></div>
+      <main class="map-shell"></main>
+    </div>
 
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
