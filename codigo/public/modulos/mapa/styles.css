@@ -280,7 +280,7 @@ form {
   max-width: 50%;
 
   padding: 0.75rem;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   border: 1px solid rgba(226, 232, 240, 0.8);
   margin: 0.875rem auto;
 
@@ -302,7 +302,7 @@ form {
   align-items: center;
   justify-content: center;
 
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   font-size: 1.25rem;
 
   color: #2563eb;
