@@ -13,7 +13,7 @@
       crossorigin=""
     />
   </head>
-  <body>
+  <body style="position: relative">
     <header class="app-header">
       <div>
         <p class="eyebrow">Amigos da Onça</p>
@@ -21,11 +21,22 @@
       </div>
       <div class="camera-section">
         <span id="camera-count">0 câmeras</span>
-        <button id="add-camera">
-          <span>+</span>Adicionar Câmera
-        </button>
+        <button id="add-camera"><span>+</span>Adicionar Câmera</button>
       </div>
     </header>
+
+    <div class="search-wrapper">
+      <div class="search-card">
+        <div class="search-icon">🔍</div>
+        <div class="search-input-wrapper">
+          <input
+            class="search-input"
+            placeholder="Buscar câmera por ID ou Apelido"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
 
     <div class="modal" id="camera-modal">
       <div class="modal-content">
@@ -40,7 +51,12 @@
         <form id="create-camera-form">
           <div class="input-group">
             <label for="camera-id">Identificador único (ID)</label>
-            <input id="camera-id" type="text" placeholder="ex.: CAM-JAG-001" required />
+            <input
+              id="camera-id"
+              type="text"
+              placeholder="ex.: CAM-JAG-001"
+              required
+            />
           </div>
 
           <div class="input-group">
@@ -101,7 +117,9 @@
           </div>
 
           <div class="form-actions">
-            <button type="button" id="cancel" class="cancel-button">Cancelar</button>
+            <button type="button" id="cancel" class="cancel-button">
+              Cancelar
+            </button>
             <button class="save-button" type="submit">Salvar</button>
           </div>
         </form>
