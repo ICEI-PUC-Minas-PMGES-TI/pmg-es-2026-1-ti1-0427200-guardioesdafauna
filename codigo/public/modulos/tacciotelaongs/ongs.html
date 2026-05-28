@@ -6,7 +6,7 @@
     <title>Guardiões das ONGs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ongs.css">
 </head>
 <body>
 
@@ -38,18 +38,18 @@
                 <div class="p-4 rounded shadow-sm text-white d-flex justify-content-between align-items-center action-banner-volunteer">
                     <div>
                         <h5 class="fw-bold mb-1"><i class="fas fa-hands-helping me-2"></i> Quer Voluntariar?</h5>
-                        <p class="small mb-0 opacity-75">Encontre causas urgentes e doe seu tempo.</p>
+                        <p class="small mb-0">Encontre causas urgentes e doe seu tempo.</p>
                     </div>
-                    <button class="btn btn-light fw-bold text-success px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalVoluntario">Quero Ajudar</button>
+                    <button class="btn btn-voluntario-destaque fw-bold px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalVoluntario">Quero Ajudar</button>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="p-4 rounded shadow-sm bg-white border d-flex justify-content-between align-items-center unique-action-card">
+                <div class="p-4 rounded shadow-sm text-white d-flex justify-content-between align-items-center action-banner-volunteer">
                     <div>
-                        <h5 class="fw-bold text-dark mb-1"><i class="fas fa-plus-circle text-success me-2"></i> Divulgue uma ONG</h5>
-                        <p class="small text-muted mb-0">Cadastre sua instituição e ganhe visibilidade.</p>
+                        <h5 class="fw-bold mb-1"><i class="fas fa-plus-circle me-2"></i> Divulgue uma ONG</h5>
+                        <p class="small mb-0">Cadastre sua instituição e ganhe visibilidade.</p>
                     </div>
-                    <button class="btn btn-cadastro-body fw-bold text-white px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCadastroOng">Cadastrar ONG</button>
+                    <button class="btn btn-voluntario-destaque fw-bold px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCadastroOng">Cadastrar ONG</button>
                 </div>
             </div>
         </div>
@@ -125,15 +125,23 @@
                     <form id="form-voluntario">
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-muted">NOME COMPLETO</label>
-                            <input type="text" class="form-control shadow-none" required placeholder="Ex: João Silva">
+                            <input type="text" id="vol-nome" class="form-control shadow-none" required placeholder="Ex: João Silva">
                         </div>
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-muted">E-MAIL</label>
-                            <input type="email" class="form-control shadow-none" required placeholder="Ex: joao@email.com">
+                            <input type="email" id="vol-email" class="form-control shadow-none" required placeholder="Ex: joao@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">TELEFONE / WHATSAPP</label>
+                            <input type="tel" id="vol-telefone" class="form-control shadow-none" required placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">CIDADE / ESTADO</label>
+                            <input type="text" id="vol-cidade" class="form-control shadow-none" required placeholder="Ex: Belo Horizonte - MG">
                         </div>
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-muted">ÁREA DE INTERESSE</label>
-                            <select class="form-select shadow-none" required>
+                            <select id="vol-area" class="form-select shadow-none" required>
                                 <option value="" disabled selected>Selecione uma causa...</option>
                                 <option value="marinha">Preservação Marinha (Ex: Greenpeace)</option>
                                 <option value="fauna">Resgate de Animais Silvestres</option>
@@ -146,6 +154,18 @@
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="dias-uteis"><label class="form-check-label small" for="dias-uteis">Dias Úteis</label></div>
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="finais-semana"><label class="form-check-label small" for="finais-semana">Finais de Semana</label></div>
                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">TIPO DE VOLUNTARIADO</label>
+                            <div class="d-flex flex-wrap gap-3">
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="vol-presencial"><label class="form-check-label small" for="vol-presencial">Presencial</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="vol-remoto"><label class="form-check-label small" for="vol-remoto">Remoto</label></div>
+                                <div class="form-check"><input class="form-check-input" type="checkbox" id="vol-eventual"><label class="form-check-label small" for="vol-eventual">Ações Pontuais</label></div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-muted">EXPERIÊNCIA / HABILIDADES</label>
+                            <textarea id="vol-experiencia" class="form-control shadow-none" rows="3" placeholder="Ex: educação ambiental, comunicação, logística, monitoramento de campo..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-success w-100 fw-bold py-2 mt-2">Enviar Inscrição</button>
                     </form>
@@ -183,8 +203,8 @@
                                 </select>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold text-muted">URL DA IMAGEM DE CAPA</label>
-                                <input type="url" id="form-imagem" class="form-control shadow-none" placeholder="https://linkdaimagem.com/foto.jpg">
+                                <label class="form-label small fw-bold text-muted">IMAGEM DE CAPA</label>
+                                <input type="file" id="form-imagem" class="form-control shadow-none" accept="image/*">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -211,6 +231,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="ongs.js"></script>
 </body>
 </html>

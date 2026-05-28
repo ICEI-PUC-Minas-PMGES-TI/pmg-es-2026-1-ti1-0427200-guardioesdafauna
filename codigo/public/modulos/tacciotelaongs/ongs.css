@@ -50,6 +50,25 @@ body {
     border-color: var(--bg-header);
 }
 
+.action-banner-volunteer {
+    border: 1px solid #1f4f3a;
+    background: linear-gradient(120deg, #1f4f3a 0%, #2e6a50 60%, #3b7d60 100%);
+}
+
+.btn-voluntario-destaque {
+    background-color: #f4b56d;
+    color: #143729;
+    border: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-voluntario-destaque:hover {
+    background-color: #eea655;
+    color: #143729;
+    transform: translateY(-1px);
+    box-shadow: 0 0.6rem 1rem rgba(20, 55, 41, 0.2);
+}
+
 /* Cartões das ONGs */
 .ong-card {
     border-radius: 12px;

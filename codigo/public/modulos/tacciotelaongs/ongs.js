@@ -1,4 +1,5 @@
 const API_URL = 'http://localhost:3000/ongs';
+const API_VOLUNTARIOS_URL = 'http://localhost:3000/voluntarios';
 
 const containerOngs = document.getElementById('container-ongs');
 const contadorOngs = document.getElementById('contador-ongs');
@@ -22,8 +23,8 @@ const ExemploGreenpeace = {
     regiao: "Nacional",
     categoria: "Preservação Marinha",
     apoio: ["voluntariado", "doacao"],
-    imagem: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=600&q=80",
-    link: "https://www.greenpeace.org/brasil/apoie/parem-a-mineracao-em-aguas-profundas/?utm_source=google&utm_medium=paid&utm_campaign=oceanos&utm_content=pm4&gad_source=1&gad_campaignid=20187875970&gbraid=0AAAAAD4RlhY5V9t4rW4X9U06WGmhANL1U&gclid=CjwKCAjw5s_QBhAdEiwADD_gBlynBgw-QDSNEHEyDgKsR6cDVvpRU0yQNJAeeLG1RSO4TLWGTYC2qBoC9f8QAvD_BwE"
+    imagem: "Greenpeace.webp",
+    link: "https://www.greenpeace.org/brasil/quem-somos/"
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -43,6 +44,15 @@ btnLimpar.addEventListener('click', () => {
     checkboxesApoio.forEach(cb => cb.checked = false);
     aplicarFiltros();
 });
+
+function converterArquivoParaDataUrl(arquivo) {
+    return new Promise((resolve, reject) => {
+        const leitor = new FileReader();
+        leitor.onload = () => resolve(leitor.result);
+        leitor.onerror = () => reject(new Error('Nao foi possivel ler a imagem enviada.'));
+        leitor.readAsDataURL(arquivo);
+    });
+}
 
 async function carregarOngs() {
     try {
@@ -129,9 +139,52 @@ function aplicarFiltros() {
 function configurarFormularios() {
     
     // 1. Envio do formulário do Voluntário
-    formVoluntario.addEventListener('submit', (e) => {
+    formVoluntario.addEventListener('submit', async (e) => {
         e.preventDefault();
-        alert('Obrigado pelo interesse! Seu cadastro de voluntário foi enviado com sucesso. As ONGs parceiras entrarão em contato.');
+
+        const disponibilidades = Array.from(document.querySelectorAll('#dias-uteis, #finais-semana'))
+            .filter(cb => cb.checked)
+            .map(cb => cb.nextElementSibling.textContent.trim());
+
+        const tiposVoluntariado = Array.from(document.querySelectorAll('#vol-presencial, #vol-remoto, #vol-eventual'))
+            .filter(cb => cb.checked)
+            .map(cb => cb.nextElementSibling.textContent.trim());
+
+        if (disponibilidades.length === 0) {
+            alert('Selecione pelo menos uma opção de disponibilidade.');
+            return;
+        }
+
+        if (tiposVoluntariado.length === 0) {
+            alert('Selecione pelo menos um tipo de voluntariado.');
+            return;
+        }
+
+        const cadastroVoluntario = {
+            id: 'vol-' + Date.now(),
+            nome: document.getElementById('vol-nome').value.trim(),
+            email: document.getElementById('vol-email').value.trim(),
+            telefone: document.getElementById('vol-telefone').value.trim(),
+            cidadeEstado: document.getElementById('vol-cidade').value.trim(),
+            areaInteresse: document.getElementById('vol-area').value,
+            disponibilidade: disponibilidades,
+            tiposVoluntariado,
+            experiencia: document.getElementById('vol-experiencia').value.trim()
+        };
+
+        console.log('Cadastro de voluntário enviado:', cadastroVoluntario);
+
+        try {
+            await fetch(API_VOLUNTARIOS_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cadastroVoluntario)
+            });
+        } catch (err) {
+            console.log('Nota: cadastro capturado no front, mas não salvo no JSON (json-server offline).');
+        }
+
+        alert(`Obrigado, ${cadastroVoluntario.nome}! Seu cadastro de voluntário foi enviado com sucesso. As ONGs parceiras entrarão em contato.`);
         
         // Fecha o modal limpando os dados
         const modal = bootstrap.Modal.getInstance(document.getElementById('modalVoluntario'));
@@ -148,12 +201,25 @@ function configurarFormularios() {
             .filter(cb => cb.checked)
             .map(cb => cb.value);
 
+        const inputImagem = document.getElementById('form-imagem');
+        const arquivoImagem = inputImagem.files && inputImagem.files[0];
+        let imagemDaOng = '';
+
+        if (arquivoImagem) {
+            try {
+                imagemDaOng = await converterArquivoParaDataUrl(arquivoImagem);
+            } catch (erroLeitura) {
+                alert('Nao foi possivel processar a imagem. Tente outro arquivo.');
+                return;
+            }
+        }
+
         const novaOng = {
             id: 'ong-' + Date.now(), // Gera um ID único provisório
             nome: document.getElementById('form-nome').value,
             categoria: document.getElementById('form-categoria').value,
             regiao: document.getElementById('form-regiao').value,
-            imagem: document.getElementById('form-imagem').value,
+            imagem: imagemDaOng,
             link: document.getElementById('form-link').value,
             descricao: document.getElementById('form-descricao').value,
             apoio: apoiosSelecionados.length > 0 ? apoiosSelecionados : ["voluntariado"]
