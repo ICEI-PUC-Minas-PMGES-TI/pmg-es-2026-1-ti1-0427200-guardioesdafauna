@@ -1,0 +1,94 @@
+{
+  "ongs": [
+    {
+      "id": 1,
+      "nome": "Instituto Pantanal Vivo",
+      "localizacao": "Pantanal - MT",
+      "responsavel": "Marina Costa"
+    },
+    {
+      "id": 2,
+      "nome": "SOS Onças",
+      "localizacao": "Amazônia - AM",
+      "responsavel": "Carlos Mendes"
+    },
+    {
+      "id": 3,
+      "nome": "Instituto Onça Conservação",
+      "localizacao": "Minas Gerais - MG",
+      "responsavel": "Fernanda Lima"
+    }
+  ],
+  "oncas": [
+    {
+      "id": 1,
+      "nome": "Jaguatirica",
+      "codigo": "ONC-001",
+      "idade": 3,
+      "sexo": "Fêmea",
+      "especie": "Onça-pintada",
+      "localizacao": "Parque Nacional do Pantanal",
+      "status": "Ativa",
+      "ongId": 1,
+      "primeiroRegistro": "10/06/2022",
+      "ultimoRegistro": "12/05/2025",
+      "observacoes": "Fêmea adulta com filhote registrado em 2024."
+    },
+    {
+      "id": 2,
+      "nome": "Tereza",
+      "codigo": "ONC-002",
+      "idade": 5,
+      "sexo": "Fêmea",
+      "especie": "Onça-pintada",
+      "localizacao": "Reserva Ecológica do Juruena",
+      "status": "Ativa",
+      "ongId": 2,
+      "primeiroRegistro": "14/03/2021",
+      "ultimoRegistro": "28/04/2025",
+      "observacoes": "Monitorada por GPS."
+    },
+    {
+      "id": 3,
+      "nome": "Thor",
+      "codigo": "ONC-003",
+      "idade": 4,
+      "sexo": "Macho",
+      "especie": "Onça-parda",
+      "localizacao": "Estação Ecológica de Ipiranga",
+      "status": "Monitorada",
+      "ongId": 3,
+      "primeiroRegistro": "22/09/2020",
+      "ultimoRegistro": "01/05/2025",
+      "observacoes": "Possui coleira de rastreamento."
+    },
+    {
+      "id": 4,
+      "nome": "Sol",
+      "codigo": "ONC-004",
+      "idade": 2,
+      "sexo": "Fêmea",
+      "especie": "Onça-pintada",
+      "localizacao": "Parque Estadual do Cantão",
+      "status": "Ativa",
+      "ongId": 2,
+      "primeiroRegistro": "18/01/2023",
+      "ultimoRegistro": "15/05/2025",
+      "observacoes": "Avistamentos frequentes."
+    },
+    {
+      "id": 5,
+      "nome": "Rajado",
+      "codigo": "ONC-005",
+      "idade": 6,
+      "sexo": "Macho",
+      "especie": "Onça-pintada",
+      "localizacao": "Parque Nacional do Pantanal",
+      "status": "Inativa",
+      "ongId": 1,
+      "primeiroRegistro": "11/07/2019",
+      "ultimoRegistro": "20/11/2024",
+      "observacoes": "Sem registros recentes."
+    }
+  ]
+}
