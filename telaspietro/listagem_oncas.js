@@ -33,7 +33,7 @@ function preencherFiltroOngs() {
 }
 
 function buscarNomeOng(ongId) {
-  const ong = ongs.find(item => item.id === ongId);
+  const ong = ongs.find(item => Number(item.id) === Number(ongId));
   return ong ? ong.nome : "ONG não encontrada";
 }
 
@@ -103,8 +103,8 @@ function aplicarFiltros() {
 }
 
 function mostrarDetalhes(id) {
-  const onca = oncas.find(item => item.id === id);
-  const ong = ongs.find(item => item.id === onca.ongId);
+  const onca = oncas.find(item => Number(item.id) === Number(id));
+const ong = ongs.find(item => Number(item.id) === Number(onca.ongId));
 
   painelDetalhes.innerHTML = `
     <div class="detalhes-topo">
@@ -151,5 +151,8 @@ busca.addEventListener("input", aplicarFiltros);
 filtroOng.addEventListener("change", aplicarFiltros);
 filtroStatus.addEventListener("change", aplicarFiltros);
 btnLimpar.addEventListener("click", limparFiltros);
+
+window.mostrarDetalhes = mostrarDetalhes;
+window.limparDetalhes = limparDetalhes;
 
 carregarDados();
