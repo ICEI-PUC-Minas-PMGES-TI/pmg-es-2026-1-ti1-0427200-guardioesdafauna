@@ -23,21 +23,19 @@
     </header>
 
     <section class="filtros">
-      <input type="text" placeholder="Buscar por nome da onça ou ONG...">
+      <input id="busca" type="text" placeholder="Buscar por nome da onça ou ONG...">
 
       <div>
-        <label>ONG</label>
-        <select>
-          <option>Todas</option>
-          <option>Instituto Pantanal Vivo</option>
-          <option>SOS Onças</option>
-          <option>Instituto Onça Conservação</option>
-        </select>
-      </div>
+    <label>ONG</label>
+
+    <select id="filtroOng">
+        <option value="Todas">Todas</option>
+    </select>
+</div>
 
       <div>
         <label>Status</label>
-        <select>
+        <select id="filtroStatus">
           <option>Todos</option>
           <option>Ativa</option>
           <option>Monitorada</option>
@@ -45,7 +43,7 @@
         </select>
       </div>
 
-      <button class="btn-limpar">Limpar filtros</button>
+      <button id="btnLimpar" class="btn-limpar">Limpar filtros</button>
     </section>
 
     <section class="conteudo">
@@ -64,112 +62,7 @@
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>
-                <div class="onca-info">
-                  <div class="foto">🐆</div>
-                  <div>
-                    <strong>Jaguatirica</strong>
-                    <span>ID: ONC-001</span>
-                  </div>
-                </div>
-              </td>
-              <td>Instituto Pantanal Vivo</td>
-              <td>3 anos</td>
-              <td>Fêmea</td>
-              <td>Parque Nacional do Pantanal</td>
-              <td><span class="status ativa">Ativa</span></td>
-              <td>
-                <button class="acao">👁</button>
-                <button class="acao">ⓘ</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="onca-info">
-                  <div class="foto">🐆</div>
-                  <div>
-                    <strong>Tereza</strong>
-                    <span>ID: ONC-002</span>
-                  </div>
-                </div>
-              </td>
-              <td>SOS Onças</td>
-              <td>5 anos</td>
-              <td>Fêmea</td>
-              <td>Reserva Ecológica do Juruena</td>
-              <td><span class="status ativa">Ativa</span></td>
-              <td>
-                <button class="acao">👁</button>
-                <button class="acao">ⓘ</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="onca-info">
-                  <div class="foto">🐆</div>
-                  <div>
-                    <strong>Thor</strong>
-                    <span>ID: ONC-003</span>
-                  </div>
-                </div>
-              </td>
-              <td>Instituto Onça Conservação</td>
-              <td>4 anos</td>
-              <td>Macho</td>
-              <td>Estação Ecológica de Ipiranga</td>
-              <td><span class="status monitorada">Monitorada</span></td>
-              <td>
-                <button class="acao">👁</button>
-                <button class="acao">ⓘ</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="onca-info">
-                  <div class="foto">🐆</div>
-                  <div>
-                    <strong>Sol</strong>
-                    <span>ID: ONC-004</span>
-                  </div>
-                </div>
-              </td>
-              <td>Projeto Gato do Mato</td>
-              <td>2 anos</td>
-              <td>Fêmea</td>
-              <td>Parque Estadual do Cantão</td>
-              <td><span class="status ativa">Ativa</span></td>
-              <td>
-                <button class="acao">👁</button>
-                <button class="acao">ⓘ</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td>
-                <div class="onca-info">
-                  <div class="foto">🐆</div>
-                  <div>
-                    <strong>Rajado</strong>
-                    <span>ID: ONC-005</span>
-                  </div>
-                </div>
-              </td>
-              <td>Instituto Pantanal Vivo</td>
-              <td>6 anos</td>
-              <td>Macho</td>
-              <td>Parque Nacional do Pantanal</td>
-              <td><span class="status inativa">Inativa</span></td>
-              <td>
-                <button class="acao">👁</button>
-                <button class="acao">ⓘ</button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody id="corpoTabela"></tbody>
         </table>
 
         <div class="paginacao">
@@ -188,34 +81,14 @@
         </div>
       </div>
 
-      <aside class="detalhes">
-        <div class="detalhes-topo">
-          <h2>Detalhes da Onça</h2>
-          <button>×</button>
-        </div>
-
-        <div class="imagem-detalhe">🐆</div>
-
-        <ul>
-          <li><strong>Nome:</strong> Jaguatirica</li>
-          <li><strong>ID:</strong> ONC-001</li>
-          <li><strong>Espécie:</strong> Onça-pintada</li>
-          <li><strong>Sexo:</strong> Fêmea</li>
-          <li><strong>Idade:</strong> 3 anos</li>
-          <li><strong>Status:</strong> Ativa</li>
-          <li><strong>ONG Responsável:</strong> Instituto Pantanal Vivo</li>
-          <li><strong>Localização:</strong> Parque Nacional do Pantanal</li>
-          <li><strong>Primeiro Registro:</strong> 10/06/2022</li>
-          <li><strong>Último Registro:</strong> 12/05/2025</li>
-          <li><strong>Observações:</strong> Fêmea adulta, com filhote registrado em 2024.</li>
-        </ul>
-
-        <button class="btn-baixar">Baixar ficha da onça</button>
+      <aside class="detalhes" id="painelDetalhes">
+  <h2>Detalhes da Onça</h2>
+  <p>Selecione uma onça para visualizar os detalhes.</p>
       </aside>
 
     </section>
 
   </main>
-
+<script src="listagem_oncas.js"></script>
 </body>
 </html>
