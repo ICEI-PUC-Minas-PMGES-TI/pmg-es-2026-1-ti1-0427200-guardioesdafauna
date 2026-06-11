@@ -9,47 +9,76 @@
 }
 
 .app-header {
+  position: relative;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.5rem;
-  background: #183421;
+  gap: 1.25rem;
+  padding: 1.1rem 1.5rem;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(250, 204, 21, 0.24), transparent 24rem),
+    linear-gradient(135deg, #123323 0%, #1b4332 58%, #2d6a4f 100%);
   color: #fff7e8;
-  box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.18);
-  z-index: 1000;
+}
+
+.app-header .eyebrow {
+  margin: 0 0 0.35rem;
+  color: rgba(255, 247, 232, 0.72);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .app-header h1 {
   margin: 0;
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #fffdf7;
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
+  line-height: 1.1;
 }
 
 .app-header .camera-section {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.app-header #camera-count {
+  color: rgba(255, 247, 232, 0.86);
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .app-header #add-camera {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-
-  background: #FFF;
-
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 247, 232, 0.35);
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
-
-  outline: 0;
-  border: solid 1px #000;
-
-  font-size: 1rem;
+  background: transparent;
+  color: #fffdf7;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.app-header #add-camera:hover {
+  background: rgba(255, 247, 232, 0.12);
+  border-color: rgba(255, 247, 232, 0.6);
+}
+
+.app-header #add-camera:focus-visible {
+  outline: 2px solid rgba(255, 247, 232, 0.8);
+  outline-offset: 2px;
 }
 
 .app-header #add-camera span {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
+  line-height: 1;
 }
 
 form {
@@ -121,16 +150,21 @@ form {
 
 @media (max-width: 40rem) {
   .app-header {
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
-    padding: 0.875rem 1rem;
+    padding: 1rem;
   }
 
   .app-header .camera-section {
     width: 100%;
-
+    flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 0.5rem;
+  }
+
+  .app-header #camera-count,
+  .app-header #add-camera {
+    flex: 1 1 10rem;
+    justify-content: center;
   }
 
   .modal {
@@ -279,24 +313,30 @@ form {
   min-width: 16rem;
   max-width: 50%;
 
-  padding: 0.75rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(200, 194, 180, 0.82);
   margin: 0.875rem auto;
 
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 1.125rem 3.125rem rgba(15, 23, 42, 0.14);
+  background: rgba(255, 253, 247, 0.94);
+  box-shadow: 0 1rem 2.5rem rgba(24, 52, 33, 0.18);
   backdrop-filter: blur(0.5rem);
 
   display: flex;
   align-items: center;
   gap: 0.75rem;
 
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.search-card:focus-within {
+  border-color: #1B4332;
+  box-shadow: 0 1rem 2.5rem rgba(24, 52, 33, 0.24), 0 0 0 0.1875rem rgba(184, 210, 189, 0.55);
 }
 
 .search-icon {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
 
   display: flex;
   align-items: center;
@@ -305,8 +345,9 @@ form {
   border-radius: 0.5rem;
   font-size: 1.25rem;
 
-  color: #2563eb;
-  background: rgba(37, 99, 235, 0.05);
+  color: #fffdf7;
+  background: #1B4332;
+  box-shadow: inset 0 0.125rem 0.25rem rgba(0, 0, 0, 0.14);
 }
 
 .search-input-wrapper {
@@ -318,9 +359,20 @@ form {
   border: none;
   outline: none;
   background: transparent;
-  color: #0f172a;
-  font-size: 1rem;
-  padding: 0.25rem 0;
+  color: #183421;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.35rem 0;
+}
+
+.search-input::placeholder {
+  color: rgba(27, 28, 22, 0.52);
+  font-weight: 600;
+}
+
+.search-input::-webkit-search-cancel-button {
+  cursor: pointer;
+  accent-color: #1B4332;
 }
 
 .sidebar {

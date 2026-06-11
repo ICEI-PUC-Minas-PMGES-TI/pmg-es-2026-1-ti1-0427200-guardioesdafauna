@@ -7,7 +7,9 @@ const cancel = document.getElementById("cancel");
 const addCamera = document.getElementById("add-camera");
 const cameraCount = document.getElementById("camera-count");
 const createCameraForm = document.getElementById("create-camera-form");
+const cameraSearch = document.getElementById("camera-search");
 
+let cameras = [];
 let map = L.map("map").setView(BELO_HORIZONTE_COORDS, 13);
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -78,10 +80,24 @@ const fetchCameras = async () => {
   }
 };
 
-const renderCameraMarkers = async () => {
-  cameraMarkersLayer.clearLayers();
+const filterCameras = (searchTerm) => {
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
 
-  const availableCameras = await fetchCameras();
+  if (!normalizedSearchTerm) return cameras;
+
+  return cameras.filter((camera) => {
+    const identifier = normalizeSearchTerm(camera.identifier ?? "");
+    const nickname = normalizeSearchTerm(camera.nickname ?? "");
+
+    return (
+      identifier.includes(normalizedSearchTerm) ||
+      nickname.includes(normalizedSearchTerm)
+    );
+  });
+};
+
+const renderCameraMarkers = (availableCameras = cameras) => {
+  cameraMarkersLayer.clearLayers();
   cameraCount.textContent = `${availableCameras.length} câmeras`;
 
   for (const camera of availableCameras) {
@@ -120,7 +136,8 @@ const insertCamera = async (e) => {
 
     if (!response.ok) throw new Error("Erro ao inserir câmera");
 
-    await renderCameraMarkers();
+    cameras = await fetchCameras();
+    renderCameraMarkers(filterCameras(cameraSearch.value));
     resetCameraForm();
     closeCameraModal();
   } catch (error) {
@@ -138,7 +155,8 @@ async function deleteCamera(id, identifier) {
 
       if (!response.ok) throw new Error("Erro ao deletar câmera");
 
-      await renderCameraMarkers();
+      cameras = await fetchCameras();
+      renderCameraMarkers(filterCameras(cameraSearch.value));
       closeCameraModal();
     } catch (error) {
       console.error(error);
@@ -161,10 +179,18 @@ const setupFormEvents = () => {
   createCameraForm.addEventListener("submit", insertCamera);
 };
 
+const setupSearchEvents = () => {
+  cameraSearch.addEventListener("input", (event) => {
+    renderCameraMarkers(filterCameras(event.target.value));
+  });
+};
+
 const init = async () => {
   setupFormEvents();
   setupModalEvents();
-  await renderCameraMarkers();
+  setupSearchEvents();
+  cameras = await fetchCameras();
+  renderCameraMarkers();
 };
 
 init();

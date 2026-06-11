@@ -9,17 +9,20 @@ async function salvarImagem(e) {
   if (!imagemFile) return alert("Selecione uma imagem!");
 
   const novaImagem = {
-    camera: document.getElementById("camera").value,
-    dataHoraCaptura: document.getElementById("dataHora").value,
-    localizacao: document.getElementById("localizacao").value,
-    descricao: document.getElementById("descricao").value,
-    nomeArquivo: imagemFile.name
+    cameraId: document.getElementById("camera").value,
+    file: {
+      name: imagemFile.name,
+      sizeInKbs: imagemFile.size,
+      status: "in-evaluation",
+      createdAt: document.getElementById("dataHora").value,
+      type: imagemFile.type,
+    },
   };
 
   await fetch(API, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(novaImagem)
+    body: JSON.stringify(novaImagem),
   });
 
   carregarImagens();
@@ -33,7 +36,7 @@ async function carregarImagens() {
   const tabela = document.getElementById("tabela");
   tabela.innerHTML = "";
 
-  dados.forEach(img => {
+  dados.forEach((img) => {
     tabela.innerHTML += `
       <tr>
         <td>${img.camera}</td>
@@ -49,12 +52,12 @@ async function carregarImagens() {
 }
 
 // Tornando a função global para que o onclick do HTML a encontre
-window.excluir = async function(id) {
+window.excluir = async function (id) {
   if (confirm("Deseja realmente excluir?")) {
     await fetch(`${API}/${id}`, { method: "DELETE" });
     carregarImagens();
   }
-}
+};
 
 function limparForm() {
   document.getElementById("formImagem").reset();

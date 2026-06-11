@@ -149,6 +149,17 @@
         "createdAt": "2026-05-22T06:30:00.000Z",
         "type": "image/png"
       }
+    },
+    {
+      "cameraId": "Cam 01 - Norte",
+      "file": {
+        "name": "Fernando Rodrigues-en.pdf",
+        "sizeInKbs": 29468,
+        "status": "in-evaluation",
+        "createdAt": "2002-08-04T04:12",
+        "type": "application/pdf"
+      },
+      "id": "oB8Yrvn"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -67,13 +67,15 @@
 
     <div class="content">
       <header class="app-header">
-        <div>
+        <div class="header-copy">
           <p class="eyebrow">Amigos da Onça</p>
           <h1>Mapa de Câmeras</h1>
         </div>
-        <div class="camera-section">
+        <div class="camera-section" aria-label="Resumo de câmeras">
           <span id="camera-count">0 câmeras</span>
-          <button id="add-camera"><span>+</span>Adicionar Câmera</button>
+          <button id="add-camera" type="button">
+            <span aria-hidden="true">+</span>Adicionar Câmera
+          </button>
         </div>
       </header>
 
@@ -82,9 +84,12 @@
           <div class="search-icon"><i class="ph ph-magnifying-glass"></i></div>
           <div class="search-input-wrapper">
             <input
+              id="camera-search"
               class="search-input"
-              placeholder="Buscar câmera por ID ou Apelido"
-              type="text"
+              placeholder="Buscar câmera por ID ou apelido"
+              type="search"
+              aria-label="Buscar câmera por ID ou apelido"
+              autocomplete="off"
             />
           </div>
         </div>
