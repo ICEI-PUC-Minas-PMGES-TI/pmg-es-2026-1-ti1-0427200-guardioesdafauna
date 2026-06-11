@@ -94,5 +94,62 @@
       "id": "FRck0toobQI"
     }
   ],
+  "uploads": [
+    {
+      "id": "upl-001",
+      "cameraId": "nYEF8PQjRrY",
+      "file": {
+        "name": "jaguatirica_mata_01.mp4",
+        "sizeInKbs": 24580,
+        "status": "approved",
+        "createdAt": "2026-05-18T14:30:00.000Z",
+        "type": "video/mp4"
+      }
+    },
+    {
+      "id": "upl-002",
+      "cameraId": "fjLe2tpEajs",
+      "file": {
+        "name": "lobo_guara_parque.jpg",
+        "sizeInKbs": 3420,
+        "status": "in-evaluation",
+        "createdAt": "2026-05-19T08:15:00.000Z",
+        "type": "image/jpeg"
+      }
+    },
+    {
+      "id": "upl-003",
+      "cameraId": "AaQQ2oCfhGE",
+      "file": {
+        "name": "tamandua_bandeira_avistamento.mp4",
+        "sizeInKbs": 51200,
+        "status": "pending",
+        "createdAt": "2026-05-20T19:45:00.000Z",
+        "type": "video/mp4"
+      }
+    },
+    {
+      "id": "upl-004",
+      "cameraId": "eGWcXSWOqOU",
+      "file": {
+        "name": "capivara_lago_registro.jpg",
+        "sizeInKbs": 1870,
+        "status": "rejected",
+        "createdAt": "2026-05-21T11:00:00.000Z",
+        "type": "image/jpeg"
+      }
+    },
+    {
+      "id": "upl-005",
+      "cameraId": "SCLEXkm0XE0",
+      "file": {
+        "name": "veado_mateiro_rastejo.png",
+        "sizeInKbs": 5600,
+        "status": "in-evaluation",
+        "createdAt": "2026-05-22T06:30:00.000Z",
+        "type": "image/png"
+      }
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

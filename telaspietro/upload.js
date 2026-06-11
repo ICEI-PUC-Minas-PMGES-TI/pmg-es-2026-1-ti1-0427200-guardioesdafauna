@@ -1,4 +1,4 @@
-const API = "http://localhost:3000/imagens";
+const API = "http://localhost:3000/uploads";
 
 document.getElementById("formImagem").addEventListener("submit", salvarImagem);
 
