@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ocorrência</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                
+                <div class="card form-card shadow-lg border-0">
+                    <div class="card-header form-header text-white text-center py-4">
+                        <h2 class="mb-1 fw-bold">Observação de Ocorrência</h2>
+                        <p class="mb-0 text-white-50">Ajude a proteger nossos animais, caso veja algo de errado, por favor, nos informe.</p>
+                    </div>
+                    
+                    <div class="card-body p-4 p-md-5">
+                        
+                        <div id="alertaSucesso" class="alert alert-success d-none" role="alert">
+                            <strong>Pronto!</strong> Seu registro foi enviado com sucesso. Obrigado por ajudar!
+                        </div>
+
+                        <form id="formDenuncia">
+                            <h5 class="text-success border-bottom pb-2 mb-3">1. Detalhes da Situação</h5>
+                            
+                            <div class="mb-4">
+                                <label for="tipoSituacao" class="form-label fw-bold">Qual é a situação? <span class="text-danger">*</span></label>
+                                <select id="tipoSituacao" class="form-select" required>
+                                    <option value="" selected disabled>Selecione uma opção...</option>
+                                    <option value="ferido">Animal ferido, doente ou em cativeiro</option>
+                                    <option value="risco">Animal em área de risco (rodovia, área urbana)</option>
+                                    <option value="avistamento">Avistamento de espécie rara/saudável</option>
+                                    <option value="foco_incendio">Foco de incêndio próximo a habitat</option>
+                                    <option value="outro">Outro</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="inputLocalizacao" class="form-label fw-bold">Onde ocorreu? <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <input type="text" id="inputLocalizacao" class="form-control" placeholder="Endereço, rodovia ou ponto de referência..." required>
+                                    <button class="btn btn-outline-success btn-gps" type="button" id="btnGps">📍 Pegar Localização</button>
+                                </div>
+                                <div id="gpsStatus" class="form-text text-muted"></div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label for="dataOcorrencia" class="form-label fw-bold">Data <span class="text-danger">*</span></label>
+                                    <input type="date" id="dataOcorrencia" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="horaOcorrencia" class="form-label fw-bold">Hora <span class="text-danger">*</span></label>
+                                    <input type="time" id="horaOcorrencia" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="descricaoDetalhada" class="form-label fw-bold">Detalhes adicionais</label>
+                                <textarea id="descricaoDetalhada" class="form-control" rows="3" placeholder="Descreva a espécie (se souber), o estado do animal e o cenário ao redor..."></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="arquivoEvidencia" class="form-label fw-bold">Evidências (Opcional)</label>
+                                <input class="form-control" type="file" id="arquivoEvidencia" accept="image/*,video/*">
+                                <div class="form-text">Fotos ou vídeos curtos ajudam a equipe de resgate a se preparar.</div>
+                            </div>
+
+                            <h5 class="text-success border-bottom pb-2 mb-3 mt-5">2. Seus Dados (Opcional)</h5>
+                            <p class="text-muted small">Deixe seu contato caso a equipe precise de mais informações para encontrar o local.</p>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <input type="text" id="nomeContato" class="form-control" placeholder="Nome completo">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="telefoneContato" class="form-control" placeholder="Telefone ou WhatsApp">
+                                </div>
+                            </div>
+
+                            <div class="d-grid mt-5">
+                                <button type="submit" id="btnEnviar" class="btn btn-success btn-lg fw-bold shadow-sm">
+                                    ENVIAR REGISTRO
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="form.js"></script>
+</body>
+</html>
