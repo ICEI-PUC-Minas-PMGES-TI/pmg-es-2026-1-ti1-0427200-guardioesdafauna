@@ -5,10 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/sidebar.css" />
     <script src="./assets/js/login.js"></script>
   </head>
-  <body>
-    <header>
+  <body class="app-shell">
+    <aside class="app-sidebar" aria-label="Navegação principal">
+      <a class="app-sidebar__brand" href="./modulos/mapa/index.html">
+        <span class="app-sidebar__logo">GF</span>
+        <div>
+          <p class="app-sidebar__title">Guardiões da Fauna</p>
+          <p class="app-sidebar__subtitle">Portal de preservação</p>
+        </div>
+      </a>
+      <nav class="app-sidebar__links">
+        <a href="./index.html"><span class="app-sidebar__icon"><i class="ph ph-house"></i></span><span>Home</span></a>
+        <a href="./modulos/mapa/index.html"><span class="app-sidebar__icon"><i class="ph ph-map-trifold"></i></span><span>Mapa</span></a>
+        <a href="./modulos/listagem-upload/index.html"><span class="app-sidebar__icon"><i class="ph ph-upload-simple"></i></span><span>Uploads</span></a>
+        <a href="./modulos/tacciotelaongs/ongs.html"><span class="app-sidebar__icon"><i class="ph ph-users-three"></i></span><span>ONGs</span></a>
+        <a href="./modulos/tacciodenunciatela/form.html"><span class="app-sidebar__icon"><i class="ph ph-warning-circle"></i></span><span>Ocorrências</span></a>
+        <a class="active" href="./about.html"><span class="app-sidebar__icon"><i class="ph ph-info"></i></span><span>Sobre</span></a>
+      </nav>
+    </aside>
+    <header class="app-content">
       <div class="banner">
         <img src="./assets/images/banner_ti.png" alt="" />
       </div>
@@ -24,7 +42,7 @@
         </div>
       </div>
     </header>
-    <main>
+    <main class="app-content">
       <h1>Sobre nós</h1>
       <p>Página com informações sobre o site.</p>
     </main>

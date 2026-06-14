@@ -5,12 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listagem de uploads</title>
     <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <main class="uploads-page">
+  <body class="app-shell">
+    <aside class="app-sidebar" aria-label="Navegação principal">
+      <a class="app-sidebar__brand" href="../mapa/index.html">
+        <span class="app-sidebar__logo">GF</span>
+        <div>
+          <p class="app-sidebar__title">Guardiões da Fauna</p>
+          <p class="app-sidebar__subtitle">Portal de preservação</p>
+        </div>
+      </a>
+      <nav class="app-sidebar__links">
+        <a href="../../index.html"><span class="app-sidebar__icon"><i class="ph ph-house"></i></span><span>Home</span></a>
+        <a href="../mapa/index.html"><span class="app-sidebar__icon"><i class="ph ph-map-trifold"></i></span><span>Mapa</span></a>
+        <a class="active" href="./index.html"><span class="app-sidebar__icon"><i class="ph ph-upload-simple"></i></span><span>Uploads</span></a>
+        <a href="../tacciotelaongs/ongs.html"><span class="app-sidebar__icon"><i class="ph ph-users-three"></i></span><span>ONGs</span></a>
+        <a href="../tacciodenunciatela/form.html"><span class="app-sidebar__icon"><i class="ph ph-warning-circle"></i></span><span>Ocorrências</span></a>
+        <a href="../../about.html"><span class="app-sidebar__icon"><i class="ph ph-info"></i></span><span>Sobre</span></a>
+      </nav>
+    </aside>
+    <main class="app-content uploads-page">
       <section class="card">
-        <ul id="uploads-list" class="uploads-list"></ul>
+        <header class="uploads-header">
+          <h1>Histórico de uploads</h1>
+          <p id="message" class="message"></p>
+        </header>
+
+        <form class="filters" id="filters-form">
+          <label>
+            Nome do arquivo
+            <input id="name-filter" type="search" placeholder="Filtrar por nome" />
+          </label>
+
+          <label>
+            Câmera
+            <select id="camera-filter">
+              <option value="">Todas as câmeras</option>
+            </select>
+          </label>
+
+          <label>
+            Ordenar por
+            <select id="sort-filter">
+              <option value="date-desc">Data mais recente</option>
+              <option value="date-asc">Data mais antiga</option>
+              <option value="status-asc">Status A-Z</option>
+              <option value="status-desc">Status Z-A</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="table-wrap">
+          <table class="uploads-table">
+            <thead>
+              <tr>
+                <th>Arquivo</th>
+                <th>Câmera</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>Tamanho</th>
+              </tr>
+            </thead>
+            <tbody id="uploads-table-body"></tbody>
+          </table>
+        </div>
       </section>
     </main>
 

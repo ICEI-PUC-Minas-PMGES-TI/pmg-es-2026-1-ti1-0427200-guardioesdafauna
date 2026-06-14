@@ -1,0 +1,128 @@
+@import url("https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css");
+
+.app-shell {
+  min-height: 100vh;
+  padding-left: 280px;
+  overflow: auto;
+}
+
+.app-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 24px 16px;
+  background: #f0eee4;
+  border-right: 1px solid #e1ddcf;
+  color: #1b4332;
+}
+
+.app-sidebar__brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 28px;
+  color: #1b4332;
+  text-decoration: none;
+}
+
+.app-sidebar__logo {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 8px;
+  background: #1b4332;
+  color: #fffdf7;
+  font-weight: 800;
+}
+
+.app-sidebar__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.app-sidebar__subtitle {
+  margin: 2px 0 0;
+  color: rgba(27, 67, 50, 0.72);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.app-sidebar__links {
+  display: grid;
+  gap: 6px;
+}
+
+.app-sidebar__links a {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: rgba(27, 28, 22, 0.72);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.app-sidebar__links a:hover,
+.app-sidebar__links a.active {
+  background: #1b4332;
+  color: #fffdf7;
+}
+
+.app-sidebar__icon {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(27, 67, 50, 0.1);
+  font-size: 18px;
+}
+
+.app-sidebar__links a:hover .app-sidebar__icon,
+.app-sidebar__links a.active .app-sidebar__icon {
+  background: rgba(255, 253, 247, 0.16);
+}
+
+.app-content {
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    padding-left: 0;
+    padding-top: 238px;
+  }
+
+  .app-sidebar {
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .app-sidebar__brand {
+    margin-bottom: 12px;
+  }
+
+  .app-sidebar__links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app-sidebar__links a {
+    padding: 10px;
+  }
+}
