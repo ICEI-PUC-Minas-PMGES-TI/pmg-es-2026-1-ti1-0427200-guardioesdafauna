@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Amigos da Onça</title>
     <link rel="stylesheet" href="../../assets/css/styles.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -23,49 +24,26 @@
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
   </head>
-  <body>
-    <aside class="sidebar" aria-label="Navegação principal">
-      <div class="sidebar-station">
-        <div class="station-icon">
-          <i class="ph ph-cactus" style="font-size: 24px"></i>
-        </div>
+  <body class="app-shell">
+    <aside class="app-sidebar" aria-label="Navegação principal">
+      <a class="app-sidebar__brand" href="./index.html">
+        <span class="app-sidebar__logo">GF</span>
         <div>
-          <p class="station-title">ONG 01</p>
-          <p class="station-sector">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-            obcaecati voluptatum ad consequuntur
-          </p>
+          <p class="app-sidebar__title">Guardiões da Fauna</p>
+          <p class="app-sidebar__subtitle">Portal de preservação</p>
         </div>
-      </div>
-
-      <nav class="links">
-        <a class="active" href="./index.html">
-          <i class="ph ph-map-trifold" style="font-size: 24px"></i>
-          <span>Mapa</span>
-        </a>
-        <a href="../listagem-upload/index.html">
-          <i class="ph ph-upload-simple" style="font-size: 24px"></i>
-          <span>Uploads</span>
-        </a>
-        <a href="../tacciotelaongs/ongs.html">
-          <i class="ph ph-users-three" style="font-size: 24px"></i>
-          <span>ONGs</span>
-        </a>
-        <a href="../tacciodenunciatela/form.html">
-          <i class="ph ph-warning-circle" style="font-size: 24px"></i>
-          <span>Ocorrências</span>
-        </a>
-      </nav>
-
-      <nav class="sidebar-footer" aria-label="Links secundários">
-        <a href="../../about.html">
-          <i class="ph ph-info"></i>
-          <span>Suporte</span>
-        </a>
+      </a>
+      <nav class="app-sidebar__links">
+        <a href="../../index.html"><span class="app-sidebar__icon"><i class="ph ph-house"></i></span><span>Home</span></a>
+        <a class="active" href="./index.html"><span class="app-sidebar__icon"><i class="ph ph-map-trifold"></i></span><span>Mapa</span></a>
+        <a href="../listagem-upload/index.html"><span class="app-sidebar__icon"><i class="ph ph-upload-simple"></i></span><span>Uploads</span></a>
+        <a href="../tacciotelaongs/ongs.html"><span class="app-sidebar__icon"><i class="ph ph-users-three"></i></span><span>ONGs</span></a>
+        <a href="../tacciodenunciatela/form.html"><span class="app-sidebar__icon"><i class="ph ph-warning-circle"></i></span><span>Ocorrências</span></a>
+        <a href="../../about.html"><span class="app-sidebar__icon"><i class="ph ph-info"></i></span><span>Sobre</span></a>
       </nav>
     </aside>
 
-    <div class="content">
+    <div class="app-content map-content">
       <header class="app-header">
         <div class="header-copy">
           <p class="eyebrow">Amigos da Onça</p>

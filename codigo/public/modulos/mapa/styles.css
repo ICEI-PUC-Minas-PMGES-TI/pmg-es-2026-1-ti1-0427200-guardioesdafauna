@@ -478,11 +478,10 @@ form {
   transform: scale(1);
 }
 
-div.content {
+.map-content {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  margin-left: 20rem;
   position: relative;
 }
 
@@ -498,8 +497,8 @@ div.content {
     flex-wrap: wrap;
   }
 
-  div.content {
-    margin-left: 0;
+  .map-content {
+    height: calc(100vh - 238px);
   }
 
   .search-card {
