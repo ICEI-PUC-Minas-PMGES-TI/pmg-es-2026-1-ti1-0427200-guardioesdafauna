@@ -107,17 +107,6 @@
       }
     },
     {
-      "id": "upl-002",
-      "cameraId": "fjLe2tpEajs",
-      "file": {
-        "name": "lobo_guara_parque.jpg",
-        "sizeInKbs": 3420,
-        "status": "in-evaluation",
-        "createdAt": "2026-05-19T08:15:00.000Z",
-        "type": "image/jpeg"
-      }
-    },
-    {
       "id": "upl-003",
       "cameraId": "AaQQ2oCfhGE",
       "file": {
@@ -151,15 +140,15 @@
       }
     },
     {
-      "cameraId": "Cam 01 - Norte",
+      "cameraId": "fjLe2tpEajs",
       "file": {
-        "name": "Fernando Rodrigues-en.pdf",
-        "sizeInKbs": 29468,
+        "name": "TIAW - Planejamento Sprint - 2-1-1.pdf",
+        "sizeInKbs": 198,
         "status": "in-evaluation",
-        "createdAt": "2002-08-04T04:12",
+        "createdAt": "1010-10-10T10:10",
         "type": "application/pdf"
       },
-      "id": "oB8Yrvn"
+      "id": "rmJSzAO"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
