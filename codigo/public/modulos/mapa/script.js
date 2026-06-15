@@ -19,6 +19,13 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const cameraMarkersLayer = L.layerGroup().addTo(map);
+const normalizeSearchTerm = (value) =>
+  String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase();
+
 const buildMarkerPopup = (camera) => `
    <article class="popup">
       <header>
@@ -81,7 +88,7 @@ const fetchCameras = async () => {
 };
 
 const filterCameras = (searchTerm) => {
-  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+  const normalizedSearchTerm = normalizeSearchTerm(searchTerm);
 
   if (!normalizedSearchTerm) return cameras;
 
