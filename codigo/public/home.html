@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guardiões da Fauna</title>
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/sidebar.css" />
+    <script src="./assets/js/layout.js" defer></script>
+    <script src="./assets/js/login.js"></script>
+  </head>
+  <body data-root="./" data-page="home">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <p>Central operacional</p>
+          <h1>Guardiões da Fauna</h1>
+          <p class="lede">
+            Plataforma única para monitoramento de câmeras, gestão de ONGs,
+            acompanhamento de onças, triagem de evidências e resposta a
+            ocorrências.
+          </p>
+        </div>
+        <div class="user-pill">
+          <span>Usuário ativo</span>
+          <strong id="userInfo"></strong>
+        </div>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow">Operação conectada</p>
+        <h2>Todos módulos agora partem da mesma entrada e da mesma navegação.</h2>
+        <p>
+          Fluxo principal: cadastrar ONG, vincular onças, receber uploads de
+          câmeras, registrar ocorrência e medir impacto com exportação de
+          indicadores.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="./modulos/tacciotelaongs/ongs.html">Cadastrar ONG</a>
+          <a class="button-secondary" href="./modulos/listagem-upload/index.html">Processar upload</a>
+          <a class="button-ghost" href="./modulos/metricas/metricas.html">Ver métricas</a>
+        </div>
+      </section>
+
+      <section style="margin-top: 22px" class="stats-grid">
+        <article class="stat-card">
+          <p>Módulos principais</p>
+          <strong>6</strong>
+          <span>Mapa, uploads, ONGs, onças, ocorrências e métricas.</span>
+        </article>
+        <article class="stat-card">
+          <p>Entradas unificadas</p>
+          <strong>100%</strong>
+          <span>Home e sidebar apontam para todas telas ativas.</span>
+        </article>
+        <article class="stat-card">
+          <p>Backend local</p>
+          <strong>JSON</strong>
+          <span>CRUD centralizado em `db.json` via JSON Server.</span>
+        </article>
+        <article class="stat-card">
+          <p>Foco atual</p>
+          <strong>ONG</strong>
+          <span>Cadastro, edição, métricas e exportações.</span>
+        </article>
+      </section>
+
+      <section style="margin-top: 22px" class="cards-grid">
+        <article class="feature-card">
+          <div class="feature-card__icon">🗺️</div>
+          <h3>Mapa operacional</h3>
+          <p>Gerencie câmeras em campo, filtre dispositivos e remova pontos obsoletos.</p>
+          <div class="button-row">
+            <a class="button-ghost" href="./modulos/mapa/index.html">Abrir mapa</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">⬆️</div>
+          <h3>Uploads e evidências</h3>
+          <p>Envio com processamento de arquivo, histórico, filtros, preview e exclusão.</p>
+          <div class="button-row">
+            <a class="button-ghost" href="./modulos/listagem-upload/index.html">Abrir uploads</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">🤝</div>
+          <h3>Rede de ONGs</h3>
+          <p>Cadastro completo de instituição, edição, filtros e gestão de voluntariado.</p>
+          <div class="button-row">
+            <a class="button-ghost" href="./modulos/tacciotelaongs/ongs.html">Abrir ONGs</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">🐆</div>
+          <h3>Onças monitoradas</h3>
+          <p>Listagem conectada ao JSON Server com detalhes e remoção de registros.</p>
+          <div class="button-row">
+            <a class="button-ghost" href="./modulos/oncas/oncas.html">Abrir onças</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">🚨</div>
+          <h3>Ocorrências</h3>
+          <p>Receba denúncias, use GPS no navegador e salve evidências no backend local.</p>
+          <div class="button-row">
+            <a class="button-ghost" href="./modulos/tacciodenunciatela/form.html">Abrir ocorrências</a>
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">📊</div>
+          <h3>Métricas e exportação</h3>
+          <p>Leia indicadores por ONG, compare desempenho e exporte relatórios em CSV.</p>
+          <div class="button-row">
+            <a class="button-ghost" href="./modulos/metricas/metricas.html">Abrir métricas</a>
+          </div>
+        </article>
+      </section>
+
+      <section style="margin-top: 22px" class="split-layout">
+        <article class="panel">
+          <h2>Plano de fechamento</h2>
+          <p>
+            Projeto agora tem base única. Próximo passo prático fica em
+            consolidar backlog final e alinhar todas telas ao mesmo sistema.
+          </p>
+          <div class="button-row">
+            <a class="button-secondary" href="./project-plan.md">Abrir plano</a>
+          </div>
+        </article>
+        <article class="panel">
+          <h2>Diretriz visual</h2>
+          <p>
+            Sistema usa mesma paleta terra+floresta, mesma tipografia e mesmos
+            componentes de cards, tabelas, formulários e badges em todas
+            páginas.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
