@@ -1,4 +1,4 @@
-const API_ROOT = "http://localhost:3000";
+const API_ROOT = window.location.origin;
 const API_URL = `${API_ROOT}/ongs`;
 const API_VOLUNTARIOS_URL = `${API_ROOT}/voluntarios`;
 
