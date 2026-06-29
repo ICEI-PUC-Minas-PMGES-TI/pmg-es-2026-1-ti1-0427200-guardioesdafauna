@@ -18,12 +18,10 @@
           <p>Rede parceira</p>
           <h1>Gestão de ONGs</h1>
           <p class="lede">
-            Cadastre instituições com dados completos, edite cadastro e receba
-            voluntários.
+            Cadastre instituições com dados completos e edite cadastro.
           </p>
         </div>
         <div class="button-row">
-          <button class="button-ghost" type="button" data-open-modal="volunteer-modal">Receber voluntário</button>
           <button class="button-secondary" type="button" data-open-modal="ong-modal">Cadastrar ONG</button>
         </div>
       </header>
@@ -49,7 +47,7 @@
             </div>
             <fieldset class="field span-2">
               <legend>Tipos de apoio</legend>
-              <div class="check-row">
+              <div class="check-row" style="margin-top: 16px;">
                 <label class="chip-check"><input class="check-apoio" type="checkbox" value="voluntariado" />Voluntariado</label>
                 <label class="chip-check"><input class="check-apoio" type="checkbox" value="monitoramento" />Monitoramento</label>
                 <label class="chip-check"><input class="check-apoio" type="checkbox" value="doacao" />Doações</label>
@@ -58,7 +56,7 @@
             </fieldset>
           </div>
           <div class="button-row">
-            <button id="btn-limpar" class="button-ghost" type="button">Limpar filtros</button>
+            <button id="btn-limpar" style="margin-top: 16px;" class="button-ghost" type="button">Limpar filtros</button>
           </div>
         </article>
 
@@ -77,73 +75,6 @@
         <div id="sem-resultados" class="empty-state" hidden>Nenhuma ONG atende aos critérios selecionados.</div>
       </section>
     </main>
-
-    <section class="modal-sheet" id="volunteer-modal" hidden>
-      <div class="modal-sheet__card">
-        <div class="modal-sheet__header">
-          <div>
-            <p class="eyebrow">Cadastro de apoio</p>
-            <h2>Receber voluntário</h2>
-          </div>
-          <button class="button-ghost" type="button" data-close-modal="volunteer-modal">Fechar</button>
-        </div>
-        <form id="form-voluntario" class="form-grid">
-          <div class="field">
-            <label for="vol-nome">Nome completo</label>
-            <input type="text" id="vol-nome" required />
-          </div>
-          <div class="field">
-            <label for="vol-email">E-mail</label>
-            <input type="email" id="vol-email" required />
-          </div>
-          <div class="field">
-            <label for="vol-telefone">Telefone</label>
-            <input type="tel" id="vol-telefone" required />
-          </div>
-          <div class="field">
-            <label for="vol-cidade">Cidade / Estado</label>
-            <input type="text" id="vol-cidade" required />
-          </div>
-          <div class="field">
-            <label for="vol-area">Área de interesse</label>
-            <select id="vol-area" required>
-              <option value="">Selecione</option>
-              <option value="resgate">Resgate</option>
-              <option value="campo">Monitoramento de campo</option>
-              <option value="educacao">Educação ambiental</option>
-              <option value="comunicacao">Comunicação</option>
-            </select>
-          </div>
-          <fieldset class="field">
-            <legend>Disponibilidade</legend>
-            <div class="check-row">
-              <label class="chip-check"><input type="checkbox" id="dias-uteis" />Dias úteis</label>
-              <label class="chip-check"><input type="checkbox" id="finais-semana" />Finais de semana</label>
-            </div>
-          </fieldset>
-          <fieldset class="field span-2">
-            <legend>Tipo de voluntariado</legend>
-            <div class="check-row">
-              <label class="chip-check"><input type="checkbox" id="vol-presencial" />Presencial</label>
-              <label class="chip-check"><input type="checkbox" id="vol-remoto" />Remoto</label>
-              <label class="chip-check"><input type="checkbox" id="vol-eventual" />Ações pontuais</label>
-            </div>
-          </fieldset>
-          <div class="field field--full">
-            <label for="vol-experiencia">Experiência / habilidades</label>
-            <textarea id="vol-experiencia"></textarea>
-          </div>
-          <div class="field field--full">
-            <p id="voluntario-feedback" class="inline-note"></p>
-          </div>
-          <div class="field field--full">
-            <div class="button-row">
-              <button type="submit" class="button-secondary">Salvar inscrição</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
 
     <section class="modal-sheet" id="ong-modal" hidden>
       <div class="modal-sheet__card">
@@ -204,7 +135,7 @@
           </div>
           <div class="field field--full">
             <label for="form-necessidades">Necessidades atuais</label>
-            <textarea id="form-necessidades" placeholder="Ex: combustível, drones, veterinário parceiro, voluntários..."></textarea>
+            <textarea id="form-necessidades" placeholder="Ex: combustível, drones, veterinário parceiro..."></textarea>
           </div>
           <fieldset class="field span-2">
             <legend>Tipos de apoio aceitos</legend>

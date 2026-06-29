@@ -1,10 +1,10 @@
-const API = "http://localhost:3000";
+const API = window.location.origin;
 
 const statsGrid = document.getElementById("stats-grid");
 const ongChart = document.getElementById("ong-chart");
 const uploadChart = document.getElementById("upload-chart");
 const tableBody = document.getElementById("metrics-table-body");
-const exportCsvButton = document.getElementById("export-csv");
+
 const exportJsonButton = document.getElementById("export-json");
 
 let exportRows = [];
@@ -39,22 +39,37 @@ function renderBarChart(container, rows, maxValue) {
     .join("");
 }
 
+function getStatusLabel(status) {
+  const labels = {
+    approved: "Aprovado",
+    pending: "Pendente",
+    rejected: "Rejeitado",
+    "in-evaluation": "Em avaliação",
+  };
+  return labels[status] || "Sem status";
+}
+
 function dominantStatus(oncaRows) {
   const counts = oncaRows.reduce((acc, item) => {
     acc[item.status] = (acc[item.status] || 0) + 1;
     return acc;
   }, {});
 
-  return Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] || "Sem dados";
+  return (
+    getStatusLabel(
+      Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0],
+    ) || "Sem dados"
+  );
 }
 
 async function loadMetrics() {
-  const [ongsResponse, oncasResponse, uploadsResponse, ocorrenciasResponse] = await Promise.all([
-    fetch(`${API}/ongs`),
-    fetch(`${API}/oncas`),
-    fetch(`${API}/uploads`),
-    fetch(`${API}/ocorrencias`),
-  ]);
+  const [ongsResponse, oncasResponse, uploadsResponse, ocorrenciasResponse] =
+    await Promise.all([
+      fetch(`${API}/ongs`),
+      fetch(`${API}/oncas`),
+      fetch(`${API}/uploads`),
+      fetch(`${API}/ocorrencias`),
+    ]);
 
   const [ongs, oncas, uploads, ocorrencias] = await Promise.all([
     ongsResponse.json(),
@@ -64,15 +79,18 @@ async function loadMetrics() {
   ]);
 
   const metrics = ongs.map((ong) => {
-    const oncasDaOng = oncas.filter((onca) => String(onca.ongId) === String(ong.id));
+    const oncasDaOng = oncas.filter(
+      (onca) => String(onca.ongId) === String(ong.id),
+    );
     const uploadsRelacionados = uploads.filter((upload) =>
-      oncasDaOng.some((onca) => String(onca.cameraId || "") === String(upload.cameraId)),
+      oncasDaOng.some(
+        (onca) => String(onca.cameraId || "") === String(upload.cameraId),
+      ),
     );
 
     return {
       nome: ong.nome,
       oncasMonitoradas: oncasDaOng.length,
-      capacidadeMensal: Number(ong.capacidadeMensal || 0),
       uploadsLigados: uploadsRelacionados.length,
       statusDominante: dominantStatus(oncasDaOng),
     };
@@ -81,10 +99,26 @@ async function loadMetrics() {
   exportRows = metrics;
 
   const cards = [
-    { label: "ONGs ativas", value: ongs.length, note: "Rede parceira cadastrada" },
-    { label: "Onças monitoradas", value: oncas.length, note: "Animais no sistema" },
-    { label: "Uploads registrados", value: uploads.length, note: "Evidências processadas" },
-    { label: "Ocorrências abertas", value: ocorrencias.length, note: "Entradas de campo" },
+    {
+      label: "ONGs ativas",
+      value: ongs.length,
+      note: "Rede parceira cadastrada",
+    },
+    {
+      label: "Onças monitoradas",
+      value: oncas.length,
+      note: "Animais no sistema",
+    },
+    {
+      label: "Uploads registrados",
+      value: uploads.length,
+      note: "Evidências processadas",
+    },
+    {
+      label: "Ocorrências abertas",
+      value: ocorrencias.length,
+      note: "Entradas de campo",
+    },
   ];
 
   statsGrid.innerHTML = cards
@@ -113,7 +147,7 @@ async function loadMetrics() {
 
   renderBarChart(
     uploadChart,
-    Object.entries(uploadStatuses).map(([label, value]) => ({ label, value })),
+    Object.entries(uploadStatuses).map(([key, value]) => ({ label: getStatusLabel(key), value })),
     Math.max(...Object.values(uploadStatuses), 1),
   );
 
@@ -123,7 +157,6 @@ async function loadMetrics() {
         <tr>
           <td>${row.nome}</td>
           <td>${row.oncasMonitoradas}</td>
-          <td>${row.capacidadeMensal}</td>
           <td>${row.uploadsLigados}</td>
           <td>${row.statusDominante}</td>
         </tr>
@@ -132,16 +165,12 @@ async function loadMetrics() {
     .join("");
 }
 
-exportCsvButton.addEventListener("click", () => {
-  const header = "ONG,Oncas monitoradas,Capacidade mensal,Uploads ligados,Status dominante";
-  const rows = exportRows.map((row) =>
-    [row.nome, row.oncasMonitoradas, row.capacidadeMensal, row.uploadsLigados, row.statusDominante].join(","),
-  );
-  downloadFile("metricas-ongs.csv", [header, ...rows].join("\n"), "text/csv;charset=utf-8");
-});
-
 exportJsonButton.addEventListener("click", () => {
-  downloadFile("metricas-ongs.json", JSON.stringify(exportRows, null, 2), "application/json");
+  downloadFile(
+    "metricas-ongs.json",
+    JSON.stringify(exportRows, null, 2),
+    "application/json",
+  );
 });
 
 loadMetrics();

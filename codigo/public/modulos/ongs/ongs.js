@@ -1,6 +1,5 @@
 const ONGS_API_ROOT = window.location.origin;
 const ONGS_API_URL = `${ONGS_API_ROOT}/ongs`;
-const VOLUNTARIOS_API_URL = `${ONGS_API_ROOT}/voluntarios`;
 
 const containerOngs = document.getElementById("container-ongs");
 const contadorOngs = document.getElementById("contador-ongs");
@@ -10,11 +9,9 @@ const checkboxesApoio = document.querySelectorAll(".check-apoio");
 const btnLimpar = document.getElementById("btn-limpar");
 const divSemResultados = document.getElementById("sem-resultados");
 const ongSummary = document.getElementById("ong-summary");
-const volunteerForm = document.getElementById("form-voluntario");
 const ongForm = document.getElementById("form-cadastrar-ong");
 const ongModalTitle = document.getElementById("ong-modal-title");
 const ongFeedback = document.getElementById("ong-feedback");
-const voluntarioFeedback = document.getElementById("voluntario-feedback");
 
 let todasAsOngs = [];
 let modoEdicaoId = "";
@@ -30,7 +27,6 @@ function configurarEventos() {
   selectRegiao.addEventListener("change", aplicarFiltros);
   checkboxesApoio.forEach((checkbox) => checkbox.addEventListener("change", aplicarFiltros));
   btnLimpar.addEventListener("click", limparFiltros);
-  volunteerForm.addEventListener("submit", salvarVoluntario);
   ongForm.addEventListener("submit", salvarOng);
 }
 
@@ -183,47 +179,6 @@ function aplicarFiltros() {
 
   renderizarResumo(ongsFiltradas);
   renderizarOngs(ongsFiltradas);
-}
-
-async function salvarVoluntario(event) {
-  event.preventDefault();
-
-  const disponibilidades = Array.from(document.querySelectorAll("#dias-uteis, #finais-semana"))
-    .filter((checkbox) => checkbox.checked)
-    .map((checkbox) => checkbox.parentElement.textContent.trim());
-
-  const tiposVoluntariado = Array.from(
-    document.querySelectorAll("#vol-presencial, #vol-remoto, #vol-eventual"),
-  )
-    .filter((checkbox) => checkbox.checked)
-    .map((checkbox) => checkbox.parentElement.textContent.trim());
-
-  const cadastroVoluntario = {
-    id: `vol-${Date.now()}`,
-    nome: document.getElementById("vol-nome").value.trim(),
-    email: document.getElementById("vol-email").value.trim(),
-    telefone: document.getElementById("vol-telefone").value.trim(),
-    cidadeEstado: document.getElementById("vol-cidade").value.trim(),
-    areaInteresse: document.getElementById("vol-area").value,
-    disponibilidade: disponibilidades,
-    tiposVoluntariado,
-    experiencia: document.getElementById("vol-experiencia").value.trim(),
-  };
-
-  const response = await fetch(VOLUNTARIOS_API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(cadastroVoluntario),
-  });
-
-  voluntarioFeedback.textContent = response.ok
-    ? "Voluntário salvo com sucesso."
-    : "Falha ao salvar voluntário.";
-
-  if (response.ok) {
-    volunteerForm.reset();
-    closeModal("volunteer-modal");
-  }
 }
 
 function coletarApoiosFormulario() {
