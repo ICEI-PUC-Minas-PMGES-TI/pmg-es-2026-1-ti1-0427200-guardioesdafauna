@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:3000";
+const SERVER_URL = window.location.origin;
 const BELO_HORIZONTE_COORDS = [-19.922731, -43.945094];
 
 const modal = document.getElementById("camera-modal");
@@ -50,7 +50,7 @@ const buildMarkerPopup = (camera) => `
 
       <footer>
         <button onclick="closeCameraPopupHtmlInline()" class="close-popup">Fechar</button>
-        <button onclick="deleteCamera('${camera.id}', '${camera.identifier}')" class="delete-camera">Deletar</button>
+        <button onclick="deleteCamera('${camera.id}', '${camera.identifier}')" class="delete-camera">Remover</button>
       </footer>
     </article>
 `;

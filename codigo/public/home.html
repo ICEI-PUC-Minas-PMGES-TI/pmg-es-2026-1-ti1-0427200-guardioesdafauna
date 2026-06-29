@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guardiões da Fauna</title>
+    <link rel="stylesheet" href="./assets/css/app.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/sidebar.css" />
+    <script src="./assets/js/layout.js" defer></script>
+    <script src="./assets/js/login.js"></script>
+  </head>
+  <body data-root="./" data-page="home">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <h1>Guardiões da Fauna</h1>
+          <p class="lede">
+            Plataforma para monitoramento de onças, evidências e ocorrências de
+            campo.
+          </p>
+        </div>
+        <div class="user-pill">
+          <span>Usuário ativo</span>
+          <strong id="userInfo"></strong>
+        </div>
+      </header>
+
+      <section style="margin-top: 22px" class="cards-grid">
+        <article class="feature-card">
+          <div class="feature-card__icon">🗺️</div>
+          <h3>Mapa operacional</h3>
+          <p>
+            Gerencie câmeras em campo, filtre dispositivos e remova pontos
+            obsoletos.
+          </p>
+          <div class="button-row">
+            <a
+              class="button-ghost"
+              style="margin-top: 16px"
+              href="./modulos/mapa/index.html"
+              >Abrir mapa</a
+            >
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">⬆️</div>
+          <h3>Uploads e evidências</h3>
+          <p>
+            Envio com processamento de arquivo, histórico, filtros,
+            pré-visualização e exclusão.
+          </p>
+          <div class="button-row">
+            <a
+              class="button-ghost"
+              style="margin-top: 16px"
+              href="./modulos/listagem-upload/index.html"
+              >Abrir uploads</a
+            >
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">🤝</div>
+          <h3>Rede de ONGs</h3>
+          <p>
+            Cadastro completo de instituição, edição e filtros.
+          </p>
+          <div class="button-row">
+            <a
+              class="button-ghost"
+              style="margin-top: 16px"
+              href="./modulos/ongs/ongs.html"
+              >Abrir ONGs</a
+            >
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">🐆</div>
+          <h3>Onças monitoradas</h3>
+          <p>
+            Listagem de animais monitorados com detalhes e remoção de registros.
+          </p>
+          <div class="button-row">
+            <a
+              class="button-ghost"
+              style="margin-top: 16px"
+              href="./modulos/oncas/oncas.html"
+              >Abrir onças</a
+            >
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">🚨</div>
+          <h3>Ocorrências</h3>
+          <p>
+            Registre denúncias e avistamentos com localização, contato e
+            evidências.
+          </p>
+          <div class="button-row">
+            <a
+              class="button-ghost"
+              style="margin-top: 16px"
+              href="./modulos/ocorrencias/form.html"
+              >Abrir ocorrências</a
+            >
+          </div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon">📊</div>
+          <h3>Métricas e exportação</h3>
+          <p>
+            Leia indicadores por ONG, compare desempenho e exporte relatórios em
+            JSON.
+          </p>
+          <div class="button-row">
+            <a
+              class="button-ghost"
+              style="margin-top: 16px"
+              href="./modulos/metricas/metricas.html"
+              >Abrir métricas</a
+            >
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

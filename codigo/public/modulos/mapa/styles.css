@@ -38,6 +38,11 @@
   line-height: 1.1;
 }
 
+.map-lede {
+  margin: 0.5rem 0 0;
+  color: rgba(255, 247, 232, 0.82);
+}
+
 .app-header .camera-section {
   display: flex;
   align-items: center;
@@ -53,7 +58,7 @@
 
 .app-header #add-camera {
   display: inline-flex;
-  align-items: center;
+  align-items: start;
   gap: 0.45rem;
   padding: 0.55rem 0.85rem;
   border: 1px solid rgba(255, 247, 232, 0.35);
@@ -180,6 +185,10 @@ form {
   }
 }
 
+.leaflet-popup {
+  z-index: 2000 !important;
+}
+
 .leaflet-popup-content-wrapper {
   border-radius: 0.5rem !important;
   max-width: 16rem !important;
@@ -226,7 +235,7 @@ form {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  z-index: 1;
+  z-index: 10000;
   padding: 0.5625rem 0.9375rem;
   border: 1px solid #ff8a00;
   border-radius: 999px;
@@ -306,7 +315,7 @@ form {
 
 .search-card {
   position: absolute;
-  z-index: 9999;
+  z-index: 1000;
   left: 0;
   right: 0;
 

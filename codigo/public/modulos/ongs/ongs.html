@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONGs | Guardiões da Fauna</title>
+    <link rel="stylesheet" href="../../assets/css/app.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+    <link rel="stylesheet" href="./ongs.css" />
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/login.js"></script>
+  </head>
+  <body data-root="../../" data-page="ongs">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <h2>Gestão de ONGs</h2>
+          <p class="lede">
+            Cadastre instituições com dados completos e consulte a rede parceira.
+          </p>
+        </div>
+        <div class="button-row">
+          <button
+            class="button-secondary"
+            type="button"
+            data-open-modal="ong-modal"
+          >
+            Cadastrar ONG
+          </button>
+        </div>
+      </header>
+
+      <section class="split-layout">
+        <article class="panel">
+          <h2>Filtros</h2>
+          <div class="filters-grid">
+            <div class="field">
+              <label for="input-busca">Busca</label>
+              <input
+                type="search"
+                id="input-busca"
+                placeholder="Nome, missão, cidade ou palavra-chave"
+              />
+            </div>
+            <div class="field">
+              <label for="select-regiao">Região</label>
+              <select id="select-regiao">
+                <option value="todos">Todas</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="SP">São Paulo</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="AM">Amazonas</option>
+                <option value="Nacional">Nacional</option>
+              </select>
+            </div>
+            <fieldset class="field span-2">
+              <legend>Tipos de apoio</legend>
+              <div class="check-row" style="margin-top: 16px">
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="voluntariado"
+                  />Voluntariado</label
+                >
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="monitoramento"
+                  />Monitoramento</label
+                >
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="doacao"
+                  />Doações</label
+                >
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="resgate"
+                  />Resgate</label
+                >
+              </div>
+            </fieldset>
+          </div>
+          <div class="button-row">
+            <button
+              id="btn-limpar"
+              style="margin-top: 16px"
+              class="button-ghost"
+              type="button"
+            >
+              Limpar filtros
+            </button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Resumo</h2>
+          <div class="chart-list" id="ong-summary"></div>
+        </article>
+      </section>
+
+      <section style="margin-top: 22px" class="panel">
+        <div class="section-heading">
+          <h2>ONGs parceiras <span id="contador-ongs"></span></h2>
+          <p class="section-copy">
+            Instituições disponíveis para apoio, campo, resgate e pesquisa.
+          </p>
+        </div>
+        <div class="ong-grid" id="container-ongs"></div>
+        <div id="sem-resultados" class="empty-state" hidden>
+          Nenhuma ONG atende aos critérios selecionados.
+        </div>
+      </section>
+    </main>
+
+    <section class="modal-sheet" id="ong-modal" hidden>
+      <div class="modal-sheet__card">
+        <div class="modal-sheet__header">
+          <div>
+            <p class="eyebrow">Cadastro institucional</p>
+            <h2 id="ong-modal-title">Cadastrar ONG</h2>
+          </div>
+          <button
+            class="button-ghost"
+            type="button"
+            data-close-modal="ong-modal"
+          >
+            Fechar
+          </button>
+        </div>
+        <form id="form-cadastrar-ong" class="form-grid">
+          <input type="hidden" id="form-id" />
+          <div class="field">
+            <label for="form-nome">Nome da instituição</label>
+            <input type="text" id="form-nome" required />
+          </div>
+          <div class="field">
+            <label for="form-cnpj">CNPJ</label>
+            <input type="text" id="form-cnpj" required />
+          </div>
+          <div class="field">
+            <label for="form-categoria">Categoria</label>
+            <input type="text" id="form-categoria" required />
+          </div>
+          <div class="field">
+            <label for="form-regiao">Região</label>
+            <select id="form-regiao" required>
+              <option value="Nacional">Nacional</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="SP">São Paulo</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="AM">Amazonas</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="form-cidade">Cidade base</label>
+            <input type="text" id="form-cidade" required />
+          </div>
+          <div class="field">
+            <label for="form-responsavel">Responsável</label>
+            <input type="text" id="form-responsavel" required />
+          </div>
+          <div class="field">
+            <label for="form-email">E-mail</label>
+            <input type="email" id="form-email" required />
+          </div>
+          <div class="field">
+            <label for="form-telefone">Telefone</label>
+            <input type="tel" id="form-telefone" required />
+          </div>
+          <div class="field">
+            <label for="form-link">Site oficial</label>
+            <input type="url" id="form-link" required />
+          </div>
+          <div class="field field--full">
+            <label for="form-descricao">Descrição das atividades</label>
+            <textarea id="form-descricao" required></textarea>
+          </div>
+          <div class="field field--full">
+            <label for="form-necessidades">Necessidades atuais</label>
+            <textarea
+              id="form-necessidades"
+              placeholder="Ex: combustível, drones, veterinário parceiro..."
+            ></textarea>
+          </div>
+          <fieldset class="field span-2">
+            <legend>Tipos de apoio aceitos</legend>
+            <div class="check-row" style="margin-top: 16px">
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="voluntariado"
+                />Voluntariado</label
+              >
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="monitoramento"
+                />Monitoramento</label
+              >
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="doacao"
+                />Doações</label
+              >
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="resgate"
+                />Resgate</label
+              >
+            </div>
+          </fieldset>
+          <div class="field field--full">
+            <label for="form-imagem">Imagem de capa</label>
+            <input type="file" id="form-imagem" accept="image/*" />
+          </div>
+          <div class="field field--full">
+            <p id="ong-feedback" class="inline-note"></p>
+          </div>
+          <div class="field field--full">
+            <div class="button-row">
+              <button type="submit" class="button-secondary">Salvar ONG</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="./ongs.js"></script>
+  </body>
+</html>

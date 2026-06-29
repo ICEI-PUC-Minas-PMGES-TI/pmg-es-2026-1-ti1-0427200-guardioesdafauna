@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocorrências | Guardiões da Fauna</title>
+    <link rel="stylesheet" href="../../assets/css/app.css">
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="form.css">
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/login.js"></script>
+</head>
+<body data-root="../../" data-page="ocorrencias">
+    <aside data-app-sidebar></aside>
+
+    <main class="page">
+        <header class="page-header">
+            <div class="page-header__copy">
+                <h2>Registro de ocorrências</h2>
+                <p class="lede">Registre denúncias e avistamentos com localização, evidência e contato opcional.</p>
+            </div>
+            <div class="user-pill">
+                <span>Usuário ativo</span>
+                <strong id="userInfo"></strong>
+            </div>
+        </header>
+
+        <section class="panel form-card">
+            <div class="form-header">
+                <h2>Observação de ocorrência</h2>
+                <p>Ajude a proteger animais e habitat. O registro fica disponível para análise da equipe.</p>
+            </div>
+
+            <div id="alertaSucesso" class="feedback feedback-success" hidden>
+                <strong>Pronto.</strong> Registro enviado com sucesso.
+            </div>
+
+            <form id="formDenuncia" class="form-grid">
+                <div class="field field--full">
+                    <label for="tipoSituacao">Qual é a situação? *</label>
+                    <select id="tipoSituacao" required>
+                                    <option value="" selected disabled>Selecione uma opção...</option>
+                                    <option value="ferido">Animal ferido, doente ou em cativeiro</option>
+                                    <option value="risco">Animal em área de risco (rodovia, área urbana)</option>
+                                    <option value="avistamento">Avistamento de espécie rara/saudável</option>
+                                    <option value="foco_incendio">Foco de incêndio próximo a habitat</option>
+                                    <option value="outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="field field--full">
+                    <label for="inputLocalizacao">Onde ocorreu? *</label>
+                    <div class="location-row">
+                        <input type="text" id="inputLocalizacao" placeholder="Endereço, rodovia ou ponto de referência..." required>
+                        <button class="button-ghost btn-gps" type="button" id="btnGps">Usar localização atual</button>
+                    </div>
+                    <div id="gpsStatus" class="inline-note"></div>
+                </div>
+
+                <div class="field">
+                    <label for="dataOcorrencia">Data *</label>
+                    <input type="date" id="dataOcorrencia" required>
+                </div>
+                <div class="field">
+                    <label for="horaOcorrencia">Hora *</label>
+                    <input type="time" id="horaOcorrencia" required>
+                </div>
+
+                <div class="field field--full">
+                    <label for="descricaoDetalhada">Detalhes adicionais</label>
+                    <textarea id="descricaoDetalhada" rows="3" placeholder="Descreva espécie, estado do animal e cenário ao redor..."></textarea>
+                </div>
+
+                <div class="field field--full">
+                    <label for="arquivoEvidencia">Evidências (opcional)</label>
+                    <input type="file" id="arquivoEvidencia" accept="image/*,video/*">
+                    <div class="inline-note">Fotos ou vídeos curtos ajudam equipe de resgate.</div>
+                </div>
+
+                <div class="field span-2">
+                    <label>Seus dados (opcional)</label>
+                    <p class="inline-note">Deixe contato caso equipe precise de mais detalhes.</p>
+                </div>
+                <div class="field">
+                    <label for="nomeContato">Nome</label>
+                    <input type="text" id="nomeContato" placeholder="Nome completo">
+                </div>
+                <div class="field">
+                    <label for="telefoneContato">Telefone</label>
+                    <input type="text" id="telefoneContato" placeholder="Telefone ou WhatsApp">
+                </div>
+
+                <div class="field field--full">
+                    <div class="button-row">
+                        <button type="submit" id="btnEnviar" class="button-secondary">Enviar registro</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="form.js"></script>
+</body>
+</html>

@@ -1,256 +1,246 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desenvolvimento de Interfaces Web | Login de Usuário</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
+    <title>Guardiões da Fauna | Acesso</title>
+    <link rel="stylesheet" href="../../assets/css/app.css" />
+    <link rel="stylesheet" href="../../assets/css/styles.css" />
     <link rel="stylesheet" href="./styles.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+    <script src="../../assets/js/login.js"></script>
   </head>
 
-  <body class="">
-    <div id="login">
-      <div class="container">
-        <div
-          id="login-row"
-          class="row justify-content-center align-items-center bg-secondary m-5 p-5"
+  <body class="auth-body">
+    <main class="auth-page">
+      <article class="auth-card auth-card--login" aria-label="Acesso">
+        <p class="auth-card__tag">Guardiões da Fauna</p>
+        <h1>Login</h1>
+        <p class="auth-card__copy">Entre no sistema</p>
+
+        <div id="loginMessage" class="status-message" hidden></div>
+
+        <form id="login-form" class="auth-form">
+          <label class="field">
+            <span>Login</span>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Seu login"
+              autocomplete="username"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Senha</span>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+
+          <button type="submit" class="button-primary">Entrar</button>
+        </form>
+
+        <button
+          type="button"
+          class="button-link"
+          id="openRegisterModal"
+          aria-haspopup="dialog"
+          aria-controls="registerModal"
         >
-          <div id="login-column" class="col-md-6">
-            <div id="login-box" class="col-md-12">
-              <form
-                id="login-form"
-                class="form"
-                method="post"
-                onsubmit="loginUser(this)"
-              >
-                <h3 class="text-center text-light">Identificação de Usuário</h3>
-                <div class="form-group">
-                  <label for="username" class="text-info text-light"
-                    >Login</label
-                  ><br />
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="password" class="text-info text-light"
-                    >Senha</label
-                  ><br />
-                  <input/
-                    type="password"
-                    name="password"
-                    id="password"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group text-center mt-3">
-                  <button
-                    type="button"
-                    class="btn btn-primary text-light"
-                    data-toggle="modal"
-                    data-target="#loginModal"
-                  >
-                    Registrar
-                  </button>
-                  <input
-                    type="submit"
-                    name="submit"
-                    class="btn btn-primary text-light"
-                    value="Login"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          Criar conta
+        </button>
+      </article>
+    </main>
 
-    <!-- Modal -->
     <div
-      class="modal fade"
-      id="loginModal"
-      tabindex="-1"
+      class="modal-backdrop"
+      id="registerModal"
+      hidden
       role="dialog"
-      aria-labelledby="loginModalLabel"
-      aria-hidden="true"
+      aria-modal="true"
+      aria-labelledby="registerModalTitle"
     >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">Login App</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div id="login-box" class="col-md-12">
-              <form
-                id="login-form"
-                class="form"
-                method="post"
-                onsubmit="loginUser(this)"
-              >
-                <h3 class="text-center text-info">Novo usuário</h3>
-                <div class="form-group">
-                  <label for="login" class="text-info">Usuário</label><br />
-                  <input
-                    type="text"
-                    name="txt_login"
-                    id="txt_login"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="nome" class="text-info">Nome completo</label
-                  ><br />
-                  <input
-                    type="text"
-                    name="txt_nome"
-                    id="txt_nome"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="email" class="text-info">email</label><br />
-                  <input
-                    type="text"
-                    name="txt_email"
-                    id="txt_email"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="senha" class="text-info">Senha</label><br />
-                  <input
-                    type="password"
-                    name="txt_senha"
-                    id="txt_senha"
-                    class="form-control"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="senha2" class="text-info"
-                    >Confirmação de Senha</label
-                  ><br />
-                  <input
-                    type="password"
-                    name="txt_senha2"
-                    id="txt_senha2"
-                    class="form-control"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Cancelar
-            </button>
-            <button type="button" id="btn_salvar" class="btn btn-info">
-              Salvar
-            </button>
-          </div>
-        </div>
-      </div>
+      <article class="auth-card auth-card--modal">
+        <button
+          type="button"
+          class="modal-close"
+          id="closeRegisterModal"
+          aria-label="Fechar cadastro"
+        >
+          ×
+        </button>
+
+        <p class="auth-card__tag">Cadastro</p>
+        <h2 id="registerModalTitle">Crie uma conta</h2>
+        <p class="auth-card__copy">Registre um novo usuário.</p>
+
+        <div id="registerMessage" class="status-message" hidden></div>
+
+        <form id="register-form" class="auth-form">
+          <label class="field">
+            <span>Usuário</span>
+            <input
+              type="text"
+              name="txt_login"
+              id="txt_login"
+              placeholder="Escolha um usuário"
+              autocomplete="username"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Nome completo</span>
+            <input
+              type="text"
+              name="txt_nome"
+              id="txt_nome"
+              placeholder="Digite nome completo"
+              autocomplete="name"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>E-mail</span>
+            <input
+              type="email"
+              name="txt_email"
+              id="txt_email"
+              placeholder="usuario@guardioes.org"
+              autocomplete="email"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Senha</span>
+            <input
+              type="password"
+              name="txt_senha"
+              id="txt_senha"
+              placeholder="Crie uma senha"
+              autocomplete="new-password"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Confirmar senha</span>
+            <input
+              type="password"
+              name="txt_senha2"
+              id="txt_senha2"
+              placeholder="Repita sua senha"
+              autocomplete="new-password"
+              required
+            />
+          </label>
+
+          <button type="submit" class="button-primary">Cadastrar</button>
+        </form>
+      </article>
     </div>
 
-    <script src="../../assets/js/login.js"></script>
     <script>
-      // Declara uma função para processar o formulário de login
-      function processaFormLogin(event) {
-        // Cancela a submissão do formulário para tratar sem fazer refresh da tela
-        event.preventDefault();
+      const registerModal = document.getElementById("registerModal");
+      const openRegisterModalButton = document.getElementById("openRegisterModal");
+      const closeRegisterModalButton = document.getElementById("closeRegisterModal");
 
-        // Obtem os dados de login e senha a partir do formulário de login
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        // Valida login e se estiver ok, redireciona para tela inicial da aplicação
-        resultadoLogin = loginUser(username, password);
-        if (resultadoLogin) {
-          window.location.href = RETURN_URL;
-        } else {
-          // Se login falhou, avisa ao usuário
-          alert("Usuário ou senha incorretos");
-        }
+      function openRegisterModal() {
+        registerModal.hidden = false;
+        document.body.classList.add("modal-open");
       }
 
-      function salvaLogin(event) {
-        // Cancela a submissão do formulário para tratar sem fazer refresh da tela
-        event.preventDefault();
+      function closeRegisterModal() {
+        registerModal.hidden = true;
+        document.body.classList.remove("modal-open");
+      }
 
-        // Obtem os dados do formulário
-        let login = document.getElementById("txt_login").value;
-        let nome = document.getElementById("txt_nome").value;
-        let email = document.getElementById("txt_email").value;
-        let senha = document.getElementById("txt_senha").value;
-        let senha2 = document.getElementById("txt_senha2").value;
-        if (senha != senha2) {
-          alert("As senhas informadas não conferem.");
+      function setMessage(elementId, message, variant) {
+        const element = document.getElementById(elementId);
+        if (!element) {
           return;
         }
 
-        // Adiciona o usuário no banco de dados
-        addUser(nome, login, senha, email);
-        alert("Usuário salvo com sucesso. Proceda com o login para ");
-
-        // Oculta a div modal do login
-        //document.getElementById ('loginModal').style.display = 'none';
-        $("#loginModal").modal("hide");
+        element.hidden = false;
+        element.className = `status-message status-message--${variant}`;
+        element.textContent = message;
       }
 
-      // Associa a funçao processaFormLogin  formulário adicionado um manipulador do evento submit
+      function displayMessage(message) {
+        const isRegisterMessage =
+          message.includes("Usuário inserido") || message.includes("Erro ao inserir");
+
+        setMessage(
+          isRegisterMessage ? "registerMessage" : "loginMessage",
+          message,
+          message.toLowerCase().includes("erro") ? "error" : "success"
+        );
+      }
+
+      function processaFormLogin(event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const resultadoLogin = loginUser(username, password);
+
+        if (resultadoLogin) {
+          window.location.href = RETURN_URL;
+          return;
+        }
+
+        setMessage("loginMessage", "Usuário ou senha incorretos.", "error");
+      }
+
+      function salvaLogin(event) {
+        event.preventDefault();
+
+        const login = document.getElementById("txt_login").value.trim();
+        const nome = document.getElementById("txt_nome").value.trim();
+        const email = document.getElementById("txt_email").value.trim();
+        const senha = document.getElementById("txt_senha").value;
+        const senha2 = document.getElementById("txt_senha2").value;
+
+        if (senha !== senha2) {
+          setMessage("registerMessage", "As senhas informadas nao conferem.", "error");
+          return;
+        }
+
+        addUser(nome, login, senha, email);
+        document.getElementById("register-form").reset();
+      }
+
       document
         .getElementById("login-form")
         .addEventListener("submit", processaFormLogin);
 
-      // Associar salvamento ao botao
       document
-        .getElementById("btn_salvar")
-        .addEventListener("click", salvaLogin);
-    </script>
+        .getElementById("register-form")
+        .addEventListener("submit", salvaLogin);
 
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+      openRegisterModalButton.addEventListener("click", openRegisterModal);
+      closeRegisterModalButton.addEventListener("click", closeRegisterModal);
+
+      registerModal.addEventListener("click", function (event) {
+        if (event.target === registerModal) {
+          closeRegisterModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !registerModal.hidden) {
+          closeRegisterModal();
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onças | Guardiões da Fauna</title>
+    <link rel="stylesheet" href="../../assets/css/app.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+    <link rel="stylesheet" href="./oncas.css" />
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/login.js"></script>
+  </head>
+  <body data-root="../../" data-page="oncas">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <h2>Onças por ONG</h2>
+          <p class="lede">Visualize, detalhe e remova registros de onças monitoradas pelas instituições parceiras.</p>
+        </div>
+        <div class="user-pill">
+          <span>Usuário ativo</span>
+          <strong id="userInfo"></strong>
+        </div>
+      </header>
+
+      <section class="split-layout">
+        <article class="panel">
+          <h2>Filtros</h2>
+          <div class="filters-grid">
+            <div class="field">
+              <label for="busca">Busca</label>
+              <input id="busca" type="search" placeholder="Nome, código ou ONG" />
+            </div>
+            <div class="field">
+              <label for="filtroOng">ONG</label>
+              <select id="filtroOng">
+                <option value="Todas">Todas</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="filtroStatus">Status</label>
+              <select id="filtroStatus">
+                <option>Todos</option>
+                <option>Ativa</option>
+                <option>Monitorada</option>
+                <option>Inativa</option>
+              </select>
+            </div>
+          </div>
+          <div class="button-row">
+            <button id="btnLimpar" style="margin-top: 16px;" class="button-ghost" type="button">Limpar filtros</button>
+          </div>
+        </article>
+
+        <article class="panel" id="painelDetalhes">
+          <h2>Detalhes da onça</h2>
+          <p>Selecione uma onça para visualizar os detalhes.</p>
+        </article>
+      </section>
+
+      <section style="margin-top: 22px" class="panel">
+        <h2>Registro consolidado</h2>
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Onça</th>
+                <th>ONG</th>
+                <th>Idade</th>
+                <th>Sexo</th>
+                <th>Localização</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="corpoTabela"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="./oncas.js"></script>
+  </body>
+</html>

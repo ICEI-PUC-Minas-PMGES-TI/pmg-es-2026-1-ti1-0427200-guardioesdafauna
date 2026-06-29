@@ -27,18 +27,23 @@
       "nome": "Fernando Rodrigues",
       "email": "fernando@test.com",
       "id": "Uf2fk2h"
+    },
+    {
+      "login": "fernandortec",
+      "senha": "123",
+      "nome": "Fernando Rodrigues",
+      "email": "fernando@gmail.com",
+      "id": "drBOMGS"
+    },
+    {
+      "login": "fernandortec2",
+      "senha": "123",
+      "nome": "Fernando R",
+      "email": "fernandortec2@gmail.com",
+      "id": "3LTvGqO"
     }
   ],
   "cameras": [
-    {
-      "identifier": "CAM-0001",
-      "nickname": "Câmera Fernando",
-      "latitude": -19.922731,
-      "longitude": -43.945094,
-      "installationDate": "2026-04-19",
-      "batteryLifeSpanInWeeks": "2",
-      "id": "nYEF8PQjRrY"
-    },
     {
       "identifier": "CAM-0003",
       "nickname": "Câmera Savassi",
@@ -92,20 +97,27 @@
       "batteryLifeSpanInWeeks": "10",
       "installationDate": "2026-05-12",
       "id": "FRck0toobQI"
+    },
+    {
+      "identifier": "ID-0010",
+      "nickname": "Ponto Pampulh",
+      "latitude": 19.8732,
+      "longitude": -43.727123,
+      "batteryLifeSpanInWeeks": "12",
+      "installationDate": "2026-06-28",
+      "id": "MQ-GRSJ"
+    },
+    {
+      "identifier": "0020",
+      "nickname": "Ponto Distance",
+      "latitude": 90,
+      "longitude": 90,
+      "batteryLifeSpanInWeeks": "14",
+      "installationDate": "2026-06-29",
+      "id": "K8qfVEi"
     }
   ],
   "uploads": [
-    {
-      "id": "upl-001",
-      "cameraId": "nYEF8PQjRrY",
-      "file": {
-        "name": "jaguatirica_mata_01.mp4",
-        "sizeInKbs": 24580,
-        "status": "approved",
-        "createdAt": "2026-05-18T14:30:00.000Z",
-        "type": "video/mp4"
-      }
-    },
     {
       "id": "upl-003",
       "cameraId": "AaQQ2oCfhGE",
@@ -138,17 +150,176 @@
         "createdAt": "2026-05-22T06:30:00.000Z",
         "type": "image/png"
       }
+    }
+  ],
+  "ongs": [
+    {
+      "id": 1,
+      "nome": "Instituto Pantanal Vivo",
+      "cnpj": "12.345.678/0001-10",
+      "categoria": "Proteção de fauna",
+      "regiao": "MT",
+      "cidade": "Poconé",
+      "responsavel": "Marina Costa",
+      "email": "marina@pantanalvivo.org.br",
+      "telefone": "(65) 99999-1001",
+      "link": "https://pantanalvivo.org.br",
+      "descricao": "Atua com monitoramento de onças, proteção de habitat e resposta rápida em áreas alagadas do Pantanal.",
+      "necessidades": "Combustível para campo, manutenção de coleiras GPS e apoio veterinário.",
+      "capacidadeMensal": 18,
+      "apoio": [
+        "monitoramento",
+        "resgate",
+        "doacao"
+      ],
+      "imagem": ""
     },
     {
+      "id": 2,
+      "nome": "SOS Onças",
+      "cnpj": "22.333.444/0001-55",
+      "categoria": "Resgate e reabilitação",
+      "regiao": "AM",
+      "cidade": "Manaus",
+      "responsavel": "Carlos Mendes",
+      "email": "contato@sosoncas.org",
+      "telefone": "(92) 98888-2200",
+      "link": "https://sosoncas.org",
+      "descricao": "Rede de resgate especializada em fauna de grande porte com foco em reabilitação e soltura assistida.",
+      "necessidades": "Voluntários, drones de varredura e doações para alimentação.",
+      "capacidadeMensal": 12,
+      "apoio": [
+        "voluntariado",
+        "resgate",
+        "doacao"
+      ],
+      "imagem": ""
+    },
+    {
+      "id": 3,
+      "nome": "Instituto Onça Conservação",
+      "cnpj": "98.765.432/0001-66",
+      "categoria": "Pesquisa e educação",
+      "regiao": "MG",
+      "cidade": "Belo Horizonte",
+      "responsavel": "Fernanda Lima",
+      "email": "fernanda@ioc.org.br",
+      "telefone": "(31) 97777-3311",
+      "link": "https://ioc.org.br",
+      "descricao": "Conecta ciência, educação ambiental e uso de armadilhas fotográficas para apoiar políticas de conservação.",
+      "necessidades": "Monitoramento em campo, bolsas de pesquisa e novos pontos de captura de imagem.",
+      "capacidadeMensal": 24,
+      "apoio": [
+        "voluntariado",
+        "monitoramento"
+      ],
+      "imagem": ""
+    }
+  ],
+  "oncas": [
+    {
+      "id": 2,
+      "nome": "Tereza",
+      "codigo": "ONC-002",
+      "idade": 5,
+      "sexo": "Fêmea",
+      "especie": "Onça-pintada",
+      "localizacao": "Reserva Ecológica do Juruena",
+      "status": "Ativa",
+      "ongId": 2,
       "cameraId": "fjLe2tpEajs",
-      "file": {
-        "name": "TIAW - Planejamento Sprint - 2-1-1.pdf",
-        "sizeInKbs": 198,
-        "status": "in-evaluation",
-        "createdAt": "1010-10-10T10:10",
-        "type": "application/pdf"
+      "primeiroRegistro": "14/03/2021",
+      "ultimoRegistro": "28/04/2025",
+      "observacoes": "Monitorada por GPS."
+    },
+    {
+      "id": 3,
+      "nome": "Thor",
+      "codigo": "ONC-003",
+      "idade": 4,
+      "sexo": "Macho",
+      "especie": "Onça-parda",
+      "localizacao": "Estação Ecológica de Ipiranga",
+      "status": "Monitorada",
+      "ongId": 3,
+      "cameraId": "AaQQ2oCfhGE",
+      "primeiroRegistro": "22/09/2020",
+      "ultimoRegistro": "01/05/2025",
+      "observacoes": "Possui coleira de rastreamento."
+    },
+    {
+      "id": 4,
+      "nome": "Sol",
+      "codigo": "ONC-004",
+      "idade": 2,
+      "sexo": "Fêmea",
+      "especie": "Onça-pintada",
+      "localizacao": "Parque Estadual do Cantão",
+      "status": "Ativa",
+      "ongId": 2,
+      "cameraId": "eGWcXSWOqOU",
+      "primeiroRegistro": "18/01/2023",
+      "ultimoRegistro": "15/05/2025",
+      "observacoes": "Avistamentos frequentes."
+    },
+    {
+      "id": 5,
+      "nome": "Rajado",
+      "codigo": "ONC-005",
+      "idade": 6,
+      "sexo": "Macho",
+      "especie": "Onça-pintada",
+      "localizacao": "Parque Nacional do Pantanal",
+      "status": "Inativa",
+      "ongId": 1,
+      "cameraId": "SCLEXkm0XE0",
+      "primeiroRegistro": "11/07/2019",
+      "ultimoRegistro": "20/11/2024",
+      "observacoes": "Sem registros recentes."
+    }
+  ],
+  "ocorrencias": [
+    {
+      "id": "oco-001",
+      "tipoSituacao": "avistamento",
+      "localizacao": "Trilha do Córrego Fundo - MG",
+      "dataOcorrencia": "2026-06-21",
+      "horaOcorrencia": "18:20",
+      "descricaoDetalhada": "Pegadas recentes e avistamento breve próximo à mata ciliar.",
+      "contato": {
+        "nome": "Paulo Rocha",
+        "telefone": "(31) 97777-4455"
       },
-      "id": "rmJSzAO"
+      "evidencia": null,
+      "criadoEm": "2026-06-21T18:30:00.000Z"
+    },
+    {
+      "tipoSituacao": "foco_incendio",
+      "localizacao": "Um casal está fazendo uma fogueira perto da mata",
+      "dataOcorrencia": "2026-06-28",
+      "horaOcorrencia": "22:24",
+      "descricaoDetalhada": "Um casal está fazendo uma fogueira bem grande, ao noroeste da seção 4, aproximadamente 750m",
+      "contato": {
+        "nome": "Fernando R",
+        "telefone": "31993750285"
+      },
+      "evidencia": null,
+      "criadoEm": "2026-06-29T01:24:59.019Z",
+      "id": "llCNdce"
+    },
+    {
+      "tipoSituacao": "foco_incendio",
+      "localizacao": "500m leste da camera trap",
+      "dataOcorrencia": "2026-06-28",
+      "horaOcorrencia": "23:14",
+      "descricaoDetalhada": "Casal fez fogueira muito grande",
+      "contato": {
+        "nome": "Fernando",
+        "telefone": "31993750285"
+      },
+      "evidencia": null,
+      "criadoEm": "2026-06-29T02:14:36.497Z",
+      "id": "ZrrUw1k"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

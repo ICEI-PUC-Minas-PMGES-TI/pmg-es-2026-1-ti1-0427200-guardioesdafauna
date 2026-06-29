@@ -1,7 +1,7 @@
 ## Introdução
 
 - **Projeto:** Amigos da Onça  
-- **Repositório GitHub:** (https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-guardioesdafauna.git)
+- **Repositório GitHub:** https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427200-guardioesdafauna
 - **Membros da equipe:**  
   - Fernando Rodrigues  
   - Ricardo Santana Kill
@@ -19,6 +19,19 @@ A documentação do projeto está estruturada da seguinte forma:
 5. Metodologia  
 6. Solução  
 7. Referências  
+
+## Como rodar o projeto
+
+```bash
+cd codigo
+npm install
+npm run start
+```
+
+Depois acesse:
+
+- Aplicação: http://localhost:3000/home.html
+- API local: http://localhost:3000/ongs
 
 
 # Contexto do Projeto
@@ -239,14 +252,14 @@ Plataforma integrada que:
 - Coleta dados via sensores e câmeras  
 - Centraliza informações  
 - Permite visualização em dashboards  
-- Gera alertas e relatórios  
+- Consolida registros e indicadores operacionais  
 
 Inclui:
 
 - Monitoramento de movimentação  
 - Registro de eventos  
-- Gestão de equipes  
-- Analytics  
+- Gestão de ONGs parceiras  
+- Métricas e acompanhamento  
 
 ---
 

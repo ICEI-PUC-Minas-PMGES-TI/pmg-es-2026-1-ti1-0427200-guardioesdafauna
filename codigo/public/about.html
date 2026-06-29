@@ -1,50 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sobre | Guardiões da Fauna</title>
+    <link rel="stylesheet" href="./assets/css/app.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./assets/css/sidebar.css" />
+    <script src="./assets/js/layout.js" defer></script>
     <script src="./assets/js/login.js"></script>
   </head>
-  <body class="app-shell">
-    <aside class="app-sidebar" aria-label="Navegação principal">
-      <a class="app-sidebar__brand" href="./modulos/mapa/index.html">
-        <span class="app-sidebar__logo">GF</span>
-        <div>
-          <p class="app-sidebar__title">Guardiões da Fauna</p>
-          <p class="app-sidebar__subtitle">Portal de preservação</p>
+  <body data-root="./" data-page="sobre">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <h2>Sobre o projeto</h2>
+          <p class="lede">
+            Guardiões da Fauna centraliza monitoramento de fauna, parceria com
+            ONGs e resposta operacional em uma interface única.
+          </p>
         </div>
-      </a>
-      <nav class="app-sidebar__links">
-        <a href="./index.html"><span class="app-sidebar__icon"><i class="ph ph-house"></i></span><span>Home</span></a>
-        <a href="./modulos/mapa/index.html"><span class="app-sidebar__icon"><i class="ph ph-map-trifold"></i></span><span>Mapa</span></a>
-        <a href="./modulos/listagem-upload/index.html"><span class="app-sidebar__icon"><i class="ph ph-upload-simple"></i></span><span>Uploads</span></a>
-        <a href="./modulos/tacciotelaongs/ongs.html"><span class="app-sidebar__icon"><i class="ph ph-users-three"></i></span><span>ONGs</span></a>
-        <a href="./modulos/tacciodenunciatela/form.html"><span class="app-sidebar__icon"><i class="ph ph-warning-circle"></i></span><span>Ocorrências</span></a>
-        <a class="active" href="./about.html"><span class="app-sidebar__icon"><i class="ph ph-info"></i></span><span>Sobre</span></a>
-      </nav>
-    </aside>
-    <header class="app-content">
-      <div class="banner">
-        <img src="./assets/images/banner_ti.png" alt="" />
-      </div>
-      <div class="barra-info">
-        <nav class="menu">
-          <ul>
-            <li><a href="modulos/mapa/index.html">Home</a></li>
-            <li><a href="about.html">Sobre nós</a></li>
-          </ul>
-        </nav>
-        <div class="dados-usuario">
-          <span id="userInfo"></span>
+        <div class="user-pill">
+          <span>Usuário ativo</span>
+          <strong id="userInfo"></strong>
         </div>
-      </div>
-    </header>
-    <main class="app-content">
-      <h1>Sobre nós</h1>
-      <p>Página com informações sobre o site.</p>
+      </header>
+
+      <section class="split-layout">
+        <article class="panel" style="width: 100%">
+          <h2>Objetivo</h2>
+          <p>
+            Apoiar proteção de onças e outras espécies com captação de dados,
+            gestão de parceiros, evidências de campo e métricas para tomada de
+            decisão.
+          </p>
+        </article>
+      </section>
     </main>
   </body>
 </html>

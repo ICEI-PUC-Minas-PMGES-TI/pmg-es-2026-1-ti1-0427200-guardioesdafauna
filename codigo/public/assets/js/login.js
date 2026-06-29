@@ -12,7 +12,7 @@
 
 // Página inicial de Login
 const LOGIN_URL = "/modulos/login/login.html";
-let RETURN_URL = "/modulos/login/index.html";
+let RETURN_URL = "/home.html";
 const API_URL = '/usuarios';
 
 // Objeto para o banco de dados de usuários baseado em JSON
@@ -20,6 +20,15 @@ var db_usuarios = {};
 
 // Objeto para o usuário corrente
 var usuarioCorrente = {};
+
+function notifyLoginMessage(message) {
+    if (typeof displayMessage === 'function') {
+        displayMessage(message);
+        return;
+    }
+
+    console.error(message);
+}
 
 // Inicializa a aplicação de Login
 function initLoginApp () {
@@ -64,7 +73,7 @@ function carregarUsuarios(callback) {
     })
     .catch(error => {
         console.error('Erro ao ler usuários via API JSONServer:', error);
-        displayMessage("Erro ao ler usuários");
+        notifyLoginMessage("Erro ao ler usuários");
     });
 }
 
@@ -118,19 +127,39 @@ function addUser (nome, login, senha, email) {
         .then(data => {
             // Adiciona o novo usuário na variável db_usuarios em memória
             db_usuarios.push (usuario);
-            displayMessage("Usuário inserido com sucesso");
+            notifyLoginMessage("Usuário inserido com sucesso");
         })
         .catch(error => {
             console.error('Erro ao inserir usuário via API JSONServer:', error);
-            displayMessage("Erro ao inserir usuário");
+            notifyLoginMessage("Erro ao inserir usuário");
         });
 }
 
 function showUserInfo (element) {
     var elemUser = document.getElementById(element);
     if (elemUser) {
-        elemUser.innerHTML = `${usuarioCorrente.nome} (${usuarioCorrente.login}) 
-                    <a onclick="logoutUser()">❌</a>`;
+        var nome = usuarioCorrente.nome || usuarioCorrente.login || 'Usuário';
+        var login = usuarioCorrente.login || '';
+        var iniciais = nome
+            .trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(parte => parte.charAt(0).toUpperCase())
+            .join('') || 'U';
+        var userPill = elemUser.closest('.user-pill');
+
+        if (userPill) {
+            userPill.innerHTML = `
+                <div class="user-pill__avatar" aria-hidden="true">${iniciais}</div>
+                <div class="user-pill__meta">
+                    <span class="user-pill__status">Ativo</span>
+                    <strong class="user-pill__name" id="${element}">${nome}</strong>
+                    <span class="user-pill__login">${login}</span>
+                </div>
+            `;
+        } else {
+            elemUser.textContent = `${nome} (${login})`;
+        }
     }
 }
 

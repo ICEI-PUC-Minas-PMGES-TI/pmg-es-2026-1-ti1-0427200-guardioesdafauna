@@ -1,0 +1,87 @@
+.ong-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.ong-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fffdf8;
+  box-shadow: var(--shadow);
+}
+
+.ong-card__media {
+  height: 148px;
+  background-position: center;
+  background-size: cover;
+}
+
+.ong-card__body {
+  padding: 18px;
+}
+
+.ong-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.ong-card__region {
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ong-card h3 {
+  margin: 12px 0 8px;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.ong-card p {
+  color: var(--text-soft);
+}
+
+.ong-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.ong-meta dt {
+  color: var(--text-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ong-meta dd {
+  margin: 4px 0 0;
+  font-weight: 700;
+}
+
+.ong-needs,
+.ong-support {
+  margin: 12px 0 0;
+}
+
+@media (max-width: 1100px) {
+  .ong-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .ong-grid,
+  .ong-meta {
+    grid-template-columns: 1fr;
+  }
+}
