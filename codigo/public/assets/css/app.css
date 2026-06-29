@@ -107,11 +107,79 @@ textarea {
 .user-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
+  min-width: 210px;
+  gap: 12px;
+  padding: 8px 12px 8px 8px;
   border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 253, 248, 0.9);
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.user-pill__avatar {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 2px solid rgba(255, 253, 248, 0.95);
+  border-radius: 50%;
+  background:
+    linear-gradient(135deg, rgba(244, 196, 122, 0.92), rgba(217, 138, 61, 0.95)),
+    var(--accent);
+  color: #fff9ef;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow: 0 8px 16px rgba(31, 43, 33, 0.12);
+}
+
+.user-pill__avatar::after {
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fffdf8;
+  border-radius: 50%;
+  background: var(--success);
+  content: "";
+}
+
+.user-pill__meta {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.user-pill__status {
+  color: var(--success);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.user-pill strong,
+.user-pill__name {
+  overflow: hidden;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-pill__login {
+  overflow: hidden;
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hero {
@@ -137,7 +205,6 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 20px;
 }
 
 .stats-grid,

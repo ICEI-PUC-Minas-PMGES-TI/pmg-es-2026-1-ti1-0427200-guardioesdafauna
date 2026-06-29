@@ -1,132 +1,33 @@
-body {
-  margin: 0;
-  min-height: 100vh;
-  overflow: auto;
-  background: #eef7ef;
-  color: #18351f;
-  font-family: Arial, sans-serif;
-}
-
-.uploads-page {
-  min-height: 100vh;
-  padding: 24px;
-}
-
-.card {
-  width: min(1100px, 100%);
-  margin: 0 auto;
-  padding: 24px;
-  border-radius: 8px;
-  background: #fffdf7;
-  box-shadow: 0 12px 32px rgba(24, 53, 31, 0.12);
-}
-
 .uploads-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
-}
-
-.uploads-header h1 {
-  margin: 0;
-  color: #1b4332;
-  font-size: 28px;
+  margin-bottom: 10px;
 }
 
 .message {
   margin: 6px 0 0;
-  color: #526857;
+  color: var(--text-soft);
   font-weight: 700;
-}
-
-.filters {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
-  gap: 16px;
-  margin-bottom: 20px;
-  align-items: end;
-}
-
-.filters label {
-  display: grid;
-  gap: 8px;
-  color: #315b3c;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.filters input,
-.filters select {
-  width: 100%;
-  border: 1px solid #cfe0d2;
-  border-radius: 8px;
-  padding: 10px 12px;
-  background: #f7fbf8;
-  color: #18351f;
-}
-
-.filters button {
-  border: 0;
-  border-radius: 8px;
-  padding: 11px 14px;
-  background: #1b4332;
-  color: #fffdf7;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.filters button:hover {
-  background: #2d6a4f;
-}
-
-.table-wrap {
-  overflow-x: auto;
-  border: 1px solid #dbe8dd;
-  border-radius: 8px;
 }
 
 .uploads-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 920px;
 }
 
-.uploads-table th,
-.uploads-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid #dbe8dd;
-  text-align: left;
+.uploads-table td span {
+  color: var(--text-soft);
+  font-size: 14px;
 }
 
-.uploads-table th {
-  background: #1b4332;
-  color: #fffdf7;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.uploads-table tr:last-child td {
-  border-bottom: 0;
-}
-
-.uploads-table tbody tr:nth-child(even) {
-  background: #f7fbf8;
+.action-button {
+  padding: 10px 12px;
 }
 
 @media (max-width: 760px) {
-  .uploads-page,
-  .card {
-    padding: 16px;
-  }
-
-  .uploads-header,
-  .filters {
-    grid-template-columns: 1fr;
-  }
-
   .uploads-header {
     display: grid;
   }

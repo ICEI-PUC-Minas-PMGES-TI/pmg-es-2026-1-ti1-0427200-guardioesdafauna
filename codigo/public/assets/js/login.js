@@ -12,7 +12,7 @@
 
 // Página inicial de Login
 const LOGIN_URL = "/modulos/login/login.html";
-let RETURN_URL = "/modulos/login/index.html";
+let RETURN_URL = "/home.html";
 const API_URL = '/usuarios';
 
 // Objeto para o banco de dados de usuários baseado em JSON
@@ -129,8 +129,28 @@ function addUser (nome, login, senha, email) {
 function showUserInfo (element) {
     var elemUser = document.getElementById(element);
     if (elemUser) {
-        elemUser.innerHTML = `${usuarioCorrente.nome} (${usuarioCorrente.login}) 
-                    <a onclick="logoutUser()">❌</a>`;
+        var nome = usuarioCorrente.nome || usuarioCorrente.login || 'Usuário';
+        var login = usuarioCorrente.login || '';
+        var iniciais = nome
+            .trim()
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(parte => parte.charAt(0).toUpperCase())
+            .join('') || 'U';
+        var userPill = elemUser.closest('.user-pill');
+
+        if (userPill) {
+            userPill.innerHTML = `
+                <div class="user-pill__avatar" aria-hidden="true">${iniciais}</div>
+                <div class="user-pill__meta">
+                    <span class="user-pill__status">Ativo</span>
+                    <strong class="user-pill__name" id="${element}">${nome}</strong>
+                    <span class="user-pill__login">${login}</span>
+                </div>
+            `;
+        } else {
+            elemUser.textContent = `${nome} (${login})`;
+        }
     }
 }
 
