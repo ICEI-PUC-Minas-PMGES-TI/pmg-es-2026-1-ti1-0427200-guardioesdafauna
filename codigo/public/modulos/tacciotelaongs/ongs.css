@@ -1,91 +1,86 @@
-:root {
-    --bg-header: #1f4f3a;
-    --bg-body: #f2f6f4;
-    --btn-orange: #f0a25c;
-    --btn-orange-hover: #e08b45;
+.ong-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
 }
 
-body {
-    background-color: var(--bg-body);
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-}
-
-/* Navbar */
-.custom-navbar {
-    background-color: var(--bg-header);
-    padding: 15px 0;
-}
-.active-link {
-    border-bottom: 2px solid var(--btn-orange);
-    padding-bottom: 4px;
-}
-.btn-cadastro {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-    transition: all 0.2s;
-}
-.btn-cadastro:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-}
-
-/* Inputs de Busca e Filtros */
-.search-box {
-    border: 1px solid #e0e8e3;
-}
-.search-box input:focus {
-    outline: none;
-    box-shadow: none;
-}
-.form-select:focus, .form-check-input:focus {
-    border-color: #a3c4b1;
-    box-shadow: 0 0 0 0.25rem rgba(31, 79, 58, 0.25);
-}
-.form-check-input:checked {
-    background-color: var(--bg-header);
-    border-color: var(--bg-header);
-}
-
-.action-banner-volunteer {
-    border: 1px solid #1f4f3a;
-    background: linear-gradient(120deg, #1f4f3a 0%, #2e6a50 60%, #3b7d60 100%);
-}
-
-.btn-voluntario-destaque {
-    background-color: #f4b56d;
-    color: #143729;
-    border: 0;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-.btn-voluntario-destaque:hover {
-    background-color: #eea655;
-    color: #143729;
-    transform: translateY(-1px);
-    box-shadow: 0 0.6rem 1rem rgba(20, 55, 41, 0.2);
-}
-
-/* Cartões das ONGs */
 .ong-card {
-    border-radius: 12px;
-    overflow: hidden;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #fffdf8;
+  box-shadow: var(--shadow);
 }
-.img-placeholder {
-    height: 140px;
-    width: 100%;
+
+.ong-card__media {
+  height: 148px;
+  background-position: center;
+  background-size: cover;
 }
-.btn-detalhes {
-    background-color: var(--btn-orange);
-    color: white;
-    border-radius: 6px;
-    padding: 10px;
-    transition: background-color 0.2s;
+
+.ong-card__body {
+  padding: 18px;
 }
-.btn-detalhes:hover {
-    background-color: var(--btn-orange-hover);
-    color: white;
+
+.ong-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.ong-card__region {
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ong-card h3 {
+  margin: 12px 0 8px;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.ong-card p {
+  color: var(--text-soft);
+}
+
+.ong-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.ong-meta dt {
+  color: var(--text-soft);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ong-meta dd {
+  margin: 4px 0 0;
+  font-weight: 700;
+}
+
+.ong-needs,
+.ong-support {
+  margin: 12px 0 0;
+}
+
+@media (max-width: 1100px) {
+  .ong-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .ong-grid,
+  .ong-meta {
+    grid-template-columns: 1fr;
+  }
 }

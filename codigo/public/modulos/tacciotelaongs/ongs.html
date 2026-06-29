@@ -1,254 +1,240 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardiões das ONGs</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../../assets/css/sidebar.css">
-    <link rel="stylesheet" href="./ongs.css">
-</head>
-<body class="app-shell">
-    <aside class="app-sidebar" aria-label="Navegação principal">
-        <a class="app-sidebar__brand" href="../mapa/index.html">
-            <span class="app-sidebar__logo">GF</span>
-            <div>
-                <p class="app-sidebar__title">Guardiões da Fauna</p>
-                <p class="app-sidebar__subtitle">Portal de preservação</p>
-            </div>
-        </a>
-        <nav class="app-sidebar__links">
-            <a href="../../index.html"><span class="app-sidebar__icon"><i class="ph ph-house"></i></span><span>Home</span></a>
-            <a href="../mapa/index.html"><span class="app-sidebar__icon"><i class="ph ph-map-trifold"></i></span><span>Mapa</span></a>
-            <a href="../listagem-upload/index.html"><span class="app-sidebar__icon"><i class="ph ph-upload-simple"></i></span><span>Uploads</span></a>
-            <a class="active" href="./ongs.html"><span class="app-sidebar__icon"><i class="ph ph-users-three"></i></span><span>ONGs</span></a>
-            <a href="../tacciodenunciatela/form.html"><span class="app-sidebar__icon"><i class="ph ph-warning-circle"></i></span><span>Ocorrências</span></a>
-            <a href="../../about.html"><span class="app-sidebar__icon"><i class="ph ph-info"></i></span><span>Sobre</span></a>
-        </nav>
-    </aside>
-
-    <nav class="navbar navbar-expand-lg custom-navbar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand fw-bold text-white d-flex align-items-center" href="../mapa/index.html">
-                <i class="fas fa-paw me-2"></i> Guardiões da Fauna
-            </a>
-            <span class="text-white-50 small">Portal de Preservação</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ONGs | Guardiões da Fauna</title>
+    <link rel="stylesheet" href="../../assets/css/app.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+    <link rel="stylesheet" href="./ongs.css" />
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/login.js"></script>
+  </head>
+  <body data-root="../../" data-page="ongs">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <p>Rede parceira</p>
+          <h1>Gestão de ONGs</h1>
+          <p class="lede">
+            Cadastre instituições com dados completos, edite cadastro, receba
+            voluntários e acompanhe capacidade de atuação.
+          </p>
         </div>
-    </nav>
-
-    <div class="search-section py-4">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="search-box bg-white rounded shadow-sm d-flex align-items-center px-3 py-2">
-                        <i class="fas fa-search text-muted me-2"></i>
-                        <input type="text" id="input-busca" class="form-control border-0 shadow-none bg-transparent" placeholder="Buscar ONG por nome ou palavra-chave...">
-                    </div>
-                </div>
-            </div>
+        <div class="button-row">
+          <button class="button-ghost" type="button" data-open-modal="volunteer-modal">Receber voluntário</button>
+          <button class="button-secondary" type="button" data-open-modal="ong-modal">Cadastrar ONG</button>
         </div>
-    </div>
+      </header>
 
-    <div class="container my-3">
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="p-4 rounded shadow-sm text-white d-flex justify-content-between align-items-center action-banner-volunteer">
-                    <div>
-                        <h5 class="fw-bold mb-1"><i class="fas fa-hands-helping me-2"></i> Quer Voluntariar?</h5>
-                        <p class="small mb-0">Encontre causas urgentes e doe seu tempo.</p>
-                    </div>
-                    <button class="btn btn-voluntario-destaque fw-bold px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalVoluntario">Quero Ajudar</button>
-                </div>
+      <section class="split-layout">
+        <article class="panel">
+          <h2>Filtros</h2>
+          <div class="filters-grid">
+            <div class="field">
+              <label for="input-busca">Busca</label>
+              <input type="search" id="input-busca" placeholder="Nome, missão, cidade ou palavra-chave" />
             </div>
-            <div class="col-md-6">
-                <div class="p-4 rounded shadow-sm text-white d-flex justify-content-between align-items-center action-banner-volunteer">
-                    <div>
-                        <h5 class="fw-bold mb-1"><i class="fas fa-plus-circle me-2"></i> Divulgue uma ONG</h5>
-                        <p class="small mb-0">Cadastre sua instituição e ganhe visibilidade.</p>
-                    </div>
-                    <button class="btn btn-voluntario-destaque fw-bold px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#modalCadastroOng">Cadastrar ONG</button>
-                </div>
+            <div class="field">
+              <label for="select-regiao">Região</label>
+              <select id="select-regiao">
+                <option value="todos">Todas</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="SP">São Paulo</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="AM">Amazonas</option>
+                <option value="Nacional">Nacional</option>
+              </select>
             </div>
+            <fieldset class="field span-2">
+              <legend>Tipos de apoio</legend>
+              <div class="check-row">
+                <label class="chip-check"><input class="check-apoio" type="checkbox" value="voluntariado" />Voluntariado</label>
+                <label class="chip-check"><input class="check-apoio" type="checkbox" value="monitoramento" />Monitoramento</label>
+                <label class="chip-check"><input class="check-apoio" type="checkbox" value="doacao" />Doações</label>
+                <label class="chip-check"><input class="check-apoio" type="checkbox" value="resgate" />Resgate</label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="button-row">
+            <button id="btn-limpar" class="button-ghost" type="button">Limpar filtros</button>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>Resumo</h2>
+          <div class="chart-list" id="ong-summary"></div>
+        </article>
+      </section>
+
+      <section style="margin-top: 22px" class="panel">
+        <div class="section-heading">
+          <h2>ONGs parceiras <span id="contador-ongs"></span></h2>
+          <p class="section-copy">Instituições disponíveis para apoio, campo, resgate e pesquisa.</p>
         </div>
-    </div>
+        <div class="ong-grid" id="container-ongs"></div>
+        <div id="sem-resultados" class="empty-state" hidden>Nenhuma ONG atende aos critérios selecionados.</div>
+      </section>
+    </main>
 
-    <div class="container mb-5 mt-4">
-        <div class="row">
-            
-            <div class="col-md-3 mb-4">
-                <div class="filter-sidebar bg-white rounded shadow-sm p-4">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h6 class="fw-bold mb-0 text-dark d-flex align-items-center">
-                            <i class="fas fa-filter text-success me-2"></i> Filtros
-                        </h6>
-                        <button id="btn-limpar" class="btn btn-link btn-sm text-decoration-none text-muted p-0 small">Limpar tudo</button>
-                    </div>
-                    <hr class="text-muted opacity-25">
-                    
-                    <div class="mb-4">
-                        <label class="fw-bold text-muted small mb-2 d-flex align-items-center">
-                            <i class="fas fa-map-marker-alt text-danger me-2"></i> REGIÃO
-                        </label>
-                        <select id="select-regiao" class="form-select shadow-none border-light-subtle">
-                            <option value="todos" selected>Todos os Estados</option>
-                            <option value="MG">Minas Gerais (MG)</option>
-                            <option value="SP">São Paulo (SP)</option>
-                            <option value="Nacional">Atuação Nacional</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="fw-bold text-muted small mb-2 d-flex align-items-center">
-                            <i class="fas fa-shield-alt text-secondary me-2"></i> TIPO DE APOIO
-                        </label>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input check-apoio shadow-none" type="checkbox" value="voluntariado" id="apoio-voluntariado">
-                            <label class="form-check-label small" for="apoio-voluntariado">Voluntariado</label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input check-apoio shadow-none" type="checkbox" value="monitoramento" id="apoio-monitoramento">
-                            <label class="form-check-label small" for="apoio-monitoramento">Monitoramento de Campo</label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input check-apoio shadow-none" type="checkbox" value="doacao" id="apoio-doacao">
-                            <label class="form-check-label small" for="apoio-doacao">Doações</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-9">
-                <div class="mb-4">
-                    <h5 class="fw-bold text-dark">ONGs Parceiras <span id="contador-ongs" class="text-muted fw-normal fs-6">(0)</span></h5>
-                </div>
-
-                <div class="row" id="container-ongs"></div>
-
-                <div id="sem-resultados" class="col-12 text-center py-5 d-none">
-                    <p class="text-muted">Nenhuma ONG atende aos critérios selecionados.</p>
-                </div>
-            </div>
+    <section class="modal-sheet" id="volunteer-modal" hidden>
+      <div class="modal-sheet__card">
+        <div class="modal-sheet__header">
+          <div>
+            <p class="eyebrow">Cadastro de apoio</p>
+            <h2>Receber voluntário</h2>
+          </div>
+          <button class="button-ghost" type="button" data-close-modal="volunteer-modal">Fechar</button>
         </div>
-    </div>
-
-    <div class="modal fade" id="modalVoluntario" tabindex="-1" aria-labelledby="modalVoluntarioLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title fw-bold" id="modalVoluntarioLabel"><i class="fas fa-user-plus me-2"></i> Seja um Voluntário</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <form id="form-voluntario">
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">NOME COMPLETO</label>
-                            <input type="text" id="vol-nome" class="form-control shadow-none" required placeholder="Ex: João Silva">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">E-MAIL</label>
-                            <input type="email" id="vol-email" class="form-control shadow-none" required placeholder="Ex: joao@email.com">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">TELEFONE / WHATSAPP</label>
-                            <input type="tel" id="vol-telefone" class="form-control shadow-none" required placeholder="(00) 00000-0000">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">CIDADE / ESTADO</label>
-                            <input type="text" id="vol-cidade" class="form-control shadow-none" required placeholder="Ex: Belo Horizonte - MG">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">ÁREA DE INTERESSE</label>
-                            <select id="vol-area" class="form-select shadow-none" required>
-                                <option value="" disabled selected>Selecione uma causa...</option>
-                                <option value="marinha">Preservação Marinha (Ex: Greenpeace)</option>
-                                <option value="fauna">Resgate de Animais Silvestres</option>
-                                <option value="Florestas">Reflorestamento e Monitoramento</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">DISPONIBILIDADE</label>
-                            <div class="d-flex gap-3">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="dias-uteis"><label class="form-check-label small" for="dias-uteis">Dias Úteis</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="finais-semana"><label class="form-check-label small" for="finais-semana">Finais de Semana</label></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">TIPO DE VOLUNTARIADO</label>
-                            <div class="d-flex flex-wrap gap-3">
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="vol-presencial"><label class="form-check-label small" for="vol-presencial">Presencial</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="vol-remoto"><label class="form-check-label small" for="vol-remoto">Remoto</label></div>
-                                <div class="form-check"><input class="form-check-input" type="checkbox" id="vol-eventual"><label class="form-check-label small" for="vol-eventual">Ações Pontuais</label></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">EXPERIÊNCIA / HABILIDADES</label>
-                            <textarea id="vol-experiencia" class="form-control shadow-none" rows="3" placeholder="Ex: educação ambiental, comunicação, logística, monitoramento de campo..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100 fw-bold py-2 mt-2">Enviar Inscrição</button>
-                    </form>
-                </div>
+        <form id="form-voluntario" class="form-grid">
+          <div class="field">
+            <label for="vol-nome">Nome completo</label>
+            <input type="text" id="vol-nome" required />
+          </div>
+          <div class="field">
+            <label for="vol-email">E-mail</label>
+            <input type="email" id="vol-email" required />
+          </div>
+          <div class="field">
+            <label for="vol-telefone">Telefone</label>
+            <input type="tel" id="vol-telefone" required />
+          </div>
+          <div class="field">
+            <label for="vol-cidade">Cidade / Estado</label>
+            <input type="text" id="vol-cidade" required />
+          </div>
+          <div class="field">
+            <label for="vol-area">Área de interesse</label>
+            <select id="vol-area" required>
+              <option value="">Selecione</option>
+              <option value="resgate">Resgate</option>
+              <option value="campo">Monitoramento de campo</option>
+              <option value="educacao">Educação ambiental</option>
+              <option value="comunicacao">Comunicação</option>
+            </select>
+          </div>
+          <fieldset class="field">
+            <legend>Disponibilidade</legend>
+            <div class="check-row">
+              <label class="chip-check"><input type="checkbox" id="dias-uteis" />Dias úteis</label>
+              <label class="chip-check"><input type="checkbox" id="finais-semana" />Finais de semana</label>
             </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="modalCadastroOng" tabindex="-1" aria-labelledby="modalCadastroOngLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title fw-bold" id="modalCadastroOngLabel"><i class="fas fa-building me-2"></i> Cadastrar Nova ONG</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <form id="form-cadastrar-ong">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold text-muted">NOME DA INSTITUIÇÃO</label>
-                                <input type="text" id="form-nome" class="form-control shadow-none" required placeholder="Nome oficial da ONG">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold text-muted">CATEGORIA</label>
-                                <input type="text" id="form-categoria" class="form-control shadow-none" required placeholder="Ex: Proteção Animal, Preservação Marinha">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold text-muted">REGIÃO DE ATUAÇÃO</label>
-                                <select id="form-regiao" class="form-select shadow-none" required>
-                                    <option value="Nacional">Atuação Nacional</option>
-                                    <option value="MG">Minas Gerais (MG)</option>
-                                    <option value="SP">São Paulo (SP)</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label small fw-bold text-muted">IMAGEM DE CAPA</label>
-                                <input type="file" id="form-imagem" class="form-control shadow-none" accept="image/*">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">LINK DO SITE OFICIAL OU CAMPANHA</label>
-                            <input type="url" id="form-link" class="form-control shadow-none" required placeholder="https://ongsite.org/apoie">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">DESCRIÇÃO DAS ATIVIDADES</label>
-                            <textarea id="form-descricao" class="form-control shadow-none" rows="3" required placeholder="Breve resumo do que a ONG faz..."></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label small fw-bold text-muted">TIPOS DE APOIO ACEITOS</label>
-                            <div class="d-flex gap-4">
-                                <div class="form-check"><input class="form-check-input form-check-apoio" type="checkbox" value="voluntariado" id="f-vol"><label class="form-check-label small" for="f-vol">Voluntariado</label></div>
-                                <div class="form-check"><input class="form-check-input form-check-apoio" type="checkbox" value="monitoramento" id="f-mon"><label class="form-check-label small" for="f-mon">Monitoramento</label></div>
-                                <div class="form-check"><input class="form-check-input form-check-apoio" type="checkbox" value="doacao" id="f-doa"><label class="form-check-label small" for="f-doa">Doações</label></div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-warning text-dark fw-bold w-100 py-2 mt-2">Salvar e Publicar ONG</button>
-                    </form>
-                </div>
+          </fieldset>
+          <fieldset class="field span-2">
+            <legend>Tipo de voluntariado</legend>
+            <div class="check-row">
+              <label class="chip-check"><input type="checkbox" id="vol-presencial" />Presencial</label>
+              <label class="chip-check"><input type="checkbox" id="vol-remoto" />Remoto</label>
+              <label class="chip-check"><input type="checkbox" id="vol-eventual" />Ações pontuais</label>
             </div>
-        </div>
-    </div>
+          </fieldset>
+          <div class="field field--full">
+            <label for="vol-experiencia">Experiência / habilidades</label>
+            <textarea id="vol-experiencia"></textarea>
+          </div>
+          <div class="field field--full">
+            <p id="voluntario-feedback" class="inline-note"></p>
+          </div>
+          <div class="field field--full">
+            <div class="button-row">
+              <button type="submit" class="button-secondary">Salvar inscrição</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <section class="modal-sheet" id="ong-modal" hidden>
+      <div class="modal-sheet__card">
+        <div class="modal-sheet__header">
+          <div>
+            <p class="eyebrow">Cadastro institucional</p>
+            <h2 id="ong-modal-title">Cadastrar ONG</h2>
+          </div>
+          <button class="button-ghost" type="button" data-close-modal="ong-modal">Fechar</button>
+        </div>
+        <form id="form-cadastrar-ong" class="form-grid">
+          <input type="hidden" id="form-id" />
+          <div class="field">
+            <label for="form-nome">Nome da instituição</label>
+            <input type="text" id="form-nome" required />
+          </div>
+          <div class="field">
+            <label for="form-cnpj">CNPJ</label>
+            <input type="text" id="form-cnpj" required />
+          </div>
+          <div class="field">
+            <label for="form-categoria">Categoria</label>
+            <input type="text" id="form-categoria" required />
+          </div>
+          <div class="field">
+            <label for="form-regiao">Região</label>
+            <select id="form-regiao" required>
+              <option value="Nacional">Nacional</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="SP">São Paulo</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="AM">Amazonas</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="form-cidade">Cidade base</label>
+            <input type="text" id="form-cidade" required />
+          </div>
+          <div class="field">
+            <label for="form-responsavel">Responsável</label>
+            <input type="text" id="form-responsavel" required />
+          </div>
+          <div class="field">
+            <label for="form-email">E-mail</label>
+            <input type="email" id="form-email" required />
+          </div>
+          <div class="field">
+            <label for="form-telefone">Telefone</label>
+            <input type="tel" id="form-telefone" required />
+          </div>
+          <div class="field">
+            <label for="form-link">Site oficial</label>
+            <input type="url" id="form-link" required />
+          </div>
+          <div class="field">
+            <label for="form-capacidade">Capacidade mensal de resgates</label>
+            <input type="number" id="form-capacidade" min="0" required />
+          </div>
+          <div class="field field--full">
+            <label for="form-descricao">Descrição das atividades</label>
+            <textarea id="form-descricao" required></textarea>
+          </div>
+          <div class="field field--full">
+            <label for="form-necessidades">Necessidades atuais</label>
+            <textarea id="form-necessidades" placeholder="Ex: combustível, drones, veterinário parceiro, voluntários..."></textarea>
+          </div>
+          <fieldset class="field span-2">
+            <legend>Tipos de apoio aceitos</legend>
+            <div class="check-row">
+              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="voluntariado" />Voluntariado</label>
+              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="monitoramento" />Monitoramento</label>
+              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="doacao" />Doações</label>
+              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="resgate" />Resgate</label>
+            </div>
+          </fieldset>
+          <div class="field field--full">
+            <label for="form-imagem">Imagem de capa</label>
+            <input type="file" id="form-imagem" accept="image/*" />
+          </div>
+          <div class="field field--full">
+            <p id="ong-feedback" class="inline-note"></p>
+          </div>
+          <div class="field field--full">
+            <div class="button-row">
+              <button type="submit" class="button-secondary">Salvar ONG</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <script src="./ongs.js"></script>
-</body>
+  </body>
 </html>
