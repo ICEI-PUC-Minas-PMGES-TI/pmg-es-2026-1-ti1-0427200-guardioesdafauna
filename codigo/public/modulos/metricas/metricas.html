@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Métricas | Guardiões da Fauna</title>
+    <link rel="stylesheet" href="../../assets/css/app.css" />
+    <link rel="stylesheet" href="../../assets/css/sidebar.css" />
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/login.js"></script>
+  </head>
+  <body data-root="../../" data-page="metricas">
+    <aside data-app-sidebar></aside>
+    <main class="page">
+      <header class="page-header">
+        <div class="page-header__copy">
+          <p>Indicadores</p>
+          <h1>Métricas e exportação</h1>
+          <p class="lede">Indicadores por ONG, distribuição de fauna, andamento de uploads e exportação de métricas relevantes.</p>
+        </div>
+        <div class="button-row">
+          <button id="export-csv" class="button-secondary" type="button">Exportar CSV</button>
+          <button id="export-json" class="button-ghost" type="button">Exportar JSON</button>
+        </div>
+      </header>
+
+      <section class="stats-grid" id="stats-grid"></section>
+
+      <section style="margin-top: 22px" class="split-layout">
+        <article class="panel">
+          <h2>Distribuição por ONG</h2>
+          <div class="chart-list" id="ong-chart"></div>
+        </article>
+        <article class="panel">
+          <h2>Status de uploads</h2>
+          <div class="chart-list" id="upload-chart"></div>
+        </article>
+      </section>
+
+      <section style="margin-top: 22px" class="panel">
+        <h2>Tabela de indicadores</h2>
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>ONG</th>
+                <th>Onças monitoradas</th>
+                <th>Capacidade mensal</th>
+                <th>Uploads ligados</th>
+                <th>Status dominante</th>
+              </tr>
+            </thead>
+            <tbody id="metrics-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="./metricas.js"></script>
+  </body>
+</html>
