@@ -22,6 +22,8 @@
 }
 
 .detail-list {
+  overflow: scroll;
+  height: 320px;
   display: grid;
   gap: 12px;
 }

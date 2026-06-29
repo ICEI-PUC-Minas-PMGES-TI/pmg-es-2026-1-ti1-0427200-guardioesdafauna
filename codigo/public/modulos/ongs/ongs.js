@@ -1,6 +1,6 @@
-const API_ROOT = window.location.origin;
-const API_URL = `${API_ROOT}/ongs`;
-const API_VOLUNTARIOS_URL = `${API_ROOT}/voluntarios`;
+const ONGS_API_ROOT = window.location.origin;
+const ONGS_API_URL = `${ONGS_API_ROOT}/ongs`;
+const VOLUNTARIOS_API_URL = `${ONGS_API_ROOT}/voluntarios`;
 
 const containerOngs = document.getElementById("container-ongs");
 const contadorOngs = document.getElementById("contador-ongs");
@@ -80,7 +80,7 @@ async function converterArquivoParaDataUrl(arquivo) {
 }
 
 async function carregarOngs() {
-  const resposta = await fetch(API_URL);
+  const resposta = await fetch(ONGS_API_URL);
   todasAsOngs = await resposta.json();
   renderizarResumo(todasAsOngs);
   renderizarOngs(todasAsOngs);
@@ -92,7 +92,6 @@ function renderizarResumo(ongs) {
     acc[ong.regiao] = (acc[ong.regiao] || 0) + 1;
     return acc;
   }, {});
-  const totalCapacidade = ongs.reduce((acc, ong) => acc + Number(ong.capacidadeMensal || 0), 0);
   const topRegioes = Object.entries(porRegiao)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 3);
@@ -101,10 +100,6 @@ function renderizarResumo(ongs) {
     <div class="chart-bar">
       <div class="chart-bar__meta"><strong>ONGs cadastradas</strong><span>${total}</span></div>
       <div class="chart-bar__track"><div class="chart-bar__fill" style="width: 100%"></div></div>
-    </div>
-    <div class="chart-bar">
-      <div class="chart-bar__meta"><strong>Capacidade mensal total</strong><span>${totalCapacidade} resgates</span></div>
-      <div class="chart-bar__track"><div class="chart-bar__fill" style="width: ${Math.min(totalCapacidade, 100)}%"></div></div>
     </div>
     ${topRegioes
       .map(
@@ -153,11 +148,10 @@ function renderizarOngs(ongs) {
               <div><dt>Cidade</dt><dd>${ong.cidade}</dd></div>
               <div><dt>Responsável</dt><dd>${ong.responsavel}</dd></div>
               <div><dt>Contato</dt><dd>${ong.email}</dd></div>
-              <div><dt>Capacidade</dt><dd>${ong.capacidadeMensal} resgates/mês</dd></div>
             </dl>
             <p class="ong-needs"><strong>Necessidades:</strong> ${ong.necessidades || "Não informadas."}</p>
             <p class="ong-support"><strong>Apoio:</strong> ${apoiosFormatados}</p>
-            <div class="button-row">
+            <div class="button-row" style="margin-top: 20px">
               <a class="button-ghost" href="${ong.link}" target="_blank" rel="noreferrer">Site oficial</a>
               <button class="button-secondary" type="button" onclick="editarOng('${ong.id}')">Editar</button>
             </div>
@@ -216,7 +210,7 @@ async function salvarVoluntario(event) {
     experiencia: document.getElementById("vol-experiencia").value.trim(),
   };
 
-  const response = await fetch(API_VOLUNTARIOS_URL, {
+  const response = await fetch(VOLUNTARIOS_API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(cadastroVoluntario),
@@ -263,13 +257,12 @@ async function salvarOng(event) {
     link: document.getElementById("form-link").value.trim(),
     descricao: document.getElementById("form-descricao").value.trim(),
     necessidades: document.getElementById("form-necessidades").value.trim(),
-    capacidadeMensal: Number(document.getElementById("form-capacidade").value || 0),
     apoio: coletarApoiosFormulario(),
     imagem: imagemDaOng,
   };
 
   const isEditing = Boolean(modoEdicaoId);
-  const response = await fetch(isEditing ? `${API_URL}/${modoEdicaoId}` : API_URL, {
+  const response = await fetch(isEditing ? `${ONGS_API_URL}/${modoEdicaoId}` : ONGS_API_URL, {
     method: isEditing ? "PUT" : "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(isEditing ? { ...payload, id: modoEdicaoId } : payload),
@@ -301,7 +294,6 @@ function preencherFormularioOng(ong) {
   document.getElementById("form-link").value = ong.link || "";
   document.getElementById("form-descricao").value = ong.descricao || "";
   document.getElementById("form-necessidades").value = ong.necessidades || "";
-  document.getElementById("form-capacidade").value = ong.capacidadeMensal || 0;
   document.querySelectorAll(".form-check-apoio").forEach((checkbox) => {
     checkbox.checked = (ong.apoio || []).includes(checkbox.value);
   });

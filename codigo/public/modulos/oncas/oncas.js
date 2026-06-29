@@ -1,5 +1,5 @@
-const API_ONCAS = "http://localhost:3000/oncas";
-const API_ONGS = "http://localhost:3000/ongs";
+const API_ONCAS = `${window.location.origin}/oncas`;
+const API_ONGS = `${window.location.origin}/ongs`;
 
 const corpoTabela = document.getElementById("corpoTabela");
 const busca = document.getElementById("busca");
