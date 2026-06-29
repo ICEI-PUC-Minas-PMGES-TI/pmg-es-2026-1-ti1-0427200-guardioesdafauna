@@ -149,7 +149,6 @@ function renderizarOngs(ongs) {
             <p class="ong-support"><strong>Apoio:</strong> ${apoiosFormatados}</p>
             <div class="button-row" style="margin-top: 20px">
               <a class="button-ghost" href="${ong.link}" target="_blank" rel="noreferrer">Site oficial</a>
-              <button class="button-secondary" type="button" onclick="editarOng('${ong.id}')">Editar</button>
             </div>
           </div>
         </article>
@@ -263,15 +262,3 @@ function resetarFormularioOng() {
     checkbox.checked = false;
   });
 }
-
-function editarOng(id) {
-  const ong = todasAsOngs.find((item) => String(item.id) === String(id));
-  if (!ong) return;
-
-  modoEdicaoId = String(id);
-  ongModalTitle.textContent = "Editar ONG";
-  preencherFormularioOng(ong);
-  openModal("ong-modal");
-}
-
-window.editarOng = editarOng;

@@ -12,144 +12,158 @@
 
   <body class="auth-body">
     <main class="auth-page">
-      <section class="auth-hero">
-        <p class="eyebrow">Monitoramento de campo</p>
-        <h1>Guardiões da Fauna</h1>
-        <p class="auth-hero__lede">
-          Centralize registros, acompanhe ocorrências e mantenha equipe pronta
-          para agir em defesa da fauna.
-        </p>
+      <article class="auth-card auth-card--login" aria-label="Acesso">
+        <p class="auth-card__tag">Guardiões da Fauna</p>
+        <h1>Login</h1>
+        <p class="auth-card__copy">Entre no sistema</p>
 
-        <div class="auth-hero__highlights">
-          <article class="highlight-card">
-            <strong>Mapa vivo</strong>
-            <span>Ocorrências, evidências e pontos de monitoramento em um fluxo só.</span>
-          </article>
-          <article class="highlight-card">
-            <strong>Resposta coordenada</strong>
-            <span>Equipe, ONGs e dados operacionais no mesmo ambiente.</span>
-          </article>
-        </div>
-      </section>
+        <div id="loginMessage" class="status-message" hidden></div>
 
-      <section class="auth-forms" aria-label="Acesso e cadastro">
-        <article class="auth-card">
-          <p class="auth-card__tag">Entrar</p>
-          <h2>Acesse plataforma</h2>
-          <p class="auth-card__copy">
-            Use credenciais já cadastradas para abrir painel operacional.
-          </p>
+        <form id="login-form" class="auth-form">
+          <label class="field">
+            <span>Login</span>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Seu login"
+              autocomplete="username"
+              required
+            />
+          </label>
 
-          <div id="loginMessage" class="status-message" hidden></div>
+          <label class="field">
+            <span>Senha</span>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+              autocomplete="current-password"
+              required
+            />
+          </label>
 
-          <form id="login-form" class="auth-form">
-            <label class="field">
-              <span>Login</span>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Seu login"
-                autocomplete="username"
-                required
-              />
-            </label>
+          <button type="submit" class="button-primary">Entrar</button>
+        </form>
 
-            <label class="field">
-              <span>Senha</span>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Digite sua senha"
-                autocomplete="current-password"
-                required
-              />
-            </label>
-
-            <button type="submit" class="button-primary">Entrar</button>
-          </form>
-        </article>
-
-        <article class="auth-card auth-card--soft">
-          <p class="auth-card__tag">Cadastrar</p>
-          <h2>Criar novo acesso</h2>
-          <p class="auth-card__copy">
-            Registre novo usuário para liberar acesso ao sistema.
-          </p>
-
-          <div id="registerMessage" class="status-message" hidden></div>
-
-          <form id="register-form" class="auth-form">
-            <label class="field">
-              <span>Usuário</span>
-              <input
-                type="text"
-                name="txt_login"
-                id="txt_login"
-                placeholder="Nome de usuário"
-                autocomplete="username"
-                required
-              />
-            </label>
-
-            <label class="field">
-              <span>Nome completo</span>
-              <input
-                type="text"
-                name="txt_nome"
-                id="txt_nome"
-                placeholder="Nome e sobrenome"
-                autocomplete="name"
-                required
-              />
-            </label>
-
-            <label class="field">
-              <span>E-mail</span>
-              <input
-                type="email"
-                name="txt_email"
-                id="txt_email"
-                placeholder="usuario@guardioes.org"
-                autocomplete="email"
-                required
-              />
-            </label>
-
-            <label class="field">
-              <span>Senha</span>
-              <input
-                type="password"
-                name="txt_senha"
-                id="txt_senha"
-                placeholder="Crie uma senha"
-                autocomplete="new-password"
-                required
-              />
-            </label>
-
-            <label class="field">
-              <span>Confirmar senha</span>
-              <input
-                type="password"
-                name="txt_senha2"
-                id="txt_senha2"
-                placeholder="Repita a senha"
-                autocomplete="new-password"
-                required
-              />
-            </label>
-
-            <button type="submit" class="button-ghost button-ghost--solid">
-              Cadastrar
-            </button>
-          </form>
-        </article>
-      </section>
+        <button
+          type="button"
+          class="button-link"
+          id="openRegisterModal"
+          aria-haspopup="dialog"
+          aria-controls="registerModal"
+        >
+          Criar conta
+        </button>
+      </article>
     </main>
 
+    <div
+      class="modal-backdrop"
+      id="registerModal"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="registerModalTitle"
+    >
+      <article class="auth-card auth-card--modal">
+        <button
+          type="button"
+          class="modal-close"
+          id="closeRegisterModal"
+          aria-label="Fechar cadastro"
+        >
+          ×
+        </button>
+
+        <p class="auth-card__tag">Cadastro</p>
+        <h2 id="registerModalTitle">Crie uma conta</h2>
+        <p class="auth-card__copy">Registre um novo usuário.</p>
+
+        <div id="registerMessage" class="status-message" hidden></div>
+
+        <form id="register-form" class="auth-form">
+          <label class="field">
+            <span>Usuário</span>
+            <input
+              type="text"
+              name="txt_login"
+              id="txt_login"
+              placeholder="Escolha um usuário"
+              autocomplete="username"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Nome completo</span>
+            <input
+              type="text"
+              name="txt_nome"
+              id="txt_nome"
+              placeholder="Digite nome completo"
+              autocomplete="name"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>E-mail</span>
+            <input
+              type="email"
+              name="txt_email"
+              id="txt_email"
+              placeholder="usuario@guardioes.org"
+              autocomplete="email"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Senha</span>
+            <input
+              type="password"
+              name="txt_senha"
+              id="txt_senha"
+              placeholder="Crie uma senha"
+              autocomplete="new-password"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>Confirmar senha</span>
+            <input
+              type="password"
+              name="txt_senha2"
+              id="txt_senha2"
+              placeholder="Repita sua senha"
+              autocomplete="new-password"
+              required
+            />
+          </label>
+
+          <button type="submit" class="button-primary">Cadastrar</button>
+        </form>
+      </article>
+    </div>
+
     <script>
+      const registerModal = document.getElementById("registerModal");
+      const openRegisterModalButton = document.getElementById("openRegisterModal");
+      const closeRegisterModalButton = document.getElementById("closeRegisterModal");
+
+      function openRegisterModal() {
+        registerModal.hidden = false;
+        document.body.classList.add("modal-open");
+      }
+
+      function closeRegisterModal() {
+        registerModal.hidden = true;
+        document.body.classList.remove("modal-open");
+      }
+
       function setMessage(elementId, message, variant) {
         const element = document.getElementById(elementId);
         if (!element) {
@@ -212,6 +226,21 @@
       document
         .getElementById("register-form")
         .addEventListener("submit", salvaLogin);
+
+      openRegisterModalButton.addEventListener("click", openRegisterModal);
+      closeRegisterModalButton.addEventListener("click", closeRegisterModal);
+
+      registerModal.addEventListener("click", function (event) {
+        if (event.target === registerModal) {
+          closeRegisterModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !registerModal.hidden) {
+          closeRegisterModal();
+        }
+      });
     </script>
   </body>
 </html>
