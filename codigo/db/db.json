@@ -138,17 +138,6 @@
         "createdAt": "2026-05-22T06:30:00.000Z",
         "type": "image/png"
       }
-    },
-    {
-      "cameraId": "fjLe2tpEajs",
-      "file": {
-        "name": "TIAW - Planejamento Sprint - 2-1-1.pdf",
-        "sizeInKbs": 198,
-        "status": "in-evaluation",
-        "createdAt": "1010-10-10T10:10",
-        "type": "application/pdf"
-      },
-      "id": "rmJSzAO"
     }
   ],
   "ongs": [
@@ -292,23 +281,6 @@
       "observacoes": "Sem registros recentes."
     }
   ],
-  "voluntarios": [
-    {
-      "id": "vol-001",
-      "nome": "Aline Moura",
-      "email": "aline@email.com",
-      "telefone": "(31) 98888-1122",
-      "cidadeEstado": "Belo Horizonte - MG",
-      "areaInteresse": "campo",
-      "disponibilidade": [
-        "Dias úteis"
-      ],
-      "tiposVoluntariado": [
-        "Presencial"
-      ],
-      "experiencia": "Experiência com trilhas monitoradas e educação ambiental."
-    }
-  ],
   "ocorrencias": [
     {
       "id": "oco-001",
@@ -323,6 +295,20 @@
       },
       "evidencia": null,
       "criadoEm": "2026-06-21T18:30:00.000Z"
+    },
+    {
+      "tipoSituacao": "foco_incendio",
+      "localizacao": "Um casal está fazendo uma fogueira perto da mata",
+      "dataOcorrencia": "2026-06-28",
+      "horaOcorrencia": "22:24",
+      "descricaoDetalhada": "Um casal está fazendo uma fogueira bem grande, ao noroeste da seção 4, aproximadamente 750m",
+      "contato": {
+        "nome": "Fernando R",
+        "telefone": "31993750285"
+      },
+      "evidencia": null,
+      "criadoEm": "2026-06-29T01:24:59.019Z",
+      "id": "llCNdce"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

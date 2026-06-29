@@ -13,16 +13,59 @@
 // Autor: Rommel Vieira Carneiro
 // Data: 03/10/2023
 
-const jsonServer = require('json-server')
-const server = jsonServer.create()
-const router = jsonServer.router('./db/db.json')
-  
-// Para permitir que os dados sejam alterados, altere a linha abaixo
-// colocando o atributo readOnly como false.
-const middlewares = jsonServer.defaults({ noCors: true })
-server.use(middlewares)
-server.use(router)
+const express = require("express");
+const fs = require("fs");
+const jsonServer = require("json-server");
+const path = require("path");
 
-server.listen(3000, () => {
-  console.log(`JSON Server is running em http://localhost:3000`)
-})
+const app = express();
+const publicDir = path.join(__dirname, "public");
+const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
+const middlewares = jsonServer.defaults({ noCors: true });
+const PORT = Number(process.env.PORT || 3000);
+
+app.use(express.json({ limit: "25mb" }));
+app.use(jsonServer.bodyParser);
+app.use(middlewares);
+app.use(express.static(publicDir));
+
+function sendPublicFile(req, res, relativePath) {
+  const filePath = path.join(publicDir, relativePath);
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+    return true;
+  }
+  return false;
+}
+
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(publicDir, "home.html"));
+});
+
+app.get("/home.html", (_req, res) => {
+  res.sendFile(path.join(publicDir, "home.html"));
+});
+
+app.get("/about.html", (_req, res) => {
+  res.sendFile(path.join(publicDir, "about.html"));
+});
+
+app.get("/modulos/login/login.html", (_req, res) => {
+  res.sendFile(path.join(publicDir, "modulos", "login", "login.html"));
+});
+
+app.get("/modulos/login/index.html", (_req, res) => {
+  res.sendFile(path.join(publicDir, "modulos", "login", "index.html"));
+});
+
+app.get("*.html", (req, res, next) => {
+  const requestedPath = decodeURIComponent(req.path).replace(/^\/+/, "");
+  if (sendPublicFile(req, res, requestedPath)) return;
+  next();
+});
+
+app.use(router);
+
+app.listen(PORT, "127.0.0.1", () => {
+  console.log(`Servidor ativo em http://127.0.0.1:${PORT}`);
+});
