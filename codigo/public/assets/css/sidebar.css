@@ -122,10 +122,12 @@
 
 @media (max-width: 760px) {
   .app-sidebar {
-    right: 0;
-    bottom: auto;
+    position: sticky;
+    inset: 0 0 auto 0;
     width: 100%;
     padding: 16px;
+    border-right: 0;
+    border-bottom: 1px solid #dbd2c0;
   }
 
   .app-sidebar__brand {

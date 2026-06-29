@@ -15,14 +15,19 @@
     <main class="page">
       <header class="page-header">
         <div class="page-header__copy">
-          <p>Rede parceira</p>
-          <h1>Gestão de ONGs</h1>
+          <h2>Gestão de ONGs</h2>
           <p class="lede">
             Cadastre instituições com dados completos e edite cadastro.
           </p>
         </div>
         <div class="button-row">
-          <button class="button-secondary" type="button" data-open-modal="ong-modal">Cadastrar ONG</button>
+          <button
+            class="button-secondary"
+            type="button"
+            data-open-modal="ong-modal"
+          >
+            Cadastrar ONG
+          </button>
         </div>
       </header>
 
@@ -32,7 +37,11 @@
           <div class="filters-grid">
             <div class="field">
               <label for="input-busca">Busca</label>
-              <input type="search" id="input-busca" placeholder="Nome, missão, cidade ou palavra-chave" />
+              <input
+                type="search"
+                id="input-busca"
+                placeholder="Nome, missão, cidade ou palavra-chave"
+              />
             </div>
             <div class="field">
               <label for="select-regiao">Região</label>
@@ -47,16 +56,47 @@
             </div>
             <fieldset class="field span-2">
               <legend>Tipos de apoio</legend>
-              <div class="check-row" style="margin-top: 16px;">
-                <label class="chip-check"><input class="check-apoio" type="checkbox" value="voluntariado" />Voluntariado</label>
-                <label class="chip-check"><input class="check-apoio" type="checkbox" value="monitoramento" />Monitoramento</label>
-                <label class="chip-check"><input class="check-apoio" type="checkbox" value="doacao" />Doações</label>
-                <label class="chip-check"><input class="check-apoio" type="checkbox" value="resgate" />Resgate</label>
+              <div class="check-row" style="margin-top: 16px">
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="voluntariado"
+                  />Voluntariado</label
+                >
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="monitoramento"
+                  />Monitoramento</label
+                >
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="doacao"
+                  />Doações</label
+                >
+                <label class="chip-check"
+                  ><input
+                    class="check-apoio"
+                    type="checkbox"
+                    value="resgate"
+                  />Resgate</label
+                >
               </div>
             </fieldset>
           </div>
           <div class="button-row">
-            <button id="btn-limpar" style="margin-top: 16px;" class="button-ghost" type="button">Limpar filtros</button>
+            <button
+              id="btn-limpar"
+              style="margin-top: 16px"
+              class="button-ghost"
+              type="button"
+            >
+              Limpar filtros
+            </button>
           </div>
         </article>
 
@@ -69,10 +109,14 @@
       <section style="margin-top: 22px" class="panel">
         <div class="section-heading">
           <h2>ONGs parceiras <span id="contador-ongs"></span></h2>
-          <p class="section-copy">Instituições disponíveis para apoio, campo, resgate e pesquisa.</p>
+          <p class="section-copy">
+            Instituições disponíveis para apoio, campo, resgate e pesquisa.
+          </p>
         </div>
         <div class="ong-grid" id="container-ongs"></div>
-        <div id="sem-resultados" class="empty-state" hidden>Nenhuma ONG atende aos critérios selecionados.</div>
+        <div id="sem-resultados" class="empty-state" hidden>
+          Nenhuma ONG atende aos critérios selecionados.
+        </div>
       </section>
     </main>
 
@@ -83,7 +127,13 @@
             <p class="eyebrow">Cadastro institucional</p>
             <h2 id="ong-modal-title">Cadastrar ONG</h2>
           </div>
-          <button class="button-ghost" type="button" data-close-modal="ong-modal">Fechar</button>
+          <button
+            class="button-ghost"
+            type="button"
+            data-close-modal="ong-modal"
+          >
+            Fechar
+          </button>
         </div>
         <form id="form-cadastrar-ong" class="form-grid">
           <input type="hidden" id="form-id" />
@@ -135,15 +185,42 @@
           </div>
           <div class="field field--full">
             <label for="form-necessidades">Necessidades atuais</label>
-            <textarea id="form-necessidades" placeholder="Ex: combustível, drones, veterinário parceiro..."></textarea>
+            <textarea
+              id="form-necessidades"
+              placeholder="Ex: combustível, drones, veterinário parceiro..."
+            ></textarea>
           </div>
           <fieldset class="field span-2">
             <legend>Tipos de apoio aceitos</legend>
-            <div class="check-row">
-              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="voluntariado" />Voluntariado</label>
-              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="monitoramento" />Monitoramento</label>
-              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="doacao" />Doações</label>
-              <label class="chip-check"><input class="form-check-apoio" type="checkbox" value="resgate" />Resgate</label>
+            <div class="check-row" style="margin-top: 16px">
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="voluntariado"
+                />Voluntariado</label
+              >
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="monitoramento"
+                />Monitoramento</label
+              >
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="doacao"
+                />Doações</label
+              >
+              <label class="chip-check"
+                ><input
+                  class="form-check-apoio"
+                  type="checkbox"
+                  value="resgate"
+                />Resgate</label
+              >
             </div>
           </fieldset>
           <div class="field field--full">

@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amigos da Onça</title>
+    <title>Mapa | Guardiões da Fauna</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="../../assets/css/app.css" />
     <link rel="stylesheet" href="../../assets/css/styles.css" />
     <link rel="stylesheet" href="../../assets/css/sidebar.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -23,36 +25,22 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
     />
+    <script src="../../assets/js/layout.js" defer></script>
+    <script src="../../assets/js/login.js"></script>
   </head>
-  <body class="app-shell">
-    <aside class="app-sidebar" aria-label="Navegação principal">
-      <a class="app-sidebar__brand" href="./index.html">
-        <span class="app-sidebar__logo">GF</span>
-        <div>
-          <p class="app-sidebar__title">Guardiões da Fauna</p>
-          <p class="app-sidebar__subtitle">Portal de preservação</p>
-        </div>
-      </a>
-      <nav class="app-sidebar__links">
-        <a href="../../index.html"><span class="app-sidebar__icon"><i class="ph ph-house"></i></span><span>Home</span></a>
-        <a class="active" href="./index.html"><span class="app-sidebar__icon"><i class="ph ph-map-trifold"></i></span><span>Mapa</span></a>
-        <a href="../listagem-upload/index.html"><span class="app-sidebar__icon"><i class="ph ph-upload-simple"></i></span><span>Uploads</span></a>
-        <a href="../tacciotelaongs/ongs.html"><span class="app-sidebar__icon"><i class="ph ph-users-three"></i></span><span>ONGs</span></a>
-        <a href="../tacciodenunciatela/form.html"><span class="app-sidebar__icon"><i class="ph ph-warning-circle"></i></span><span>Ocorrências</span></a>
-        <a href="../../about.html"><span class="app-sidebar__icon"><i class="ph ph-info"></i></span><span>Sobre</span></a>
-      </nav>
-    </aside>
+  <body data-root="../../" data-page="mapa">
+    <aside data-app-sidebar></aside>
 
     <div class="app-content map-content">
       <header class="app-header">
         <div class="header-copy">
-          <p class="eyebrow">Amigos da Onça</p>
-          <h1>Mapa de Câmeras</h1>
+          <h2>Mapa de câmeras</h2>
+          <p class="map-lede">Cadastre, localize e remova dispositivos ativos em campo.</p>
         </div>
         <div class="camera-section" aria-label="Resumo de câmeras">
           <span id="camera-count">0 câmeras</span>
           <button id="add-camera" type="button">
-            <span aria-hidden="true">+</span>Adicionar Câmera
+            <span aria-hidden="true" style="height: min-content;">+</span>Adicionar câmera
           </button>
         </div>
       </header>
@@ -106,7 +94,7 @@
 
             <div class="input-row">
               <div class="input-group">
-                <label for="x-coordinate">Coordenada X</label>
+                <label for="x-coordinate">Latitude</label>
                 <input
                   id="x-coordinate"
                   type="number"
@@ -117,7 +105,7 @@
               </div>
 
               <div class="input-group">
-                <label for="y-coordinate">Coordenada Y</label>
+                <label for="y-coordinate">Longitude</label>
                 <input
                   id="y-coordinate"
                   type="number"

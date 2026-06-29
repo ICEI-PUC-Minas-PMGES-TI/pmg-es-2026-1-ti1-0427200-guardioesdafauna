@@ -21,6 +21,15 @@ var db_usuarios = {};
 // Objeto para o usuário corrente
 var usuarioCorrente = {};
 
+function notifyLoginMessage(message) {
+    if (typeof displayMessage === 'function') {
+        displayMessage(message);
+        return;
+    }
+
+    console.error(message);
+}
+
 // Inicializa a aplicação de Login
 function initLoginApp () {
     let pagina = window.location.pathname;
@@ -64,7 +73,7 @@ function carregarUsuarios(callback) {
     })
     .catch(error => {
         console.error('Erro ao ler usuários via API JSONServer:', error);
-        displayMessage("Erro ao ler usuários");
+        notifyLoginMessage("Erro ao ler usuários");
     });
 }
 
@@ -118,11 +127,11 @@ function addUser (nome, login, senha, email) {
         .then(data => {
             // Adiciona o novo usuário na variável db_usuarios em memória
             db_usuarios.push (usuario);
-            displayMessage("Usuário inserido com sucesso");
+            notifyLoginMessage("Usuário inserido com sucesso");
         })
         .catch(error => {
             console.error('Erro ao inserir usuário via API JSONServer:', error);
-            displayMessage("Erro ao inserir usuário");
+            notifyLoginMessage("Erro ao inserir usuário");
         });
 }
 

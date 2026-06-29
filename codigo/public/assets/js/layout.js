@@ -27,7 +27,7 @@ function renderSidebar() {
       <span class="app-sidebar__logo">GF</span>
       <div>
         <p class="app-sidebar__title">Guardiões da Fauna</p>
-        <p class="app-sidebar__subtitle">Monitoramento, resposta e parceria</p>
+        <p class="app-sidebar__subtitle">Monitoramento e parceria</p>
       </div>
     </a>
     <nav class="app-sidebar__links">
