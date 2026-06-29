@@ -20,6 +20,19 @@ A documentação do projeto está estruturada da seguinte forma:
 6. Solução  
 7. Referências  
 
+## Como rodar o projeto
+
+```bash
+cd codigo
+npm install
+npm run start
+```
+
+Depois acesse:
+
+- Aplicação: http://localhost:3000/home.html
+- API local: http://localhost:3000/ongs
+
 
 # Contexto do Projeto
 

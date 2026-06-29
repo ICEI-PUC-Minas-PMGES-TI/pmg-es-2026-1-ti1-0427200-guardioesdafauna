@@ -234,6 +234,7 @@ textarea {
 .filters-grid,
 .form-grid {
   display: grid;
+  margin-top: 24px;
   gap: 16px;
 }
 
